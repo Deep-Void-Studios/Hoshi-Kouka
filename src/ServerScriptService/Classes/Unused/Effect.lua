@@ -11,7 +11,7 @@ local Effect = Knit.CreateService {
 Effect.__Class = Effect
 Effect.__ClassName = "Effect"
 
-function Effect:New(data) : Effect
+function Effect:New(data)
 	local table = setmetatable({
 		Name = "",
 		Description = "",
