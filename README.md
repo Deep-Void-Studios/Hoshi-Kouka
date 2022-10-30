@@ -1,2 +1,2 @@
 # Hoshi-Kouka
-Open source sandbox survival game
+Open source sandbox survival game.
