@@ -8,19 +8,10 @@ local Trait = Knit.CreateService {
 	Client = {}
 }
 
-export type Trait = {
-	Name : string,
-	Description : string,
-	Type : string, -- Body, Mind, Race
-	Level : number?,
-	Cost : number,
-	Modifiers : {[number] : modifier.Modifier}
-}
-
 Trait.__Class = Trait
 Trait.__ClassName = "Trait"
 
-function Trait:New(data) : Trait
+function Trait:New(data)
 	local table = setmetatable({
 		Name = "",
 		Description = "",

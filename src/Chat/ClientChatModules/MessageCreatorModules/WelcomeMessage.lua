@@ -9,6 +9,7 @@ local ChatSettings = require(clientChatModules:WaitForChild("ChatSettings"))
 local ChatConstants = require(clientChatModules:WaitForChild("ChatConstants"))
 local util = require(script.Parent:WaitForChild("Util"))
 -- ROBLOX FIXME: Can we define ClientChatModules statically in the project config
+local ChatLocalization
 pcall(function() ChatLocalization = require((game:GetService("Chat") :: any).ClientChatModules.ChatLocalization :: any) end)
 
 function CreateWelcomeMessageLabel(messageData, channelName)
