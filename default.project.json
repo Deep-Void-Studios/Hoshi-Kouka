@@ -6,9 +6,21 @@
     "ReplicatedStorage": {
       "$path": "src/shared"
     },
+    
+    "ReplicatedFirst": {
+      "$path": "src/startup"
+    },
 
     "ServerScriptService": {
       "$path": "src/server"
+    },
+    
+    "ServerStorage": {
+      "$path": "src/assets"
+    },
+    
+    "StarterGui": {
+      "$path": "src/gui"
     },
 
     "StarterPlayer": {

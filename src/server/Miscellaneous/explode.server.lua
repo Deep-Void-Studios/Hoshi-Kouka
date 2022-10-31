@@ -1,6 +1,7 @@
 local template = script.explosion
+local orb = workspace.Spawn.CreationOrb
 
-while wait(0.1) do
+while task.wait(0.1) do
 	local nearby = false
 	
 	for i, v in pairs(game.Players:GetPlayers()) do
@@ -8,7 +9,7 @@ while wait(0.1) do
 			local char = v.Character
 			local root = char.HumanoidRootPart
 			
-			if (root.Position - script.Parent.Position).Magnitude < 24 then
+			if (root.Position - orb.Position).Magnitude < 24 then
 				nearby = true
 				break
 			end
@@ -22,10 +23,10 @@ while wait(0.1) do
 			math.random(-8, 8)
 		)
 		
-		local pos = script.Parent.Position + displacement
+		local pos = orb.Position + displacement
 		
 		local sound : Sound = script["sound"..math.random(1,6)]:Clone()
-		sound.Parent = script.Parent
+		sound.Parent = orb
 		sound:Play()
 		
 		sound.Ended:Connect(function()
@@ -35,6 +36,6 @@ while wait(0.1) do
 		local explosion = template:Clone()
 		
 		explosion.Position = pos
-		explosion.Parent = script.Parent
+		explosion.Parent = orb
 	end
 end
