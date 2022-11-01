@@ -35,7 +35,7 @@ local function SaveAssetToFilesystem(Asset,Path)
     end
 end
 
-local Datamodel = remodel.readPlaceFile("YourPlaceFileHere.rbxlx")
+local Datamodel = remodel.readPlaceFile("place.rbxlx")
 local Pullfrom = GetInstanceFromDatamodel(Datamodel,"ServerStorage.Assets.Maps")
 local Saveto = "../Assets/Maps"
 
