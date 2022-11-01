@@ -22,3 +22,21 @@ local function GetInstanceFromDatamodel(Datamodel,StringPath)
 	end
 
 	return CurrentObjectReference
+end
+
+local function SaveAssetToFilesystem(Asset,Path)
+    for _,Instance in pairs(Asset:GetChildren()) do
+		if Instance.ClassName ~= "Folder" then
+			remodel.writeModelFile(Instance,Path.."/"..Instance.Name..".rbxmx")
+		else
+			remodel.createDirAll(Path.."/"..Instance.Name)
+			SaveAssetToFilesystem(Instance,Path.."/"..Instance.Name)
+        end
+    end
+end
+
+local Datamodel = remodel.readPlaceFile("YourPlaceFileHere.rbxlx")
+local Pullfrom = GetInstanceFromDatamodel(Datamodel,"ServerStorage.Assets.Maps")
+local Saveto = "../Assets/Maps"
+
+SaveAssetToFilesystem(Pullfrom,Saveto)
