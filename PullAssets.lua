@@ -1,11 +1,27 @@
+local disallowedClasses = {
+	Folder = true,
+	SoundGroup = true,
+	Script = true,
+	LocalScript = true,
+	ModuleScript = true,
+}
+
+local folderClasses = {
+	Folder = true,
+	SoundGroup = true,
+}
+
 local function SaveAssetToFilesystem(Asset, Path)
 	for _, Instance in pairs(Asset:GetChildren()) do
 		local path = Path .. "/" .. Instance.Name
-		if Instance.ClassName ~= "Folder" and Instance.ClassName ~= "SoundGroup" then
+		print(path)
+		if not disallowedClasses[Instance.ClassName] then
 			remodel.writeModelFile(path .. ".rbxmx", Instance)
-		else
+		elseif folderClasses[Instance.ClassName] then
 			remodel.createDirAll(path)
-			SaveAssetToFilesystem(path, Instance)
+			SaveAssetToFilesystem(Instance, path)
+		else
+			print(Instance.Name .. " is a disallowed class.")
 		end
 	end
 end
