@@ -1,42 +1,27 @@
-function splitstring(inputstr, sep)
-	if sep == nil then
-			sep = "%s"
-	end
-	local t={}
-	for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-			table.insert(t, str)
-	end
-	return t
-end
-
-local function GetInstanceFromDatamodel(Datamodel,StringPath)
-	local CurrentObjectReference = Datamodel
-
-	for _, ObjectName in pairs(splitstring(StringPath,".")) do
-		if CurrentObjectReference:FindFirstChild(ObjectName) ~= nil then
-			CurrentObjectReference = CurrentObjectReference[ObjectName]
+local function SaveAssetToFilesystem(Asset, Path)
+	for _, Instance in pairs(Asset:GetChildren()) do
+		local path = Path .. "/" .. Instance.Name
+		if Instance.ClassName ~= "Folder" and Instance.ClassName ~= "SoundGroup" then
+			remodel.writeModelFile(path .. ".rbxmx", Instance)
 		else
-			error(ObjectName.." was not found.")
-			return nil
+			remodel.createDirAll(path)
+			SaveAssetToFilesystem(path, Instance)
 		end
 	end
-
-	return CurrentObjectReference
-end
-
-local function SaveAssetToFilesystem(Asset,Path)
-    for _,Instance in pairs(Asset:GetChildren()) do
-		if Instance.ClassName ~= "Folder" then
-			remodel.writeModelFile(Instance,Path.."/"..Instance.Name..".rbxmx")
-		else
-			remodel.createDirAll(Path.."/"..Instance.Name)
-			SaveAssetToFilesystem(Instance,Path.."/"..Instance.Name)
-        end
-    end
 end
 
 local Datamodel = remodel.readPlaceFile("place.rbxlx")
-local Pullfrom = GetInstanceFromDatamodel(Datamodel,"ServerStorage.Assets.Maps")
-local Saveto = "../Assets/Maps"
 
-SaveAssetToFilesystem(Pullfrom,Saveto)
+local toSave = {
+	{ Datamodel.ServerStorage.models, "./assets/models" },
+	{ Datamodel.Workspace, "./workspace" },
+	{ Datamodel.StarterGui, "./src/gui" },
+	{ Datamodel.SoundService, "./audio" },
+}
+
+for _, v in pairs(toSave) do
+	local model = v[1]
+	local path = v[2]
+
+	SaveAssetToFilesystem(model, path)
+end
