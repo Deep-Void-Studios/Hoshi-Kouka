@@ -14,6 +14,7 @@ luac.out
 *.elf
 *.rbxl
 *.rbxlx
+*.lock
 
 # Precompiled Headers
 *.gch

@@ -1,0 +1,73 @@
+<roblox version="4">
+  <Item class="MaterialService" referent="0">
+    <Properties>
+      <string name="Name">MaterialService</string>
+      <string name="AsphaltName"></string>
+      <BinaryString name="AttributesSerialize"></BinaryString>
+      <string name="BasaltName"></string>
+      <string name="BrickName"></string>
+      <string name="CobblestoneName"></string>
+      <string name="ConcreteName"></string>
+      <string name="CorrodedMetalName"></string>
+      <string name="CrackedLavaName"></string>
+      <string name="DiamondPlateName"></string>
+      <string name="FabricName"></string>
+      <string name="FoilName"></string>
+      <string name="GlacierName"></string>
+      <string name="GraniteName"></string>
+      <string name="GrassName"></string>
+      <string name="GroundName"></string>
+      <string name="IceName"></string>
+      <string name="LeafyGrassName"></string>
+      <string name="LimestoneName"></string>
+      <string name="MarbleName"></string>
+      <string name="MetalName">CustomMetal</string>
+      <string name="MudName"></string>
+      <string name="PavementName"></string>
+      <string name="PebbleName"></string>
+      <string name="PlasticName"></string>
+      <string name="RockName"></string>
+      <string name="SaltName"></string>
+      <string name="SandName"></string>
+      <string name="SandstoneName"></string>
+      <string name="SlateName"></string>
+      <string name="SmoothPlasticName"></string>
+      <string name="SnowName"></string>
+      <int64 name="SourceAssetId">-1</int64>
+      <BinaryString name="Tags"></BinaryString>
+      <bool name="Use2022MaterialsXml">true</bool>
+      <string name="WoodName"></string>
+      <string name="WoodPlanksName"></string>
+    </Properties>
+    <Item class="MaterialVariant" referent="1">
+      <Properties>
+        <string name="Name">CustomMetal</string>
+        <BinaryString name="AttributesSerialize"></BinaryString>
+        <token name="BaseMaterial">1088</token>
+        <Content name="ColorMap">
+          <null>
+          </null>
+        </Content>
+        <PhysicalProperties name="CustomPhysicalProperties">
+          <CustomPhysics>false</CustomPhysics>
+        </PhysicalProperties>
+        <token name="MaterialPattern">1</token>
+        <Content name="MetalnessMap">
+          <url>rbxassetid://8564994103</url>
+        </Content>
+        <Content name="NormalMap">
+          <url>rbxassetid://8564995611</url>
+        </Content>
+        <Content name="RoughnessMap">
+          <url>rbxassetid://8564996720</url>
+        </Content>
+        <int64 name="SourceAssetId">-1</int64>
+        <float name="StudsPerTile">6</float>
+        <BinaryString name="Tags"></BinaryString>
+        <Content name="TexturePack">
+          <url>rbxassetid://10086581351</url>
+        </Content>
+      </Properties>
+    </Item>
+  </Item>
+</roblox>

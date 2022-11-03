@@ -47,7 +47,11 @@
     },
     
     "Lighting": {
-      "$path": "lighting"
+      "$path": "src/lighting.rbxmx"
+    },
+    
+    "MaterialService": {
+      "$path": "src/materials.rbxmx"
     },
     
     "Chat": {
