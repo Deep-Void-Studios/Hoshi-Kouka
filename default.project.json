@@ -54,6 +54,10 @@
       "$path": "src/materials.rbxmx"
     },
     
+    "SoundService": {
+      "$path": "audio"
+    },
+    
     "Chat": {
       "$className": "Chat",
       "$path": "src/chat"
