@@ -1,0 +1,10 @@
+<roblox version="4">
+  <Item class="BindableEvent" referent="0">
+    <Properties>
+      <string name="Name">Menu</string>
+      <BinaryString name="AttributesSerialize"></BinaryString>
+      <int64 name="SourceAssetId">-1</int64>
+      <BinaryString name="Tags"></BinaryString>
+    </Properties>
+  </Item>
+</roblox>
