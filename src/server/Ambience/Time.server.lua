@@ -1,9 +1,10 @@
 local lighting = game:GetService("Lighting")
-local dayLighting = require(lighting.day).graphics
-local nightLighting = require(lighting.night).graphics
-local daySound = require(lighting.day).sound
-local nightSound = require(lighting.night).sound
-local deepCopy = require(game:GetService("ReplicatedStorage").Libraries.HoshiUtils.DeepCopy)
+local ServerStorage = game:GetService("ServerStorage")
+local presets = ServerStorage.LightingPresets
+local dayLighting = require(presets.day).graphics
+local nightLighting = require(presets.night).graphics
+local daySound = require(presets.day).sound
+local nightSound = require(presets.night).sound
 
 local mins = script:GetAttribute("minutesPerDay")
 local dayStart = script:GetAttribute("dayStart")
@@ -22,7 +23,7 @@ end
 
 -- Gets a fraction using a number between 2 numbers; reverse of between().
 local function reverseBetween(A, B, number)
-	return (number - A)/(B - A)
+	return (number - A) / (B - A)
 end
 
 local function setValues(obj, values)
@@ -58,7 +59,7 @@ local function lerpGraphics(timeA, timeB, from, to)
 	setGraphics(graphics)
 end
 
-local function lerpSounds(timeA, timeB, from : Sound, to : Sound)
+local function lerpSounds(timeA, timeB, from: Sound, to: Sound)
 	local t = lighting.ClockTime
 	local fraction = reverseBetween(timeA, timeB, t)
 
@@ -72,12 +73,10 @@ local function update()
 		-- Time is morning.
 		lerpGraphics(nightEnd, dayStart, nightLighting, dayLighting)
 		lerpSounds(nightEnd, dayStart, nightSound, daySound)
-
 	elseif t > dayEnd and t < nightStart then
 		-- Time is sunset.
 		lerpGraphics(dayEnd, nightStart, dayLighting, nightLighting)
 		lerpSounds(dayEnd, nightStart, daySound, nightSound)
-
 	elseif t > nightStart or t < nightEnd then
 		-- Time is night.
 		setGraphics(nightLighting)
@@ -92,6 +91,6 @@ local function update()
 end
 
 while wait(0.1) do
-	lighting.ClockTime = lighting.ClockTime + 24/(mins*60)*0.1
+	lighting.ClockTime = lighting.ClockTime + 24 / (mins * 60) * 0.1
 	update()
 end
