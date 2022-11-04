@@ -1,10 +1,12 @@
 local chunk = {}
 
-local scale = script:GetAttribute("scale")
-local yScale = script:GetAttribute("yScale")
-local rDist = script:GetAttribute("rDist")
+local config = require(script.Parent.TerrainConfig)
 
-type pos2d = {x:number, z:number}
+local scale = config.Scale
+local yScale = config.YScale
+local rDist = config.RenderDistance
+
+type pos2d = { x: number, z: number }
 
 chunk.table = {}
 
@@ -22,7 +24,7 @@ for x = 1, scale do
 	chunk.occs[x] = {}
 	chunk.air[x] = {}
 	chunk.zero[x] = {}
-	for y = 1, yScale*2+1 do
+	for y = 1, yScale * 2 + 1 do
 		chunk.mats[x][y] = {}
 		chunk.occs[x][y] = {}
 		chunk.air[x][y] = {}
@@ -35,16 +37,16 @@ for x = 1, scale do
 end
 
 chunk.makePos = function(x, z)
-	local pos:pos2d = {x = x, z = z}
+	local pos: pos2d = { x = x, z = z }
 	return pos
 end
 
 local function getRounded(c)
-	local newChunk:pos2d = {x = 0, z = 0}
-	
+	local newChunk: pos2d = { x = 0, z = 0 }
+
 	newChunk.x = math.round(c.x)
 	newChunk.z = math.round(c.z)
-	
+
 	return newChunk
 end
 
@@ -57,12 +59,12 @@ chunk.getChunk = function(x, z, raw)
 		gz = math.round(gz)
 	end
 
-	local pos:pos2d = {x = gx, z = gz}
+	local pos: pos2d = { x = gx, z = gz }
 
 	return pos
 end
 
-chunk.exists = function(pos:pos2d)
+chunk.exists = function(pos: pos2d)
 	if not chunk.table[pos.x] then
 		chunk.table[pos.x] = {}
 	end
@@ -91,17 +93,16 @@ end
 chunk.findUnloaded = function(x, z)
 	local center = chunk.getChunk(x, z, true)
 	local gridCenter = getRounded(center)
-	
+
 	local nearestChunk = nil
 	local dist = nil
 
 	-- Get nearest chunk
 	for sx = -rDist, rDist do
 		for sz = -rDist, rDist do
-			
-			local s:pos2d = {
+			local s: pos2d = {
 				x = gridCenter.x + sx,
-				z = gridCenter.z + sz
+				z = gridCenter.z + sz,
 			}
 
 			local sv = Vector2.new(s.x, s.z)
