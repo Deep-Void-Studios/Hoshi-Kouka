@@ -4,7 +4,7 @@ Hoshi Kouka is an open source sandbox survival game of a similar genre to Minecr
 You can join the server on Guilded at guilded.gg/Hoshi-Kouka to meet with more of the community and find what needs work at the moment.
 
 ## Next Update: Pre-Alpha v2.1 - The Building Update
-Players will be able to build 
+Players will be able to build and destroy terrain in this update. Rojo integration is also being finished, along with some framework changes.
 
 ## Main Features
 ### Procedurally Generated Smooth Terrain
