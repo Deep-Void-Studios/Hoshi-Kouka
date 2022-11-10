@@ -2,16 +2,10 @@
 local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
 local Signal = require(Knit.Util.Signal)
 
-local DataManager = Knit.CreateService({Name = "DataManager", Client = {}})
+local DataManager = Knit.CreateService({ Name = "DataManager", Client = {} })
 
 -- Services and Classes
 local Character
-local Status
-local Equipment
-local LevelTable
-local Level
-local Inventory
-local Item
 
 -- Other Services
 local players = game:GetService("Players")
@@ -25,28 +19,20 @@ DataManager.ProfileLoaded = Signal.new()
 
 function DataManager:KnitStart()
 	Character = Knit.GetService("Character")
-	
-	Status = Knit.GetService("Status")
-	Equipment = Knit.GetService("Equipment")
-	LevelTable = Knit.GetService("LevelTable")
-	Level = Knit.GetService("Level")
-	Inventory = Knit.GetService("Inventory")
-	Item = Knit.GetService("Item")
 end
 
-function DataManager:Get(player : Player, skipYield : boolean?)
+function DataManager:Get(player: Player, skipYield: boolean?)
 	if not ProfileStore then
 		ProfileStore = ProfileService.GetProfileStore("PlayerData", Character:New())
 	end
 	-- Get profile
 	local id = player.UserId
-	local profile = profiles["Player_"..id]
+	local profile = profiles["Player_" .. id]
 
 	-- Check if not found
 	if profile then
 		-- If found, return profile
 		return profile.Character
-
 	elseif not skipYield then
 		-- Wait until profile is found.
 		while true do
@@ -56,7 +42,7 @@ function DataManager:Get(player : Player, skipYield : boolean?)
 			end
 		end
 
-		profile = profiles["Player_"..id]
+		profile = profiles["Player_" .. id]
 
 		-- Return profile when available
 		return profile.Character
@@ -65,74 +51,30 @@ end
 
 function DataManager.Client:Get(...)
 	local data = self.Server:Get(...)
-	
-	return data.Id
-end
 
-local function deserialize(data, player)
-	local character = Character:New()
-	character:SetPlayer(player)
-	
-	-- Load status
-	local status = Status:New(data.Status)
-	status:SetParent(character)
-	
-	-- Load levels
-	local levels = LevelTable:Make()
-	levels:SetParent(character)
-	
-	for group, v in pairs(data.LevelTable) do
-		for name, level in pairs(v) do
-			if group == "Base" then
-				data.LevelTable[group][name] = Level:NewBase(level)
-				
-			else
-				data.LevelTable[group][name] = Level:New(level)
-			end
-		end
-	end
-	
-	-- Load equipment
-	local equipment = Equipment:New()
-	equipment:SetParent(character)
-	
-	for i, v in pairs(data.Equipment) do
-		equipment[i] = Item:New(v)
-	end
-	
-	-- Load inventory
-	local inventory = Inventory:New()
-	inventory:SetParent(character)
-	
-	for i, v in ipairs(data.Inventory) do
-		if type(v) == "table" then
-			inventory[i] = Item:New(v)
-		else
-			inventory[i] = v
-		end
-	end
-	
-	return character
+	return data.Id
 end
 
 local function SetupProfile(player)
 	if not ProfileStore then
-		ProfileStore = ProfileService.GetProfileStore("PlayerData", Character:New())
+		ProfileStore = ProfileService.GetProfileStore("PlayerData", Character:New().__Serial)
 	end
+
 	-- Load profile
 	-- "ForceLoad" = Kick any other server accessing this data.
 	local profile = ProfileStore:LoadProfileAsync("Player_" .. player.UserId, "ForceLoad")
+
+	local char = Character:Deserialize(Character:New().__Serial)
+	profile.Data = char.__Serial
 
 	if profile then
 		-- Associate player with profile
 		-- (Mainly for legal reasons)
 		profile:AddUserId(player.UserId)
 
-		profile.Data = deserialize(profile.Data)
-
 		-- Function for when the profile is released (unloaded)
 		profile:ListenToRelease(function()
-			local id = "Player_"..player.UserId
+			local id = "Player_" .. player.UserId
 
 			profiles[id] = nil
 			player:Kick()
@@ -146,23 +88,31 @@ local function SetupProfile(player)
 				-- Allow the profile to be accessed
 				Profile = profile,
 				-- Set up data
-				Character = profile.Data,
+				Character = char,
+				-- Set up serial (this is what will be saved)
+				Serial = profile.Data,
 				-- Easily get player
 				_player = player,
 			}
 
 			-- Put the profile in the table
-			profiles["Player_"..player.UserId] = player_profile
-			
+			profiles["Player_" .. player.UserId] = player_profile
+
 			DataManager.ProfileLoaded:Fire(player)
 		else
 			-- Remove from server memory if player has left
 			profile:Release()
 		end
+
+		spawn(function()
+			while wait(10) do
+				print(profiles["Player_" .. player.UserId])
+			end
+		end)
 	else
 		-- An error has occurred, remove
 		-- player to prevent data loss
-		player:Kick("Loading Error; Contact developers at https://guilded.gg/hoshi-kouka if the issue persists.") 
+		player:Kick("Loading Error; Contact developers at https://guilded.gg/hoshi-kouka if the issue persists.")
 	end
 end
 
@@ -176,7 +126,7 @@ end)
 -- Remove from server memory when leaving
 players.PlayerRemoving:Connect(function(player)
 	local id = player.UserId
-	local profile = profiles["Player_"..id]
+	local profile = profiles["Player_" .. id]
 
 	if profile then
 		profile.Profile:Release()

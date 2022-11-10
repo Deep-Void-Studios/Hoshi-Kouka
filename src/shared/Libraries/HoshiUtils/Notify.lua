@@ -26,9 +26,9 @@ local isServer = RunService:IsServer()
 local event
 
 if isServer then
-	event = game:GetService("ReplicatedStorage").NotificationCards.RemoteEvent
+	event = game:GetService("ReplicatedStorage").Events.RemoteNotification
 else
-	event = game:GetService("ReplicatedStorage").NotificationCards.Event.Event
+	event = game:GetService("ReplicatedStorage").Events.Notification.Event
 end
 
 local function fire(params, player)
@@ -41,14 +41,14 @@ end
 
 function notify:Info(title, message, player, silent)
 	local sound = SFX.Generic.notification1 and not silent
-	
+
 	local params = {
 		Name = "Info",
 		Title = title,
 		Body = message,
-		Sound = sound
+		Sound = sound,
 	}
-	
+
 	fire(params, player)
 end
 
@@ -58,7 +58,7 @@ function notify:Warn(title, message, player)
 		Title = title,
 		Body = message,
 		Sound = SFX.Generic.error1,
-		Color = Color3.fromRGB(222, 135, 64)
+		Color = Color3.fromRGB(222, 135, 64),
 	}
 
 	fire(params, player)
@@ -70,9 +70,9 @@ function notify:Error(title, message, player)
 		Title = title,
 		Body = message,
 		Sound = SFX.Generic.error2,
-		Color = Color3.fromRGB(195, 59, 59)
+		Color = Color3.fromRGB(195, 59, 59),
 	}
-	
+
 	fire(params, player)
 end
 

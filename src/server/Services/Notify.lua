@@ -18,14 +18,13 @@
 --]]
 
 local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
-local Signal = require(Knit.Util.Signal)
 
-local notify = Knit.CreateService {
-	Name = "NotificationService"
-}
+local notify = Knit.CreateService({
+	Name = "NotificationService",
+})
 
 local SFX = game:GetService("SoundService").SFX
-local event = game:GetService("ReplicatedStorage").NotificationCards.RemoteEvent
+local event = game:GetService("ReplicatedStorage").Events.RemoteNotification
 
 local function fire(params, player)
 	event:FireClient(player, "Notify", params)
@@ -33,26 +32,26 @@ end
 
 function notify:Info(title, message, player, silent)
 	local sound = SFX.Generic.notification1 and not silent
-	
-	local params = {
-		Name = "Info",
-		Title = title,
-		Body = message,
-		Sound = sound
-	}
-	
-	fire(params, player)
-end
 
-function notify:Warn(title, message, player, silent)
-	local sound = SFX.Generic.error1 and not silent
-	
 	local params = {
 		Name = "Info",
 		Title = title,
 		Body = message,
 		Sound = sound,
-		Color = Color3.fromRGB(222, 135, 64)
+	}
+
+	fire(params, player)
+end
+
+function notify:Warn(title, message, player, silent)
+	local sound = SFX.Generic.error1 and not silent
+
+	local params = {
+		Name = "Info",
+		Title = title,
+		Body = message,
+		Sound = sound,
+		Color = Color3.fromRGB(222, 135, 64),
 	}
 
 	fire(params, player)
@@ -60,15 +59,15 @@ end
 
 function notify:Error(title, message, player, silent)
 	local sound = SFX.Generic.error2 and not silent
-	
+
 	local params = {
 		Name = "Info",
 		Title = title,
 		Body = message,
 		Sound = sound,
-		Color = Color3.fromRGB(195, 59, 59)
+		Color = Color3.fromRGB(195, 59, 59),
 	}
-	
+
 	fire(params, player)
 end
 

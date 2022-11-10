@@ -13,49 +13,66 @@ Base.__DoNotCopy = {
 	Remote = true,
 	Updated = true,
 	Removing = true,
+	Parent = true,
+	Index = true,
 	Comm = true,
 	Id = true,
 	AuthorizedUsers = true,
-	__Serial = true
+	__Serial = true,
 }
 
 local function deepCopy(t)
 	local new = {}
-	
-	for i, v in pairs(t) do
-		if type(v) == "table" then
-			new[i] = deepCopy(v)
-		else
-			new[i] = v
+
+	if not t.__Class then
+		for i, v in pairs(t) do
+			if type(v) == "table" then
+				new[i] = deepCopy(v)
+			else
+				new[i] = v
+			end
 		end
+	else
+		new = t:Clone()
 	end
-	
+
 	return new
 end
 
 function Base:New(data)
 	data = data or {}
 	self.__Count += 1
-	
+
 	local object = setmetatable({
-		table.unpack(deepCopy(self.__Defaults)),
-		
-		Id = self.__ClassName..self.__Count,
+		Id = self.__ClassName .. self.__Count,
 		AuthorizedUsers = {},
 		Updated = Signal.new(),
 		Removing = Signal.new(),
-		Comm = ClassComm:CreateSignal(self.__ClassName..self.__Count)
+		Comm = ClassComm:CreateSignal(self.__ClassName .. self.__Count),
 	}, self)
-	
-	self.__index = self
-	
+
+	for i, val in pairs(deepCopy(self.__Defaults)) do
+		if type(val) == "table" then
+			if val.Class then
+				local obj = val:Clone()
+				object[i] = obj
+			else
+				object[i] = val
+			end
+		else
+			object[i] = val
+		end
+	end
+
 	for i, v in pairs(data) do
-		if i == "Id" or i == "AuthorizedUsers" or i == "Updated" or i == "Removing" or i == "Comm" then continue end
-		
+		if self.__DoNotCopy[i] then
+			continue
+		end
+
 		object[i] = v
 	end
-	
-	object.Remote = ClassComm:CreateProperty(self.__ClassName..self.__Count, false)
+
+	object.Remote = ClassComm:CreateProperty(self.__ClassName .. self.__Count, false)
 
 	object.Updated:Connect(function()
 		object:__SetRemote()
@@ -64,21 +81,21 @@ function Base:New(data)
 
 	object.Comm:Connect(function(player, action, ...)
 		if not object.AuthorizedUsers[player.UserId] then
-			warn("Unauthorized player "..player.Name.." attempted to access object "..object.Id..".")
+			warn("Unauthorized player " .. player.Name .. " attempted to access object " .. object.Id .. ".")
 			return
 		end
 
-		local func = object["__Client"..action]
+		local func = object["__Client" .. action]
 
 		if func then
 			func(object, ...)
 		else
-			warn("Received invalid request: "..action.." from user, "..player.Name..".")
+			warn("Received invalid request: " .. action .. " from user, " .. player.Name .. ".")
 		end
 	end)
-	
+
 	object.Updated:Fire()
-	
+
 	return object
 end
 
@@ -88,8 +105,10 @@ function Base:__SetRemote()
 	-- If value is a child of the object: always send the ID,
 	-- else: If the index is in Class.__Replicated then send it.
 	for i, value in pairs(self) do
-		if Signal.Is(value) then continue end
-		
+		if Signal.Is(value) then
+			continue
+		end
+
 		if type(value) == "table" then
 			if value.__ClassName then
 				clientTable[i] = value.Id
@@ -108,16 +127,19 @@ end
 
 function Base:__UpdateSerial()
 	local serial = {}
-	self.__Serial = serial
-	
+
 	serial.__ClassName = self.__ClassName
-	
+
 	for i, v in pairs(self) do
-		if self.__DoNotCopy[i] then continue end
-		
+		if self.__DoNotCopy[i] then
+			continue
+		end
+
 		if type(v) == "table" then
-			if Signal.Is(v) then continue end
-			
+			if Signal.Is(v) then
+				continue
+			end
+
 			if v.__ClassName then
 				serial[i] = v.__Serial
 			else
@@ -127,6 +149,8 @@ function Base:__UpdateSerial()
 			serial[i] = v
 		end
 	end
+
+	self.__Serial = serial
 end
 
 function Base:AllowUser(player)
@@ -150,24 +174,28 @@ function Base:Clone()
 		elseif self.__DoNotCopy[i] then
 			continue
 		elseif type(v) == "table" then
-			if Signal.Is(v) then continue end
-			if v.__ClassName then continue end
-			
+			if Signal.Is(v) then
+				continue
+			end
+			if v.__ClassName then
+				continue
+			end
+
 			new[i] = deepCopy(v)
 		else
 			new[i] = v
 		end
 	end
-	
+
 	new.Updated:Fire()
-	
+
 	return new
 end
 
 -- Destroy an object and trigger relevant functions.
 function Base:Destroy()
 	self.Removing:Fire()
-	
+
 	self.Updated:Destroy()
 	self.Removing:Destroy()
 	self.Comm:Destroy()
@@ -204,36 +232,83 @@ function Base:SetPlayer(player)
 	self.Player = player
 
 	for i, obj in pairs(self) do
-		if i == "Parent" then continue end
-		if type(obj) ~= "table" then continue end
-		if obj.Is then continue end
-		if not obj.__ClassName then continue end
+		if self.__DoNotCopy[i] then
+			continue
+		end
+		if type(obj) ~= "table" then
+			continue
+		end
+		if obj.Is then
+			continue
+		end
+		if not obj.__ClassName then
+			continue
+		end
 
 		obj:SetPlayer(player)
 	end
 end
 
 function Base:ChildAdded()
-	error(self.ClassName.."cannot accept children.")
+	error(self.ClassName .. "cannot accept children.")
 end
 
 function Base:ChildRemoved()
-	error(self.ClassName.."cannot remove children.")
+	error(self.ClassName .. "cannot remove children.")
+end
+
+-- Deserialize data into a class object.
+function Base:Deserialize(serial)
+	-- Make sure it isn't malformed
+	assert(serial.__ClassName, "Malformed or not an object.")
+
+	-- Check if it is the same class as the class you are deserializing it with.
+	assert(
+		serial.__ClassName == self.__ClassName,
+		"Invalid class; Object is a " .. serial.__ClassName .. ", not a " .. self.__ClassName .. "."
+	)
+
+	-- Make new object
+	local object = self:New()
+
+	-- Loop through serial
+	for i, v in pairs(serial) do
+		-- Check if it's not a table
+		if type(v) ~= "table" then
+			-- Non-object values are fine
+			object[i] = v
+		else
+			-- Check if it's not an object
+			if not v.__ClassName then
+				-- Non-object values are fine
+				object[i] = v
+			else
+				-- Create object
+				local class = Knit.GetService(v.__ClassName)
+
+				object[i] = class:Deserialize(v)
+			end
+		end
+	end
+
+	return object
 end
 
 function Base:__MakeClass(name)
-	local class = Knit.CreateService {Name = name}
+	local class = Knit.CreateService({ Name = name })
 
 	class.__Class = class
 	class.__ClassName = name
 	class.__Count = 0
 	class.__Defaults = {}
 	class.__Replicated = {}
-	
+
+	class.__index = class
+
 	setmetatable(class, self)
-	
+
 	self.__index = self
-	
+
 	return class
 end
 

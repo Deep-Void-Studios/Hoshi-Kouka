@@ -1,12 +1,12 @@
 local RS = game:GetService("RunService")
 local player = game.Players.LocalPlayer
-local orb = workspace:WaitForChild("Spawn"):WaitForChild("CreationOrb")
+local orb = workspace:WaitForChild("Spawn"):WaitForChild("Easter Eggs"):WaitForChild("Orb"):WaitForChild("CreationOrb")
 
-local rings = {orb:WaitForChild("Red"), orb:WaitForChild("Green"), orb:WaitForChild("Blue")}
+local rings = { orb:WaitForChild("Red"), orb:WaitForChild("Green"), orb:WaitForChild("Blue") }
 local speeds = {
-	Vector3.new(math.random()-0.5,math.random()-0.5,math.random()-0.5)/30,
-	Vector3.new(math.random()-0.5,math.random()-0.5,math.random()-0.5)/30,
-	Vector3.new(math.random()-0.5,math.random()-0.5,math.random()-0.5)/30,
+	Vector3.new(math.random() - 0.5, math.random() - 0.5, math.random() - 0.5) / 30,
+	Vector3.new(math.random() - 0.5, math.random() - 0.5, math.random() - 0.5) / 30,
+	Vector3.new(math.random() - 0.5, math.random() - 0.5, math.random() - 0.5) / 30,
 }
 
 local enabled = false
@@ -19,7 +19,7 @@ while wait(1) do
 			if not enabled then
 				enabled = true
 				RS:BindToRenderStep("CreationOrb", 500, function()
-					for i, ring : BasePart in pairs(rings) do
+					for i, ring: BasePart in pairs(rings) do
 						local delta = speeds[i]
 
 						ring:PivotTo(ring.CFrame * CFrame.Angles(delta.X, delta.Y, delta.Z))
@@ -39,5 +39,3 @@ while wait(1) do
 		end
 	end
 end
-
-

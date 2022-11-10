@@ -15,7 +15,6 @@ local folderClasses = {
 local function SaveAssetToFilesystem(Asset, Path)
 	for _, Instance in pairs(Asset:GetChildren()) do
 		local path = Path .. "/" .. Instance.Name
-		print(path)
 		if not disallowedClasses[Instance.ClassName] then
 			remodel.writeModelFile(path .. ".rbxmx", Instance)
 		elseif folderClasses[Instance.ClassName] then
@@ -30,7 +29,7 @@ end
 local Datamodel = remodel.readPlaceFile("place.rbxlx")
 
 local toSave = {
-	{ Datamodel.ServerStorage.models, "./assets/models" },
+	{ Datamodel.ServerStorage.Models, "./assets/models" },
 	{ Datamodel.Workspace, "./workspace" },
 	{ Datamodel.StarterGui, "./src/gui" },
 	{ Datamodel.SoundService, "./audio" },

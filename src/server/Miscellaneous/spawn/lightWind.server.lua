@@ -1,4 +1,4 @@
-local force = workspace.Spawn.Base.float.spawnLight.VectorForce
+local force = workspace.Spawn.Base.Float.spawnLight.VectorForce
 local t = 0
 
 while task.wait(1) do

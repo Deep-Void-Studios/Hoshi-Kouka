@@ -1,7 +1,7 @@
 <roblox version="4">
   <Item class="UnionOperation" referent="0">
     <Properties>
-      <string name="Name">base</string>
+      <string name="Name">Base</string>
       <bool name="Anchored">true</bool>
       <Content name="AssetId">
         <url>https://www.roblox.com//asset/?id=9794675644</url>
@@ -116,7 +116,7 @@
     </Properties>
     <Item class="Attachment" referent="1">
       <Properties>
-        <string name="Name">bottom</string>
+        <string name="Name">Bottom</string>
         <BinaryString name="AttributesSerialize"></BinaryString>
         <CoordinateFrame name="CFrame">
           <X>0</X>

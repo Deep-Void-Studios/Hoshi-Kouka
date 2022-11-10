@@ -4,9 +4,9 @@ Knit.OnStart():await()
 
 local ItemService = Knit.GetService("ItemService")
 local droppers = workspace.Spawn.Droppers
-local spawnSound = game:GetService("SoundService").SFX
+local spawnSound = game:GetService("SoundService").SFX.Miscellaneous.spawn
 
-for _, obj in pairs(droppers) do
+for _, obj in pairs(droppers:GetDescendants()) do
 	if obj:GetAttribute("Item") then
 		local dispenser = obj
 		local spawner = dispenser.Spawner

@@ -30,6 +30,20 @@
       <int64 name="SourceAssetId">-1</int64>
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
+        <CFrame>
+          <X>35.90927</X>
+          <Y>2049.9983</Y>
+          <Z>-42.587547</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>-0</R02>
+          <R10>0</R10>
+          <R11>0</R11>
+          <R12>1</R12>
+          <R20>0</R20>
+          <R21>-1</R21>
+          <R22>0</R22>
+        </CFrame>
       </OptionalCoordinateFrame>
     </Properties>
     <Item class="MeshPart" referent="1">

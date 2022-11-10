@@ -3,7 +3,7 @@ local playerGui = game.Players.LocalPlayer.PlayerGui
 local UIS = game:GetService("UserInputService")
 local animLib = require(game:GetService("ReplicatedStorage").Libraries.ToggleGui)
 local events = game:GetService("ReplicatedStorage").Events
-local toggleEvent = events.User.Gui.Toggle
+local toggleEvent = events.Toggle
 
 -- Loop through all children of PlayerGui
 for _, gui in pairs(playerGui:GetChildren()) do
@@ -16,11 +16,13 @@ for _, gui in pairs(playerGui:GetChildren()) do
 		local keybind = gui:GetAttribute("keybind")
 
 		-- Check if it has a keybind
-		if keybind then
+		if keybind and keybind ~= "" then
 			-- Toggle GUI on press
 			UIS.InputBegan:Connect(function(input, gameProcessedEvent)
-				if input.KeyCode == Enum.KeyCode[keybind] and not gameProcessedEvent then
-					animLib.toggle(gui)
+				if input.KeyCode.Name ~= "" then
+					if input.KeyCode == Enum.KeyCode[keybind] and not gameProcessedEvent then
+						animLib.toggle(gui)
+					end
 				end
 			end)
 		end

@@ -1,6 +1,3 @@
-local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
-local Signal = require(Knit.Util.Signal)
-
 local BaseClass = require(script.Parent)
 
 local Level = BaseClass:__MakeClass("Level")
@@ -14,7 +11,7 @@ Level.__Replicated = {
 	Points = true,
 	Potential = true,
 	Associations = true,
-	Id = true
+	Id = true,
 }
 
 Level.Defaults = {
@@ -23,7 +20,7 @@ Level.Defaults = {
 	Level = 0,
 	Experience = 0,
 	Potential = 100,
-	Associations = {}
+	Associations = {},
 }
 
 function Level:NewBase(data)
@@ -32,23 +29,23 @@ function Level:NewBase(data)
 		Experience = 25 * 1.5,
 		Points = 0,
 	})
-	
+
 	for i, v in pairs(data) do
-		if i == "Id" or i == "AuthorizedUsers" or i == "Updated" or i == "Removing" or i == "Comm" then
+		if self.__DoNotCopy[i] then
 			continue
 		end
 
 		object[i] = v
 	end
-	
+
 	return object
 end
 
 function Level:XPCheck()
-	if self.Experience > 25 * (1.5^self.Level + 1) then
+	if self.Experience > 25 * (1.5 ^ self.Level + 1) then
 		self.Level += 1
 		self:XPCheck()
-	elseif self.Experience < 25 * (1.5^self.Level) then
+	elseif self.Experience < 25 * (1.5 ^ self.Level) then
 		self.Level -= 1
 		self:XPCheck()
 	end
@@ -56,7 +53,7 @@ end
 
 function Level:AddLevel(amount)
 	self.Level += amount
-	self.Experience = 25 * (1.5^self.Level)
+	self.Experience = 25 * (1.5 ^ self.Level)
 	self.Updated:Fire()
 end
 
@@ -73,7 +70,7 @@ end
 
 function Level:SetLevel(amount)
 	self.Level = amount
-	self.Experience = 25 * (1.5^self.Level)
+	self.Experience = 25 * (1.5 ^ self.Level)
 	self.Updated:Fire()
 end
 

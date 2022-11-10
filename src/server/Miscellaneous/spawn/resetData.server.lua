@@ -8,11 +8,14 @@ local DataManager = Knit.GetService("DataManager")
 local button = workspace.Spawn.Props.DataResetter.button
 
 button.MouseClick:Connect(function(player: Player)
+	print("Deleting data for player " .. player.Name .. "...")
 	local data = DataManager:Get(player)
 
 	for i, v in pairs(Character:New()) do
 		data[i] = v
 	end
 
-	player:Kick("Deleting Data...")
+	data.Updated:Fire()
+
+	player:Kick("Deleting data, please rejoin.")
 end)

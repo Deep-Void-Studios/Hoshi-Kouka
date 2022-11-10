@@ -1,7 +1,7 @@
 <roblox version="4">
   <Item class="Model" referent="0">
     <Properties>
-      <string name="Name">portal</string>
+      <string name="Name">Portal</string>
       <BinaryString name="AttributesSerialize"></BinaryString>
       <token name="LevelOfDetail">0</token>
       <CoordinateFrame name="ModelMeshCFrame">
@@ -31,9 +31,9 @@
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>-3988</X>
-          <Y>1027</Y>
-          <Z>-3360</Z>
+          <X>-3988.0518</X>
+          <Y>1024.0736</Y>
+          <Z>-3360.0518</Z>
           <R00>0.85355324</R00>
           <R01>-0.14645381</R01>
           <R02>0.50000036</R02>

@@ -1227,7 +1227,7 @@ Button.InputEnded:Connect(function (Input)
 	UnHover();
 end)
 
-local notifcards = game.ReplicatedStorage.NotificationCards
+local events = game.ReplicatedStorage.Events
 local latest
 
 local function eventhandler(request)
@@ -1250,8 +1250,8 @@ local function eventhandler(request)
 	end
 end
 
-notifcards.Event.Event:Connect(eventhandler)
-notifcards.RemoteEvent.OnClientEvent:Connect(eventhandler)</string>
+events.Notification.Event:Connect(eventhandler)
+events.RemoteNotification.OnClientEvent:Connect(eventhandler)</string>
                 <int64 name="SourceAssetId">-1</int64>
                 <BinaryString name="Tags"></BinaryString>
               </Properties>
@@ -1465,13 +1465,13 @@ notifcards.RemoteEvent.OnClientEvent:Connect(eventhandler)</string>
 local UI = script.Parent;
 local Tray = UI.Container.Tray.Content;
 local Scroll = Tray.ScrollingFrame;
-local Main = game.ReplicatedStorage:FindFirstChild("NotificationCards");
+local events = game.ReplicatedStorage.Events
 --print("&lt;NotificationCards, by Plasma_Node, Version `"..Main.VERSION.Value.."`>")
 
-local Cards = Main.Cards;
+local Cards = game.ReplicatedStorage.Storage.Cards;
 
-local Event = Main.Event;
-local RemoteEvent = Main.RemoteEvent;
+local Event = events.Notification;
+local RemoteEvent = events.RemoteNotification;
 
 ---=== ------------- ===---
 local Player = game.Players.LocalPlayer;
@@ -1488,7 +1488,6 @@ local Hidden = false; -- Is UI hidden
 local Count = 0;
 local PermanentCount = 0;
 
---[[
 local Config = {
 	
 	Muted = false; -- Set to true to mute all sounds
@@ -1503,9 +1502,6 @@ local Config = {
 	
 	Padding = 25; -- Pixels
 };
---]]
-
-local Config = require(Main.DefaultConfig);
 
 
 
