@@ -7,23 +7,19 @@ local tweenTime = 0.2
 local animating = {}
 local guiOpacities = {}
 
-local baseInfo = TweenInfo.new(
-	tweenTime,
-	Enum.EasingStyle.Quint,
-	Enum.EasingDirection.Out
-)
+local baseInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
 
 local fadeOut = {
-	BackgroundTransparency = 1
+	BackgroundTransparency = 1,
 }
 
 local imageOut = {
-	ImageTransparency = 1
+	ImageTransparency = 1,
 }
 
 local textOut = {
 	TextTransparency = 1,
-	TextStrokeTransparency = 1
+	TextStrokeTransparency = 1,
 }
 
 local function isGui(frame)
@@ -54,36 +50,25 @@ module.setup = function(gui)
 	guiOpacities[gui.Name] = {}
 	local defaultTransparency = guiOpacities[gui.Name]
 	for i, v in pairs(gui:GetDescendants()) do
-
-		
-
 		if isGui(v) then
-
 			v:SetAttribute("id", i)
 
 			defaultTransparency[i] = v.BackgroundTransparency
 
 			if hasImage(v) then
-
 				v:SetAttribute("xid", -i)
 
 				defaultTransparency[-i] = v.ImageTransparency
-
 			elseif hasText(v) then
-
 				v:SetAttribute("xid", -i)
 
 				defaultTransparency[-i] = v.TextTransparency
-
 			end
-			
 		end
-		
 	end
 end
 
 function getEnd(name, id, value)
-
 	local transparency = guiOpacities[name][id]
 
 	local endInfo = {}
@@ -91,18 +76,15 @@ function getEnd(name, id, value)
 	endInfo[value] = transparency
 
 	if value == "TextTransparency" then
-		
 		endInfo["TextStrokeTransparency"] = transparency
-		
 	end
 
 	return endInfo
-
 end
 
 module.makeOpaque = function(gui)
 	gui.Enabled = true
-	
+
 	for _, v in pairs(gui:GetDescendants()) do
 		if isGui(v) then
 			local id = v:GetAttribute("id")
@@ -112,15 +94,14 @@ module.makeOpaque = function(gui)
 
 			if hasImage(v) then
 				local xid = v:GetAttribute("xid")
-				local endInfo = getEnd(gui.Name, xid, "ImageTransparency")
+				local eInfo = getEnd(gui.Name, xid, "ImageTransparency")
 
-				TS:Create(v, baseInfo, endInfo):Play()
-
+				TS:Create(v, baseInfo, eInfo):Play()
 			elseif hasText(v) then
 				local xid = v:GetAttribute("xid")
-				local endInfo = getEnd(gui.Name, xid, "TextTransparency")
+				local eInfo = getEnd(gui.Name, xid, "TextTransparency")
 
-				TS:Create(v, baseInfo, endInfo):Play()
+				TS:Create(v, baseInfo, eInfo):Play()
 			end
 		end
 	end
@@ -129,32 +110,13 @@ end
 module.makeTransparent = function(gui)
 	for _, v in pairs(gui:GetDescendants()) do
 		if isGui(v) then
-			TS:Create(
-				v,
-				baseInfo,
-				fadeOut
-			):Play()
+			TS:Create(v, baseInfo, fadeOut):Play()
 			if hasImage(v) then
-				-- Get image ID
-				local xid = v:GetAttribute("xid")
-
 				-- Fade image transparency
-				TS:Create(
-					v,
-					baseInfo,
-					imageOut
-				):Play()
-
+				TS:Create(v, baseInfo, imageOut):Play()
 			elseif hasText(v) then
-				-- Get text ID
-				local xid = v:GetAttribute("xid")
-
 				-- Fade text transparency
-				TS:Create(
-					v,
-					baseInfo,
-					textOut
-				):Play()
+				TS:Create(v, baseInfo, textOut):Play()
 			end
 		end
 	end
@@ -172,10 +134,10 @@ end
 
 module.toggle = function(gui)
 	if blacklist[gui.Name] then
-		Sound:Play({"Generic", "error2"})
+		Sound:Play({ "Generic", "error2" })
 		return false
 	end
-	
+
 	if gui.Enabled then
 		module.makeTransparent(gui)
 		wait(tweenTime)
@@ -193,7 +155,11 @@ end
 
 local player = game.Players.LocalPlayer
 local PlayerGui = player.PlayerGui
-local cover = PlayerGui:WaitForChild("Cover")
+local cover = PlayerGui:WaitForChild("Cover", 30)
+
+if not cover then
+	error("Missing cover GUI.")
+end
 
 local function enableCursor()
 	cover.Enabled = true
@@ -203,14 +169,14 @@ local function disableCursor()
 	cover.Enabled = false
 end
 
-for i, gui : ScreenGui in pairs(PlayerGui:GetChildren()) do
+for _, gui: ScreenGui in pairs(PlayerGui:GetChildren()) do
 	if gui:GetAttribute("ShowMouse") then
 		gui.Changed:Connect(function()
 			local showMouse = false
 
-			for i, gui in pairs(PlayerGui:GetChildren()) do
-				if gui:GetAttribute("ShowMouse") then
-					if gui.Enabled then
+			for _, ui in pairs(PlayerGui:GetChildren()) do
+				if ui:GetAttribute("ShowMouse") then
+					if ui.Enabled then
 						showMouse = true
 						break
 					end

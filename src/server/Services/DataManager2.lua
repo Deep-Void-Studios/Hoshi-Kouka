@@ -95,6 +95,13 @@ local function SetupProfile(player)
 				_player = player,
 			}
 
+			char.Updated:Connect(function()
+				profile.Data = char.__Serial
+				player_profile.Serial = profile.Data
+			end)
+
+			char.Updated:Fire()
+
 			-- Put the profile in the table
 			profiles["Player_" .. player.UserId] = player_profile
 
@@ -103,12 +110,6 @@ local function SetupProfile(player)
 			-- Remove from server memory if player has left
 			profile:Release()
 		end
-
-		spawn(function()
-			while wait(10) do
-				print(profiles["Player_" .. player.UserId])
-			end
-		end)
 	else
 		-- An error has occurred, remove
 		-- player to prevent data loss

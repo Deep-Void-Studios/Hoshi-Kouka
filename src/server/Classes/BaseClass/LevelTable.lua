@@ -1,4 +1,5 @@
 local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
+local Signal = require(Knit.Util.Signal)
 
 local BaseClass = require(script.Parent)
 
@@ -10,6 +11,7 @@ LevelTable.Replicated = {
 	Base = true,
 	Skill = true,
 	Weapon = true,
+	Elements = true,
 }
 
 function LevelTable:KnitInit()
@@ -19,7 +21,7 @@ end
 local new = LevelTable.New
 
 function LevelTable:New()
-	local object = new(LevelTable, {
+	local object = new(self, {
 		Base = {
 			Constitution = level:NewBase({
 				Name = "Constitution",
@@ -179,7 +181,7 @@ function LevelTable:New()
 
 			Leatherwork = level:New({
 
-				Name = "Papercraft",
+				Name = "Leatherwork",
 				Description = "",
 
 				Associations = {
@@ -563,6 +565,32 @@ function LevelTable:New()
 	end
 
 	return object
+end
+
+function LevelTable:__UpdateRemote()
+	local clientTable = {}
+
+	-- If value is a child of the object: always send the ID,
+	-- else: If the index is in Class.__Replicated then send it.
+	for i, value in pairs(self) do
+		if Signal.Is(value) then
+			continue
+		end
+
+		if type(value) == "table" then
+			if value.__ClassName then
+				clientTable[i] = value.Id
+				continue
+			end
+		end
+
+		if self.__Replicated[i] then
+			clientTable[i] = value
+		end
+	end
+
+	-- Send client new information.
+	self.Remote:Set(clientTable)
 end
 
 function LevelTable:Get(name)

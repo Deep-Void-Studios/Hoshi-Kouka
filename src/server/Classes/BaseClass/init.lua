@@ -24,7 +24,9 @@ Base.__DoNotCopy = {
 local function deepCopy(t)
 	local new = {}
 
-	if not t.__Class then
+	if t.__Class then
+		new = t:Clone()
+	else
 		for i, v in pairs(t) do
 			if type(v) == "table" then
 				new[i] = deepCopy(v)
@@ -32,8 +34,6 @@ local function deepCopy(t)
 				new[i] = v
 			end
 		end
-	else
-		new = t:Clone()
 	end
 
 	return new
@@ -51,17 +51,8 @@ function Base:New(data)
 		Comm = ClassComm:CreateSignal(self.__ClassName .. self.__Count),
 	}, self)
 
-	for i, val in pairs(deepCopy(self.__Defaults)) do
-		if type(val) == "table" then
-			if val.Class then
-				local obj = val:Clone()
-				object[i] = obj
-			else
-				object[i] = val
-			end
-		else
-			object[i] = val
-		end
+	for i, val in pairs(self.__Defaults) do
+		object[i] = val
 	end
 
 	for i, v in pairs(data) do
@@ -125,8 +116,27 @@ function Base:__SetRemote()
 	self.Remote:Set(clientTable)
 end
 
-function Base:__UpdateSerial()
+local function deepSerial(t)
 	local serial = {}
+
+	for i, v in pairs(t) do
+		if v.__Class then
+			serial[i] = v.__Serial
+		end
+	end
+
+	return serial
+end
+
+function Base:__UpdateSerial()
+	local serial
+
+	if self.__Serial then
+		serial = self.__Serial
+	else
+		serial = {}
+		self.__Serial = serial
+	end
 
 	serial.__ClassName = self.__ClassName
 
@@ -143,14 +153,19 @@ function Base:__UpdateSerial()
 			if v.__ClassName then
 				serial[i] = v.__Serial
 			else
-				serial[i] = v
+				-- this is probably a bad practice but
+				-- I'll worry about that after this
+				-- multi-month-long update is done
+				if self.__ClassName ~= "LevelTable" then
+					serial[i] = v
+				else
+					serial[i] = deepSerial(v)
+				end
 			end
 		else
 			serial[i] = v
 		end
 	end
-
-	self.__Serial = serial
 end
 
 function Base:AllowUser(player)
@@ -166,18 +181,13 @@ end
 function Base:Clone()
 	local new = self.__Class:New()
 
-	self.__Count += 1
-
 	for i, v in pairs(self) do
-		if i == "Id" then
-			new[i] = self.__Count
-		elseif self.__DoNotCopy[i] then
+		if self.__DoNotCopy[i] then
 			continue
 		elseif type(v) == "table" then
 			if Signal.Is(v) then
 				continue
-			end
-			if v.__ClassName then
+			elseif v.__ClassName then
 				continue
 			end
 
@@ -229,6 +239,9 @@ function Base:SetParent(parent)
 end
 
 function Base:SetPlayer(player)
+	self:DisallowUser(self.Player)
+	self:AllowUser(player)
+
 	self.Player = player
 
 	for i, obj in pairs(self) do
