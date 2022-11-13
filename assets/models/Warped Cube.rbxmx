@@ -91,9 +91,9 @@
         <bool name="HasJointOffset">false</bool>
         <bool name="HasSkinnedMesh">false</bool>
         <Vector3 name="InitialSize">
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
+          <X>2</X>
+          <Y>2</Y>
+          <Z>2</Z>
         </Vector3>
         <Vector3 name="JointOffset">
           <X>0</X>
@@ -111,10 +111,9 @@
         <token name="Material">1568</token>
         <string name="MaterialVariantSerialized"></string>
         <Content name="MeshId">
-          <null>
-          </null>
+          <url>rbxassetid://4055163572</url>
         </Content>
-        <SharedString name="PhysicalConfigData">rxNJufX5oaagQE3qNtzJSQ==</SharedString>
+        <SharedString name="PhysicalConfigData">KnLrKgr4Q1QgVDuCtZORxw==</SharedString>
         <BinaryString name="PhysicsData">
         </BinaryString>
         <CoordinateFrame name="PivotOffset">
@@ -148,7 +147,7 @@
           <Y>2</Y>
           <Z>2</Z>
         </Vector3>
-        <int64 name="SourceAssetId">-1</int64>
+        <int64 name="SourceAssetId">4055163617</int64>
         <BinaryString name="Tags"></BinaryString>
         <Content name="TextureID">
           <null>
@@ -217,6 +216,7 @@
     </Item>
   </Item>
   <SharedStrings>
+    <SharedString md5="KnLrKgr4Q1QgVDuCtZORxw==">Q1NHUEhTBgAAAAAAAEEAAAAAAAAAAAAAAACrqqpAAAAAAAAAAACrqqpAAAAAAKuqqkAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIA/GAAAAAQAAAAAAIA/AACAPwAAgD8AAIA/AACAPwAAgL8AAIC/AACAPwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgL8AAIC/AACAPwAAgL8AAIC/AACAvwAAgD8AAIC/AACAvwAAgL8kAAAAAAAAAAEAAAAFAAAAAAAAAAUAAAACAAAAAAAAAAIAAAAGAAAAAAAAAAYAAAADAAAAAAAAAAMAAAAEAAAAAAAAAAQAAAABAAAAAQAAAAQAAAAHAAAAAQAAAAcAAAAFAAAAAgAAAAUAAAAHAAAAAgAAAAcAAAAGAAAAAwAAAAYAAAAHAAAAAwAAAAcAAAAEAAAA</SharedString>
     <SharedString md5="rxNJufX5oaagQE3qNtzJSQ=="></SharedString>
   </SharedStrings>
 </roblox>

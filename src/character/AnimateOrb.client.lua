@@ -12,7 +12,7 @@ local speeds = {
 local enabled = false
 
 while wait(1) do
-	if player.Character then
+	if player.Character.HumanoidRootPart then
 		local root = player.Character.HumanoidRootPart
 
 		if (root.Position - orb.Position).Magnitude < 64 then

@@ -1,31 +1,30 @@
-local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
-local Signal = require(Knit.Util.Signal)
+--local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
 
 local BaseClass = require(script.Parent)
 
 local Inventory = BaseClass:__MakeClass("Inventory")
 
-Inventory.Replicated = {
+Inventory.__Replicated = {
 	Volume = true,
 	MaxVolume = true,
 	Weight = true,
 	MaxWeight = true,
-	Id = true
+	Id = true,
 }
 
-Inventory.Defaults = {
+Inventory.__Defaults = {
 	Volume = 0,
 	MaxVolume = 40,
 	Weight = 0,
-	MaxWeight = 100
+	MaxWeight = 100,
 }
 
-local function truncate(number : number) : string
+local function truncate(number: number): string
 	local num = tostring(number)
 	local place = string.find(num, ".")
 
 	if place then
-		return string.sub(num, 1, place+2)
+		return string.sub(num, 1, place + 2)
 	else
 		return num
 	end
@@ -91,7 +90,7 @@ end
 local function addItem(inventory, item)
 	for i, other in pairs(inventory:GetItems()) do
 		other.Index = i
-		
+
 		if same(item, other) then
 			other:AddAmount(item.Amount)
 			break
@@ -106,23 +105,23 @@ end
 function Inventory:ChildAdded(child)
 	if child.__ClassName == "Item" then
 		addItem(self, child)
-		
+
 		self.Volume += child.Properties.Volume
 		self.Weight += child.Properties.Weight
 	else
 		error("Inventory does not accept non-items.")
 	end
-	
+
 	self.Updated:Fire()
 end
 
 function Inventory:ChildRemoved(index)
 	table.remove(self, index)
-	
+
 	for i, item in pairs(self:GetItems()) do
 		item.Index = i
 	end
-	
+
 	self.Updated:Fire()
 end
 
@@ -130,19 +129,19 @@ function Inventory:CanHold(item)
 	-- *STRINGS* for display only.
 	local itemVolume = truncate(item.Properties.Volume)
 	local remainingVolume = truncate(self.MaxVolume - self.Volume)
-	
+
 	if self.Volume + item.Properties.Volume > self.MaxVolume then
-		return false, "Volume ("..itemVolume..") exceeds remaining volume ("..remainingVolume..")."
+		return false, "Volume (" .. itemVolume .. ") exceeds remaining volume (" .. remainingVolume .. ")."
 	end
-	
+
 	-- *STRINGS* for display only.
 	local itemWeight = truncate(item.Properties.Weight)
 	local remainingWeight = truncate(self.MaxWeight - self.Weight)
-	
+
 	if self.Weight + item.Properties.Weight > self.MaxWeight then
-		return false, "Weight ("..itemWeight..") exceeds remaining weight ("..remainingWeight..")."
+		return false, "Weight (" .. itemWeight .. ") exceeds remaining weight (" .. remainingWeight .. ")."
 	end
-	
+
 	return true
 end
 

@@ -30,17 +30,17 @@ local Datamodel = remodel.readPlaceFile("place.rbxlx")
 
 local toSave = {
 	{ Datamodel.ServerStorage.Models, "./assets/models" },
-	{ Datamodel.Workspace, "./workspace" },
-	{ Datamodel.StarterGui, "./src/gui" },
-	{ Datamodel.SoundService, "./audio" },
-	{ Datamodel.Chat, "./src/chat" },
-	{ Datamodel.ReplicatedStorage, "./src/shared" },
+	-- { Datamodel.Workspace, "./workspace" },
+	-- { Datamodel.StarterGui, "./src/gui" },
+	-- { Datamodel.SoundService, "./audio" },
+	-- { Datamodel.Chat, "./src/chat" },
+	-- { Datamodel.ReplicatedStorage, "./src/shared" },
 }
 
-local fullService = {
-	{ Datamodel.Lighting, "./src/lighting.rbxmx" },
-	{ Datamodel.MaterialService, "./src/materials.rbxmx" },
-}
+-- local fullService = {
+-- 	{ Datamodel.Lighting, "./src/lighting.rbxmx" },
+-- 	{ Datamodel.MaterialService, "./src/materials.rbxmx" },
+-- }
 
 for _, v in pairs(toSave) do
 	local model = v[1]
@@ -49,9 +49,9 @@ for _, v in pairs(toSave) do
 	SaveAssetToFilesystem(model, path)
 end
 
-for _, v in pairs(fullService) do
-	local service = v[1]
-	local path = v[2]
+-- for _, v in pairs(fullService) do
+-- 	local service = v[1]
+-- 	local path = v[2]
 
-	remodel.writeModelFile(path, service)
-end
+-- 	remodel.writeModelFile(path, service)
+-- end

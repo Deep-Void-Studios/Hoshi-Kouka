@@ -20,7 +20,16 @@ while task.wait(0.1) do
 	for _, v in pairs(game.Players:GetPlayers()) do
 		if v.Character then
 			local char = v.Character
+
+			if not char then
+				return
+			end
+
 			local root = char.HumanoidRootPart
+
+			if not root then
+				return
+			end
 
 			if (root.Position - orb.Position).Magnitude < 24 then
 				nearby = true

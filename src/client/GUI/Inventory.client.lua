@@ -17,7 +17,10 @@ local itemset = Knit.GetController("Context/Item")
 local DataManager = Knit.GetService("DataManager")
 local _, dataId = DataManager:Get(player):await()
 local data = ClientComm:GetProperty(dataId)
-local inventory = ClientComm:GetProperty(data.Inventory.Id)
+
+data:OnReady():await()
+
+local inventory = ClientComm:GetProperty(data:Get().Inventory)
 
 local function truncate(number)
 	local num = tostring(number)
@@ -48,7 +51,13 @@ end
 
 local function updateItem(index)
 	local button = gui:FindFirstChild(index)
-	local item = inventory[index]
+	local itemId = inventory:Get()[index]
+
+	if not itemId then
+		return
+	end
+
+	local item = ClientComm:GetProperty(itemId)
 
 	if button then
 		if item then

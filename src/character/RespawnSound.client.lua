@@ -1,5 +1,6 @@
-local s = script:WaitForChild("sound"):Clone()
+local s: Sound = game:GetService("SoundService").SFX.Miscellaneous.respawn:Clone()
 s.Parent = game.SoundService
 s.Playing = true
-wait(10)
-s:Destroy()
+s.Stopped:Connect(function()
+	s:Destroy()
+end)

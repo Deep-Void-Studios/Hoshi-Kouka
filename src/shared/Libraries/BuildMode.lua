@@ -1,7 +1,5 @@
 local BuildMode = {}
 local Terrain = workspace.Terrain
-local hoshiutils = game.ReplicatedStorage.Libraries.HoshiUtils
-local pathfind = require(hoshiutils.Pathfind)
 local player = game.Players.LocalPlayer
 local backpack = player.Backpack
 local playerGui = player:WaitForChild("PlayerGui")
@@ -15,60 +13,60 @@ local ToggleGui = require(script.Parent.ToggleGui)
 local Sound = require(script.Parent.Sounds)
 local UIS = game:GetService("UserInputService")
 local RS = game:GetService("RunService")
-local cursor = script:WaitForChild("Cursor")
-local digEvent = game.ReplicatedStorage.Events.World.Terrain.Dig
-local placeEvent = game.ReplicatedStorage.Events.World.Terrain.Place
+local cursor = game:GetService("ReplicatedStorage").ClientAssets.Models:WaitForChild("Cursor")
+local digEvent = game.ReplicatedStorage.Events.Dig
+-- local placeEvent = game.ReplicatedStorage.Events.Place
 local TerrainMaterials = require(game.ReplicatedStorage.TerrainMaterials)
 
 local offset = Vector3.new(2, 2, 2)
 local reachDistance = 12
 BuildMode.SelectedMaterial = nil
 
-local blacklist = {"Hotbar"}
+local blacklist = { "Hotbar" }
 local enabled = {}
 
 local function truncate(number)
 	local num = tostring(number)
 	local place = string.find(num, "%.")
-	
+
 	if place then
-		return string.sub(num, 1, place+2)
+		return string.sub(num, 1, place + 2)
 	else
 		return num
 	end
 end
 
 local function hideOtherGui()
-	for i, v in pairs(blacklist) do
-		local gui = playerGui:WaitForChild(v, 4)
+	for _, v in pairs(blacklist) do
+		local ui = playerGui:WaitForChild(v, 4)
 
-		if gui then
-			if gui.Enabled then
+		if ui then
+			if ui.Enabled then
 				enabled[v] = true
 			else
 				enabled[v] = false
 			end
 
-			ToggleGui.makeTransparent(gui)
-			ToggleGui:Blacklist(gui)
+			ToggleGui.makeTransparent(ui)
+			ToggleGui:Blacklist(ui)
 		else
-			warn("Gui not found: "..v)
+			warn("GUI not found: " .. v)
 		end
 	end
 end
 
 local function showOtherGui()
-	for i, v in pairs(blacklist) do
-		local gui = playerGui:WaitForChild(v, 4)
+	for _, v in pairs(blacklist) do
+		local ui = playerGui:WaitForChild(v, 4)
 
-		if gui then
+		if ui then
 			if enabled[v] then
-				ToggleGui.makeOpaque(gui)
+				ToggleGui.makeOpaque(ui)
 			end
 
-			ToggleGui:RemoveBlacklist(gui)
+			ToggleGui:RemoveBlacklist(ui)
 		else
-			warn("Gui not found: "..v)
+			warn("Gui not found: " .. v)
 		end
 	end
 end
@@ -76,9 +74,9 @@ end
 local function getCharacters()
 	local characters = {}
 
-	for i, player in pairs(game.Players:GetPlayers()) do
-		if player.Character then
-			table.insert(characters, player.Character)
+	for _, p in pairs(game.Players:GetPlayers()) do
+		if p.Character then
+			table.insert(characters, p.Character)
 		end
 	end
 
@@ -89,7 +87,6 @@ local function castMouse()
 	local camera = workspace.CurrentCamera
 	local mpos = UIS:GetMouseLocation()
 	local ray = camera:ViewportPointToRay(mpos.X, mpos.Y)
-
 
 	local params = RaycastParams.new()
 	params.IgnoreWater = true
@@ -116,12 +113,12 @@ local function UpdateVoxelGui(material, occupancy)
 		gui.Dig.Visible = true
 		digcooldown.Visible = true
 
-		local material = TerrainMaterials:GetMaterial(material)
+		material = TerrainMaterials:GetMaterial(material)
 
 		digbar.Size = UDim2.new(occupancy, 0, 1, 0)
 		digmaterial.Text = material.Material.Name
-		digpercent.Text = truncate(occupancy * 100).."%"
-		digtier.Text = "Tier "..material.Tier
+		digpercent.Text = truncate(occupancy * 100) .. "%"
+		digtier.Text = "Tier " .. material.Tier
 
 		local _, harvestable = material:GetDamage(player)
 
@@ -143,7 +140,6 @@ local function UpdateCursor()
 		local root = character.HumanoidRootPart
 
 		if (raycast.Position - root.Position).Magnitude < reachDistance then
-
 			local cell
 
 			if mode == "Dig" then
@@ -153,21 +149,21 @@ local function UpdateCursor()
 				local pos = Terrain:CellCenterToWorld(cell.X, cell.Y, cell.Z)
 				local material, occupancy = Terrain:ReadVoxels(Region3.new(pos - offset, pos + offset), 4)
 				occupancy = occupancy[1][1][1]
-				
+
 				if occupancy == 1 or material ~= BuildMode.SelectedMaterial then
 					cell = Terrain:WorldToCellPreferEmpty(raycast.Position)
-					local pos = Terrain:CellCenterToWorld(cell.X, cell.Y, cell.Z)
-					local material, occupancy = Terrain:ReadVoxels(Region3.new(pos - offset, pos + offset), 4)
-					
-					if occupancy ~= 0 then
+					pos = Terrain:CellCenterToWorld(cell.X, cell.Y, cell.Z)
+					local _, occ = Terrain:ReadVoxels(Region3.new(pos - offset, pos + offset), 4)
+
+					if occ ~= 0 then
 						return
 					end
 				end
 			end
-			
-			if not cell then
-				
-			end
+
+			--if not cell then
+
+			--end
 
 			local pos = Terrain:CellCenterToWorld(cell.X, cell.Y, cell.Z)
 
@@ -210,7 +206,7 @@ end
 
 BuildMode.Enabled = false
 
-function BuildMode:Enable(mode)
+function BuildMode:Enable()
 	if not BuildMode.Enabled then
 		BuildMode.Enabled = true
 		ToggleGui.makeOpaque(gui)
@@ -234,7 +230,7 @@ function BuildMode:Disable()
 		cursor:PivotTo(CFrame.new(0, 10000, 0))
 
 		RS:UnbindFromRenderStep("BuildModeUpdate")
-		
+
 		if player.Character then
 			player.Character.Humanoid:UnequipTools()
 		end
@@ -242,33 +238,52 @@ function BuildMode:Disable()
 end
 
 local soundgroups = {
-	{{"Grass", "Ground", "Mud",
-		"Snow", "Sand", "LeafyGrass",
-		"Cobblestone"
-	},{
-		{"Breaking", "Ground", "dirt1"}, {"Breaking", "Ground", "dirt2"},
-		{"Breaking", "Ground", "dirt3"}, {"Breaking", "Ground", "dirt4"}, 
-		{"Breaking", "Ground", "dirt5"}, {"Breaking", "Ground", "dirt6"}, 
-		{"Breaking", "Ground", "dirt7"}
-	}},
-	{{"Ice", "Rock", "Basalt",
-		"Salt", "Slate", "Marble",
-		"Pavement", "Asphalt", "Glacier",
-		"Brick", "Concrete", "Limestone",
-		"Sandstone", "CrackedLava"
-	},{
-		{"Breaking", "Mining", "rock1"}, {"Breaking", "Mining", "rock2"},
-		{"Breaking", "Mining", "rock3"}, {"Breaking", "Mining", "rock4"},
-		{"Breaking", "Mining", "metal1"}, {"Breaking", "Mining", "metal2"},
-		{"Breaking", "Mining", "metal3"}
-	}}
+	{
+		{ "Grass", "Ground", "Mud", "Snow", "Sand", "LeafyGrass", "Cobblestone" },
+		{
+			{ "Breaking", "Ground", "dirt1" },
+			{ "Breaking", "Ground", "dirt2" },
+			{ "Breaking", "Ground", "dirt3" },
+			{ "Breaking", "Ground", "dirt4" },
+			{ "Breaking", "Ground", "dirt5" },
+			{ "Breaking", "Ground", "dirt6" },
+			{ "Breaking", "Ground", "dirt7" },
+		},
+	},
+	{
+		{
+			"Ice",
+			"Rock",
+			"Basalt",
+			"Salt",
+			"Slate",
+			"Marble",
+			"Pavement",
+			"Asphalt",
+			"Glacier",
+			"Brick",
+			"Concrete",
+			"Limestone",
+			"Sandstone",
+			"CrackedLava",
+		},
+		{
+			{ "Breaking", "Mining", "rock1" },
+			{ "Breaking", "Mining", "rock2" },
+			{ "Breaking", "Mining", "rock3" },
+			{ "Breaking", "Mining", "rock4" },
+			{ "Breaking", "Mining", "metal1" },
+			{ "Breaking", "Mining", "metal2" },
+			{ "Breaking", "Mining", "metal3" },
+		},
+	},
 }
 
 local function playSound(material)
 	local sounds
 
-	for i, group in pairs(soundgroups) do
-		for i, mat in pairs(group[1]) do
+	for _, group in pairs(soundgroups) do
+		for _, mat in pairs(group[1]) do
 			if material == mat then
 				sounds = group[2]
 				break
@@ -283,7 +298,7 @@ local function playSound(material)
 	if sounds then
 		Sound:Play(sounds[math.random(1, #sounds)])
 	else
-		Sound:Play({"Generic", "error3"})
+		Sound:Play({ "Generic", "error3" })
 	end
 end
 
@@ -310,12 +325,8 @@ local TweenService = game:GetService("TweenService")
 local function cooldownAnim(cd)
 	digcooldown.Size = UDim2.new(0, 0, 0.005, 0)
 
-	local endInfo = {Size = UDim2.new(0.2, 0, 0.005, 0)}
-	local info = TweenInfo.new(
-		cd,
-		Enum.EasingStyle.Quad,
-		Enum.EasingDirection.Out
-	)
+	local endInfo = { Size = UDim2.new(0.2, 0, 0.005, 0) }
+	local info = TweenInfo.new(cd, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
 	TweenService:Create(digcooldown, info, endInfo):Play()
 end
@@ -328,26 +339,38 @@ local function getVoxel()
 
 	local region = Region3.new(pos - offset, pos + offset)
 	local material, occupancy = Terrain:ReadVoxels(region, 4)
-	
-	if material[1][1][1] == Enum.Material.Air then return end
-	
+
+	if material[1][1][1] == Enum.Material.Air then
+		return
+	end
+
 	return TerrainMaterials:GetMaterial(material[1][1][1]), occupancy[1][1][1]
 end
 
 local function loopDig()
 	-- Running loop
 	running = true
-	
+
 	while holding do
 		-- Safety checks
-		if not BuildMode.Enabled then break end
-		if not player.Character then break end
-		if mode ~= "Dig" then break end
-		if cursor.Parent ~= workspace then break end
+		if not BuildMode.Enabled then
+			break
+		end
+		if not player.Character then
+			break
+		end
+		if mode ~= "Dig" then
+			break
+		end
+		if cursor.Parent ~= workspace then
+			break
+		end
 
 		-- Get material
 		local material = getVoxel()
-		if material.Material == Enum.Material.Air or not material then break end
+		if material.Material == Enum.Material.Air or not material then
+			break
+		end
 
 		-- Play material sound
 		playSound(material.Name)
@@ -363,7 +386,7 @@ local function loopDig()
 		db_next = tick() + cooldown
 
 		-- Unequip tools (will re-equip after if needed)
-		local humanoid : Humanoid = player.Character.Humanoid
+		local humanoid: Humanoid = player.Character.Humanoid
 		humanoid:UnequipTools()
 
 		-- Equip tool if found
@@ -376,7 +399,7 @@ local function loopDig()
 
 		-- Play error sound and end loop if unsuccessful
 		if not success then
-			Sound:Play({"Generic", "error3"})
+			Sound:Play({ "Generic", "error3" })
 			break
 		end
 
@@ -384,7 +407,7 @@ local function loopDig()
 		cooldownAnim(cooldown)
 		wait(cooldown)
 	end
-	
+
 	-- No longer running
 	running = false
 end
@@ -392,26 +415,35 @@ end
 local function loopPlacement()
 	-- Running loop
 	running = true
-	
+
 	while holding do
 		-- Safety Checks
-		if not BuildMode.Enabled then break end
-		if not player.Character then break end
-		if not BuildMode.SelectedMaterial then break end
-		if mode ~= "Build" then break end
-		if cursor.Parent ~= workspace then break end
-		
+		if not BuildMode.Enabled then
+			break
+		end
+		if not player.Character then
+			break
+		end
+		if not BuildMode.SelectedMaterial then
+			break
+		end
+		if mode ~= "Build" then
+			break
+		end
+		if cursor.Parent ~= workspace then
+			break
+		end
+
 		local material, occupancy = getVoxel()
-		
-		if (material ~= BuildMode.SelectedMaterial and occupancy > 0) and material ~= Enum.Material.Air then break end
-		
-		
-		
+
+		if (material ~= BuildMode.SelectedMaterial and occupancy > 0) and material ~= Enum.Material.Air then
+			break
+		end
+
 		-- TODO
 		-- Place material
-		
 	end
-	
+
 	-- No longer running
 	running = false
 end
@@ -422,21 +454,18 @@ UIS.InputBegan:Connect(function(input, ignored)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 and not ignored then
 		-- Set holding down left click
 		holding = true
-		
+
 		-- Check if cooldown ended, not currently running, and in dig mode
 		if debounce() and not running and mode == "Dig" then
 			-- Loop until player releases their mouse button
 			loopDig()
-
 		elseif debounce() and not running then
 			-- Loop until mouse button released
 			loopPlacement()
 		end
-		
 	elseif input.KeyCode == Enum.KeyCode.One and not ignored and BuildMode.Enabled then
 		-- Set mode to dig if pressing 1
 		mode = "Dig"
-		
 	elseif input.KeyCode == Enum.KeyCode.Two and not ignored and BuildMode.Enabled then
 		-- Set mode to build if pressing 2
 		mode = "Build"
