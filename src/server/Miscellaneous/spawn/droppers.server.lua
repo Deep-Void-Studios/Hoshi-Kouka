@@ -7,7 +7,9 @@ local droppers = workspace.Spawn.Droppers
 local spawnSound = game:GetService("SoundService").SFX.Miscellaneous.spawn
 
 for _, obj in pairs(droppers:GetDescendants()) do
+	print("searching")
 	if obj:GetAttribute("Item") then
+		print("found")
 		local dispenser = obj
 		local spawner = dispenser.Spawner
 		local sound = spawnSound:Clone()
