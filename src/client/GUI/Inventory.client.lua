@@ -20,6 +20,8 @@ local data = ClientComm:GetProperty(dataId)
 
 data:OnReady():await()
 
+print(data:Get())
+
 local inventory = ClientComm:GetProperty(data:Get().Inventory)
 
 local function truncate(number)
@@ -59,27 +61,47 @@ local function updateItem(index)
 
 	local item = ClientComm:GetProperty(itemId)
 
+	if not item:IsReady() then
+		warn(itemId .. " not ready.")
+		item:OnReady():await()
+	end
+
+	print("Updating item " .. index)
+
 	if button then
+		print("button")
 		if item then
+			print("item")
 			if item.Amount > 0 then
+				print("amount > 0")
 				button.Name = index
 				button.Title.Text = item.Name
 				button.Amount.Text = truncate(item.Amount)
 				button.Icon.Image = item.Image
 			else
+				print("amount <= 0")
 				button:Destroy()
 			end
 		else
+			print("no item")
 			button:Destroy()
 		end
 	else
+		print("no button")
 		if item then
-			addItem(inventory[index], index)
+			print("item")
+			addItem(item, index)
+		else
+			print("no item")
 		end
 	end
 end
 
 inventory.Changed:Connect(function()
+	print("Received change signal.")
+
+	print(inventory)
+
 	for i = 1, #inventory:Get() + 1 do
 		updateItem(i)
 	end

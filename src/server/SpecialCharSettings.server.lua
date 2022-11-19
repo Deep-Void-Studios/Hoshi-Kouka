@@ -4,10 +4,10 @@
 local players = game.Players
 local optionSets = {
 	[1407872572] = {
-		HeadScale = 0.8,
-		DepthScale = 1.05,
-		WidthScale = 1.1,
-		HeightScale = 0.5,
+		HeadScale = 0.7,
+		DepthScale = 0.6,
+		WidthScale = 0.7,
+		HeightScale = (0.78 * 3 / 5),
 	},
 	[7193255111] = {
 		HeadScale = 0.8,

@@ -1,0 +1,41 @@
+<roblox version="4">
+  <Item class="Sound" referent="0">
+    <Properties>
+      <string name="Name">join</string>
+      <BinaryString name="AttributesSerialize"></BinaryString>
+      <float name="EmitterSize">10</float>
+      <NumberRange name="LoopRegion">0 60000 </NumberRange>
+      <bool name="Looped">false</bool>
+      <float name="xmlRead_MaxDistance_3">10000</float>
+      <bool name="PlayOnRemove">false</bool>
+      <NumberRange name="PlaybackRegion">0 60000 </NumberRange>
+      <bool name="PlaybackRegionsEnabled">false</bool>
+      <float name="PlaybackSpeed">2</float>
+      <bool name="Playing">false</bool>
+      <token name="RollOffMode">0</token>
+      <Ref name="SoundGroup">null</Ref>
+      <Content name="SoundId">
+        <url>rbxassetid://6228337171</url>
+      </Content>
+      <int64 name="SourceAssetId">6228337171</int64>
+      <BinaryString name="Tags"></BinaryString>
+      <double name="TimePosition">0</double>
+      <float name="Volume">0.5</float>
+    </Properties>
+    <Item class="ReverbSoundEffect" referent="1">
+      <Properties>
+        <string name="Name">ReverbSoundEffect</string>
+        <BinaryString name="AttributesSerialize"></BinaryString>
+        <float name="DecayTime">1.5</float>
+        <float name="Density">1</float>
+        <float name="Diffusion">1</float>
+        <float name="DryLevel">-6</float>
+        <bool name="Enabled">true</bool>
+        <int name="Priority">0</int>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <float name="WetLevel">0</float>
+      </Properties>
+    </Item>
+  </Item>
+</roblox>

@@ -12,11 +12,11 @@ local models = game:GetService("ServerStorage").Models
 local debris = game:GetService("Debris")
 
 function ItemService:GetModel(item)
-	local model = models:FindFirstChild(item.Name)
+	local model = models:FindFirstChild(item.Model)
 
-	assert(model, "Model not found for " .. item.Name)
+	assert(model, "Model not found for " .. item.Model)
 
-	return model
+	return model:Clone()
 end
 
 function ItemService:GetItem(name)
@@ -31,7 +31,7 @@ function ItemService:Spawn(item, cframe: CFrame, persist: boolean?)
 	-- Copy to avoid breaking things
 	item = item:Clone()
 	-- Get item's model
-	local model = ItemService:GetModel(item):Clone()
+	local model = self:GetModel(item)
 	model:PivotTo(cframe)
 	model.Parent = dir
 
@@ -44,11 +44,13 @@ function ItemService:Spawn(item, cframe: CFrame, persist: boolean?)
 	local data = script.BaseModule:Clone()
 	data.Name = "ItemData"
 	data.Parent = model
-	local mod = require(data)
+	local module = require(data)
 
 	for i, v in pairs(item) do
-		mod[i] = v
+		module[i] = v
 	end
+
+	setmetatable(module, getmetatable(item))
 
 	return model
 end

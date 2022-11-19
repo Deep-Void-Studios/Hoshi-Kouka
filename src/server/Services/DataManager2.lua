@@ -55,6 +55,17 @@ function DataManager.Client:Get(...)
 	return data.Id
 end
 
+function DataManager:Reset(player)
+	local id = "Player_" .. player.UserId
+	local profile = profiles[id]
+
+	profile.Character:Destroy()
+
+	profile.Profile.Data = Character:New().__Serial
+
+	player:Kick("Resetting data... Please rejoin.")
+end
+
 local function SetupProfile(player)
 	if not ProfileStore then
 		ProfileStore = ProfileService.GetProfileStore("PlayerData", Character:New().__Serial)
@@ -64,7 +75,7 @@ local function SetupProfile(player)
 	-- "ForceLoad" = Kick any other server accessing this data.
 	local profile = ProfileStore:LoadProfileAsync("Player_" .. player.UserId, "ForceLoad")
 
-	local char = Character:Deserialize(Character:New().__Serial)
+	local char = Character:Deserialize(profile.Data)
 	profile.Data = char.__Serial
 
 	if profile then

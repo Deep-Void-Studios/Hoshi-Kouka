@@ -204,6 +204,7 @@ end
 
 -- Destroy an object and trigger relevant functions.
 function Base:Destroy()
+	print("Destroying " .. self.__ClassName)
 	self.Removing:Fire()
 
 	self.Updated:Destroy()
@@ -239,8 +240,13 @@ function Base:SetParent(parent)
 end
 
 function Base:SetPlayer(player)
-	self:DisallowUser(self.Player)
-	self:AllowUser(player)
+	if self.Player then
+		self:DisallowUser(self.Player)
+	end
+
+	if player then
+		self:AllowUser(player)
+	end
 
 	self.Player = player
 
@@ -260,6 +266,8 @@ function Base:SetPlayer(player)
 
 		obj:SetPlayer(player)
 	end
+
+	self.Updated:Fire()
 end
 
 function Base:ChildAdded()

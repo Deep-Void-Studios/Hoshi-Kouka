@@ -7,9 +7,7 @@ local droppers = workspace.Spawn.Droppers
 local spawnSound = game:GetService("SoundService").SFX.Miscellaneous.spawn
 
 for _, obj in pairs(droppers:GetDescendants()) do
-	print("searching")
 	if obj:GetAttribute("Item") then
-		print("found")
 		local dispenser = obj
 		local spawner = dispenser.Spawner
 		local sound = spawnSound:Clone()
@@ -30,13 +28,15 @@ for _, obj in pairs(droppers:GetDescendants()) do
 			end
 		end
 
-		while task.wait(cooldown) do
-			checkItems()
-			if item and #items < max then
-				sound:Play()
-				local new: Model = ItemService:Spawn(item, spawner.CFrame)
-				table.insert(items, new)
+		task.spawn(function()
+			while task.wait(cooldown) do
+				checkItems()
+				if item and #items < max then
+					sound:Play()
+					local new: Model = ItemService:Spawn(item, spawner.CFrame)
+					table.insert(items, new)
+				end
 			end
-		end
+		end)
 	end
 end

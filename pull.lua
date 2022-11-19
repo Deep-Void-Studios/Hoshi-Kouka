@@ -29,9 +29,9 @@ end
 local Datamodel = remodel.readPlaceFile("place.rbxlx")
 
 local toSave = {
-	{ Datamodel.ServerStorage.Models, "./assets/models" },
+	-- { Datamodel.ServerStorage.Models, "./assets/models" },
 	-- { Datamodel.Workspace, "./workspace" },
-	-- { Datamodel.StarterGui, "./src/gui" },
+	{ Datamodel.StarterGui, "./src/gui" },
 	-- { Datamodel.SoundService, "./audio" },
 	-- { Datamodel.Chat, "./src/chat" },
 	-- { Datamodel.ReplicatedStorage, "./src/shared" },

@@ -88,23 +88,38 @@ local function same(itemA, itemB)
 end
 
 local function addItem(inventory, item)
-	for i, other in pairs(inventory:GetItems()) do
-		other.Index = i
+	local items = inventory:GetItems()
 
-		if same(item, other) then
-			other:AddAmount(item.Amount)
-			break
-		else
-			if not sort(item, other) then
-				table.insert(inventory, i, item)
+	if #items > 0 then
+		for i = 1, #inventory + 1 do
+			local other = items[i]
+			if not other then
+				continue
+			end
+			other.Index = i
+
+			if same(item, other) then
+				other:AddAmount(item.Amount)
+				break
+			else
+				if not sort(item, other) then
+					table.insert(inventory, i, item)
+					item.Index = i
+				end
 			end
 		end
+	else
+		table.insert(inventory, 1, item)
+		item.Index = 1
 	end
 end
 
+-- Receive child and set to proper index.
 function Inventory:ChildAdded(child)
 	if child.__ClassName == "Item" then
+		print(self)
 		addItem(self, child)
+		print(self)
 
 		self.Volume += child.Properties.Volume
 		self.Weight += child.Properties.Weight
@@ -113,6 +128,11 @@ function Inventory:ChildAdded(child)
 	end
 
 	self.Updated:Fire()
+	print(self)
+	task.spawn(function()
+		wait(3)
+		print(self)
+	end)
 end
 
 function Inventory:ChildRemoved(index)
