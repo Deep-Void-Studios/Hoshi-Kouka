@@ -52,7 +52,16 @@ function Base:New(data)
 	}, self)
 
 	for i, val in pairs(self.__Defaults) do
-		object[i] = val
+		if type(val) == "table" then
+			if val.__Class then
+				local obj = val:Clone()
+				obj:SetParent(object)
+			else
+				object[i] = deepCopy(val)
+			end
+		else
+			object[i] = val
+		end
 	end
 
 	for i, v in pairs(data) do
