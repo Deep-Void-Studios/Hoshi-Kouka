@@ -114,30 +114,7 @@
         <Z>0</Z>
       </Vector3>
     </Properties>
-    <Item class="Attachment" referent="1">
-      <Properties>
-        <string name="Name">Bottom</string>
-        <BinaryString name="AttributesSerialize"></BinaryString>
-        <CoordinateFrame name="CFrame">
-          <X>0</X>
-          <Y>-4</Y>
-          <Z>0</Z>
-          <R00>1</R00>
-          <R01>0</R01>
-          <R02>0</R02>
-          <R10>0</R10>
-          <R11>1</R11>
-          <R12>0</R12>
-          <R20>0</R20>
-          <R21>0</R21>
-          <R22>1</R22>
-        </CoordinateFrame>
-        <int64 name="SourceAssetId">-1</int64>
-        <BinaryString name="Tags"></BinaryString>
-        <bool name="Visible">false</bool>
-      </Properties>
-    </Item>
-    <Item class="SurfaceGui" referent="2">
+    <Item class="SurfaceGui" referent="1">
       <Properties>
         <string name="Name">SurfaceGui</string>
         <bool name="Active">true</bool>
@@ -169,7 +146,7 @@
         <token name="ZIndexBehavior">1</token>
         <float name="ZOffset">0</float>
       </Properties>
-      <Item class="TextLabel" referent="3">
+      <Item class="TextLabel" referent="2">
         <Properties>
           <string name="Name">S</string>
           <bool name="Active">false</bool>
@@ -252,7 +229,7 @@
           <int name="ZIndex">1</int>
         </Properties>
       </Item>
-      <Item class="TextLabel" referent="4">
+      <Item class="TextLabel" referent="3">
         <Properties>
           <string name="Name">E</string>
           <bool name="Active">false</bool>
@@ -335,7 +312,7 @@
           <int name="ZIndex">1</int>
         </Properties>
       </Item>
-      <Item class="TextLabel" referent="5">
+      <Item class="TextLabel" referent="4">
         <Properties>
           <string name="Name">N</string>
           <bool name="Active">false</bool>
@@ -418,7 +395,7 @@
           <int name="ZIndex">1</int>
         </Properties>
       </Item>
-      <Item class="TextLabel" referent="6">
+      <Item class="TextLabel" referent="5">
         <Properties>
           <string name="Name">W</string>
           <bool name="Active">false</bool>
