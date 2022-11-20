@@ -25,6 +25,7 @@ end
 
 function Character:ChildAdded(object)
 	self[object.__ClassName] = object
+	object.Index = object.__ClassName
 end
 
 return Character

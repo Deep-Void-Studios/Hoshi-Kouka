@@ -7,7 +7,7 @@ local LevelTable = BaseClass:__MakeClass("LevelTable")
 
 local level
 
-LevelTable.Replicated = {
+LevelTable.__Replicated = {
 	Base = true,
 	Skill = true,
 	Weapon = true,

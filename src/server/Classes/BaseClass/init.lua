@@ -51,15 +51,33 @@ function Base:New(data)
 		Comm = ClassComm:CreateSignal(self.__ClassName .. self.__Count),
 	}, self)
 
+	if self.__ClassName == "Character" then
+		print("making character")
+	end
 	for i, val in pairs(self.__Defaults) do
 		if type(val) == "table" then
 			if val.__Class then
+				if self.__ClassName == "Character" then
+					print("class", i)
+				end
 				local obj = val:Clone()
+				if obj.__ClassName == "Inventory" then
+					print("inventory", i)
+				end
 				obj:SetParent(object)
+				if obj.__ClassName == "Inventory" then
+					print(obj)
+				end
 			else
+				if self.__ClassName == "Character" then
+					print("not class")
+				end
 				object[i] = deepCopy(val)
 			end
 		else
+			if self.__ClassName == "Character" then
+				print("non-table")
+			end
 			object[i] = val
 		end
 	end
@@ -110,9 +128,27 @@ function Base:__SetRemote()
 		end
 
 		if type(value) == "table" then
-			if value.__ClassName then
-				clientTable[i] = value.Id
+			-- this is probably a bad practice but
+			-- I'll worry about that after this
+			-- multi-month-long update is done
+			if self.__ClassName == "LevelTable" then
+				if not self.__Replicated[i] then
+					continue
+				end
+
+				local t = {}
+
+				for i2, v in pairs(value) do
+					t[i2] = v.Id
+				end
+
+				clientTable[i] = t
 				continue
+			else
+				if value.__ClassName then
+					clientTable[i] = value.Id
+					continue
+				end
 			end
 		end
 

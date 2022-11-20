@@ -68,6 +68,8 @@ local function updateItem(index)
 
 	print("Updating item " .. index)
 
+	item = item:Get()
+
 	if button then
 		print("button")
 		if item then
@@ -100,7 +102,7 @@ end
 inventory.Changed:Connect(function()
 	print("Received change signal.")
 
-	print(inventory)
+	print(inventory:Get())
 
 	for i = 1, #inventory:Get() + 1 do
 		updateItem(i)
