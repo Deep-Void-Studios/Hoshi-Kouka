@@ -51,33 +51,15 @@ function Base:New(data)
 		Comm = ClassComm:CreateSignal(self.__ClassName .. self.__Count),
 	}, self)
 
-	if self.__ClassName == "Character" then
-		print("making character")
-	end
 	for i, val in pairs(self.__Defaults) do
 		if type(val) == "table" then
 			if val.__Class then
-				if self.__ClassName == "Character" then
-					print("class", i)
-				end
 				local obj = val:Clone()
-				if obj.__ClassName == "Inventory" then
-					print("inventory", i)
-				end
 				obj:SetParent(object)
-				if obj.__ClassName == "Inventory" then
-					print(obj)
-				end
 			else
-				if self.__ClassName == "Character" then
-					print("not class")
-				end
 				object[i] = deepCopy(val)
 			end
 		else
-			if self.__ClassName == "Character" then
-				print("non-table")
-			end
 			object[i] = val
 		end
 	end
