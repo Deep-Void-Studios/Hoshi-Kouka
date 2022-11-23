@@ -117,9 +117,7 @@ end
 -- Receive child and set to proper index.
 function Inventory:ChildAdded(child)
 	if child.__ClassName == "Item" then
-		print(self)
 		addItem(self, child)
-		print(self)
 
 		self.Volume += child.Properties.Volume
 		self.Weight += child.Properties.Weight
@@ -128,11 +126,6 @@ function Inventory:ChildAdded(child)
 	end
 
 	self.Updated:Fire()
-	print(self)
-	task.spawn(function()
-		wait(3)
-		print(self)
-	end)
 end
 
 function Inventory:ChildRemoved(index)

@@ -168,6 +168,10 @@ function Base:__UpdateSerial()
 	serial.__ClassName = self.__ClassName
 
 	for i, v in pairs(self) do
+		if type(i) == "number" then
+			i = tostring(i)
+		end
+
 		if self.__DoNotCopy[i] then
 			continue
 		end
@@ -321,6 +325,12 @@ function Base:Deserialize(serial)
 
 	-- Loop through serial
 	for i, v in pairs(serial) do
+		local number = tonumber(i)
+
+		if number then
+			i = number
+		end
+
 		-- Check if it's not a table
 		if type(v) ~= "table" then
 			-- Non-object values are fine
