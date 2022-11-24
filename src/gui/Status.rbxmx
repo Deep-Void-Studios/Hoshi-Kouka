@@ -255,71 +255,7 @@ frame.Parent.Parent.Enabled = true</string>
           </Properties>
         </Item>
       </Item>
-      <Item class="LocalScript" referent="6">
-        <Properties>
-          <string name="Name">UpdateStatus</string>
-          <BinaryString name="AttributesSerialize"></BinaryString>
-          <bool name="Disabled">false</bool>
-          <Content name="LinkedSource">
-            <null>
-            </null>
-          </Content>
-          <token name="RunContext">0</token>
-          <string name="ScriptGuid">{1D1AE265-AD2B-4C1E-8867-75363260F20D}</string>
-          <string name="Source">local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
-local Signal = require(Knit.Util.Signal)
-local ClientComm = require(Knit.Util.Comm).ClientComm.new(game:GetService("ReplicatedStorage").Comm, false, "ClassComm")
-
-Knit.OnStart():await()
-
-local DataManager = Knit.GetService("DataManager")
-local _, data = DataManager:Get(game:GetService("Players").LocalPlayer):await()
-data = ClientComm:GetProperty(data):Get()
-local status = ClientComm:GetProperty(data.Status)
-local vitals = status:Get().Vitals
-
-local RS = game:GetService("ReplicatedStorage")
-local gui = script.Parent
-
-local bars = {
-	gui.Health,
-	gui.Hunger,
-	gui.Mana,
-	gui.Stamina
-}
-
-local function setBar(bar, value, max)
-	local fill = bar.fill
-	local overfill = bar.overfill
-	
-	local fullness = value/max
-	
-	local size = UDim2.new(math.clamp(fullness, 0, 1), 0, 1, 0)
-	local sizeOverfill = UDim2.new(math.clamp(fullness-1, 0, 1), 0, 1, 0)
-	
-	bar.fill.Size = size
-	bar.overfill.Size = sizeOverfill
-end
-
-local function updateBar(bar, data)
-	local name = bar.Name
-	
-	local value = data.Stats.Vitals[name]
-	local max = data.Stats.Vitals["Max"..name]
-		
-	setBar(bar, value, max)
-end
-
-for _, bar in pairs(bars) do
-	local name = bar.Name
-	
-	setBar(bar, vitals[name], vitals["Max"..name])
-end</string>
-          <int64 name="SourceAssetId">-1</int64>
-          <BinaryString name="Tags"></BinaryString>
-        </Properties>
-      </Item>
-      <Item class="Frame" referent="7">
+      <Item class="Frame" referent="6">
         <Properties>
           <string name="Name">Health</string>
           <bool name="Active">false</bool>
@@ -379,7 +315,7 @@ end</string>
           <bool name="Visible">true</bool>
           <int name="ZIndex">1</int>
         </Properties>
-        <Item class="Frame" referent="8">
+        <Item class="Frame" referent="7">
           <Properties>
             <string name="Name">fill</string>
             <bool name="Active">false</bool>
@@ -440,7 +376,7 @@ end</string>
             <int name="ZIndex">0</int>
           </Properties>
         </Item>
-        <Item class="Frame" referent="9">
+        <Item class="Frame" referent="8">
           <Properties>
             <string name="Name">overfill</string>
             <bool name="Active">false</bool>
@@ -502,7 +438,7 @@ end</string>
           </Properties>
         </Item>
       </Item>
-      <Item class="Frame" referent="10">
+      <Item class="Frame" referent="9">
         <Properties>
           <string name="Name">Hunger</string>
           <bool name="Active">false</bool>
@@ -562,7 +498,7 @@ end</string>
           <bool name="Visible">true</bool>
           <int name="ZIndex">1</int>
         </Properties>
-        <Item class="Frame" referent="11">
+        <Item class="Frame" referent="10">
           <Properties>
             <string name="Name">fill</string>
             <bool name="Active">false</bool>
@@ -623,7 +559,7 @@ end</string>
             <int name="ZIndex">0</int>
           </Properties>
         </Item>
-        <Item class="Frame" referent="12">
+        <Item class="Frame" referent="11">
           <Properties>
             <string name="Name">overfill</string>
             <bool name="Active">false</bool>
@@ -685,7 +621,7 @@ end</string>
           </Properties>
         </Item>
       </Item>
-      <Item class="Frame" referent="13">
+      <Item class="Frame" referent="12">
         <Properties>
           <string name="Name">Mana</string>
           <bool name="Active">false</bool>
@@ -745,7 +681,7 @@ end</string>
           <bool name="Visible">true</bool>
           <int name="ZIndex">1</int>
         </Properties>
-        <Item class="Frame" referent="14">
+        <Item class="Frame" referent="13">
           <Properties>
             <string name="Name">fill</string>
             <bool name="Active">false</bool>
@@ -806,7 +742,7 @@ end</string>
             <int name="ZIndex">0</int>
           </Properties>
         </Item>
-        <Item class="Frame" referent="15">
+        <Item class="Frame" referent="14">
           <Properties>
             <string name="Name">overfill</string>
             <bool name="Active">false</bool>
@@ -868,7 +804,7 @@ end</string>
           </Properties>
         </Item>
       </Item>
-      <Item class="Frame" referent="16">
+      <Item class="Frame" referent="15">
         <Properties>
           <string name="Name">Stamina</string>
           <bool name="Active">false</bool>
@@ -928,7 +864,7 @@ end</string>
           <bool name="Visible">true</bool>
           <int name="ZIndex">1</int>
         </Properties>
-        <Item class="Frame" referent="17">
+        <Item class="Frame" referent="16">
           <Properties>
             <string name="Name">fill</string>
             <bool name="Active">false</bool>
@@ -989,7 +925,7 @@ end</string>
             <int name="ZIndex">0</int>
           </Properties>
         </Item>
-        <Item class="Frame" referent="18">
+        <Item class="Frame" referent="17">
           <Properties>
             <string name="Name">overfill</string>
             <bool name="Active">false</bool>

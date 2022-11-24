@@ -251,37 +251,55 @@ function Base:Destroy()
 	table.clear(self)
 end
 
-function Base:SetParent(parent)
+-- Set the parent of an object.
+function Base:SetParent(parent, index)
+	-- Get previous parent
 	local oldParent = self.Parent
 
+	-- Check if there was a previous parent
 	if oldParent then
+		-- Remove from previous parent
 		oldParent:ChildRemoved(self.Index)
 	end
 
+	-- Check if it's being set to a parent
 	if parent then
-		parent:ChildAdded(self)
+		-- Update parent
+		parent:ChildAdded(self, index)
+		-- Set parent
 		self.Parent = parent
+		-- Set player
 		self:SetPlayer(parent.Player)
 	else
+		-- If no parent, set to nil
 		self.Parent = nil
+		-- Remove player
 		self:SetPlayer()
 	end
 
+	-- Fire updated
 	self.Updated:Fire()
 end
 
+-- Set the target player for an object.
+-- Mainly used when interacting.
 function Base:SetPlayer(player)
+	-- Remove old player from allowed player list.
 	if self.Player then
 		self:DisallowUser(self.Player)
 	end
 
+	-- Allow new player to activate item.
 	if player then
 		self:AllowUser(player)
 	end
 
+	-- Set own player value.
 	self.Player = player
 
+	-- Set player value for all children.
 	for i, obj in pairs(self) do
+		-- Check if it is a class object
 		if self.__DoNotCopy[i] then
 			continue
 		end
@@ -298,13 +316,16 @@ function Base:SetPlayer(player)
 		obj:SetPlayer(player)
 	end
 
+	-- Fire updated
 	self.Updated:Fire()
 end
 
+-- Mainly for debug. Will always error. Override with a function to allow children.
 function Base:ChildAdded()
 	error(self.ClassName .. "cannot accept children.")
 end
 
+-- Mainly for debug. Will always error. Override with a function to allow removing children.
 function Base:ChildRemoved()
 	error(self.ClassName .. "cannot remove children.")
 end
@@ -344,7 +365,11 @@ function Base:Deserialize(serial)
 				-- Create object
 				local class = Knit.GetService(v.__ClassName)
 
-				object[i] = class:Deserialize(v)
+				-- Deserialize object
+				local deserialized = class:Deserialize(v)
+
+				-- Set object to correct index
+				deserialized:SetParent(object, i)
 			end
 		end
 	end

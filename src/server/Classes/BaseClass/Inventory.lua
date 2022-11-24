@@ -115,16 +115,27 @@ local function addItem(inventory, item)
 end
 
 -- Receive child and set to proper index.
-function Inventory:ChildAdded(child)
-	if child.__ClassName == "Item" then
+function Inventory:ChildAdded(child, customIndex)
+	-- Make sure it's an item.
+	assert(child.__ClassName == "Item", "Inventory does not accept non-items.")
+
+	-- Check if a custom index is specified.
+	-- DO NOT USE CUSTOM INDEX UNLESS LOADING FROM A SAVE FILE.
+	-- CAN CAUSE MAJOR ISSUES OTHERWISE.
+	if customIndex then
+		-- Set item to the given index.
+		child.Index = customIndex
+		self[customIndex] = child
+	else
+		-- Set item to the proper index.
 		addItem(self, child)
 
-		self.Volume += child.Properties.Volume
-		self.Weight += child.Properties.Weight
-	else
-		error("Inventory does not accept non-items.")
+		-- Add volume and weight.
+		self.Volume += (child.Properties.Volume * child.Amount)
+		self.Weight += (child.Properties.Weight * child.Amount)
 	end
 
+	-- Fire updated
 	self.Updated:Fire()
 end
 

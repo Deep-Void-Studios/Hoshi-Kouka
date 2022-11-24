@@ -46,7 +46,8 @@ local function addItem(item, index)
 
 	button.Activated:Connect(function()
 		menu:Open(item.Actions, itemset, 0, {
-			PLAYER = item.Player,
+			SUBJECT = item,
+			PLAYER = player,
 		})
 	end)
 end
