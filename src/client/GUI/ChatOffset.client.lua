@@ -10,8 +10,6 @@ local chatFrame3: Frame = chat:WaitForChild("ChatChannelParentFrame")
 local function update()
 	local offset = chatFrame1.AbsoluteSize.Y + chatFrame2.AbsoluteSize.Y + chatFrame3.AbsoluteSize.Y
 
-	print(offset)
-
 	chat.Position = UDim2.new(0, 0, 1, -offset)
 end
 
