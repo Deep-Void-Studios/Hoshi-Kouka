@@ -2,9 +2,9 @@
 local dispenser = workspace.Spawn.Droppers.MultiDropper
 
 -- Loop through children
-for name, obj in pairs(dispenser:GetChildren()) do
+for _, obj in pairs(dispenser:GetChildren()) do
 	-- Check if conveyor
-	if name == "Conveyor" then
+	if obj.Name == "Conveyor" then
 		-- Set conveyor part
 		local conveyor = obj.Conveyor
 

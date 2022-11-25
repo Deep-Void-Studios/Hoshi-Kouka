@@ -50,23 +50,25 @@ end
 local function deepCompare(a, b)
 	-- Loop through table A's properties
 	for i, aValue in pairs(a) do
-		if i ~= "Amount" then
-			-- Check table B's corresponding property
-			local bValue = b[i]
+		if a.__DoNotCopy[i] then
+			continue
+		end
 
-			-- Check if A's property and B's property are both tables
-			if type(aValue) == "table" and type(bValue) == "table" then
-				-- Deep compare both tables
-				if not deepCompare(aValue, bValue) then
-					-- Return false if different
-					return false
-				end
+		-- Check table B's corresponding property
+		local bValue = b[i]
 
-				-- If they are not tables, check if they are the same
-			elseif aValue ~= bValue then
+		-- Check if A's property and B's property are both tables
+		if type(aValue) == "table" and type(bValue) == "table" then
+			-- Deep compare both tables
+			if not deepCompare(aValue, bValue) then
 				-- Return false if different
 				return false
 			end
+
+			-- If they are not tables, check if they are the same
+		elseif aValue ~= bValue then
+			-- Return false if different
+			return false
 		end
 	end
 
@@ -77,9 +79,7 @@ end
 -- Returns true if the 2 tables are the same.
 local function same(itemA, itemB)
 	-- Perform small efficient checks first to reduce lag
-	if itemA.Name ~= itemB.Name then
-		return false
-	elseif itemA.Type ~= itemB.Type then
+	if itemA.Name ~= itemB.Name or itemA.Type ~= itemB.Type then
 		return false
 	end
 
@@ -105,6 +105,7 @@ local function addItem(inventory, item)
 				if not sort(item, other) then
 					table.insert(inventory, i, item)
 					item.Index = i
+					break
 				end
 			end
 		end
@@ -137,9 +138,13 @@ function Inventory:ChildAdded(child, customIndex)
 
 	-- Fire updated
 	self.Updated:Fire()
+
+	print(self)
 end
 
 function Inventory:ChildRemoved(index)
+	self.Volume -= self[index].Properties.Volume
+	self.Weight -= self[index].Properties.Weight
 	table.remove(self, index)
 
 	for i, item in pairs(self:GetItems()) do
@@ -147,6 +152,7 @@ function Inventory:ChildRemoved(index)
 	end
 
 	self.Updated:Fire()
+	print(self)
 end
 
 function Inventory:CanHold(item)

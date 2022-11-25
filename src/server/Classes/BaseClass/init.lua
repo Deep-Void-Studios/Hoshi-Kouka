@@ -13,12 +13,14 @@ Base.__DoNotCopy = {
 	Remote = true,
 	Updated = true,
 	Removing = true,
+	Player = true,
 	Parent = true,
 	Index = true,
 	Comm = true,
 	Id = true,
 	AuthorizedUsers = true,
 	__Serial = true,
+	__Signals = true,
 }
 
 local function deepCopy(t)
@@ -49,6 +51,7 @@ function Base:New(data)
 		Updated = Signal.new(),
 		Removing = Signal.new(),
 		Comm = ClassComm:CreateSignal(self.__ClassName .. self.__Count),
+		__Signals = {},
 	}, self)
 
 	for i, val in pairs(self.__Defaults) do
@@ -88,7 +91,7 @@ function Base:New(data)
 		local func = object["__Client" .. action]
 
 		if func then
-			func(object, ...)
+			func(object, player, ...)
 		else
 			warn("Received invalid request: " .. action .. " from user, " .. player.Name .. ".")
 		end
@@ -97,6 +100,22 @@ function Base:New(data)
 	object.Updated:Fire()
 
 	return object
+end
+
+function Base:__ConnectObject(object)
+	local id = object.Id
+	local signals = self.__Signals
+
+	signals[id] = object.Updated:Connect(function()
+		self.Updated:Fire()
+	end)
+end
+
+function Base:__DisconnectObject(object)
+	local id = object.Id
+	local signals = self.__Signals
+
+	signals[id]:Disconnect()
 end
 
 function Base:__SetRemote()
@@ -245,6 +264,7 @@ function Base:Destroy()
 
 	if self.Parent then
 		self.Parent:ChildRemoved(self.Index)
+		self.Parent:__DisconnectObject(self)
 	end
 
 	setmetatable(self, nil)
@@ -260,12 +280,14 @@ function Base:SetParent(parent, index)
 	if oldParent then
 		-- Remove from previous parent
 		oldParent:ChildRemoved(self.Index)
+		oldParent:__DisconnectObject(self)
 	end
 
 	-- Check if it's being set to a parent
 	if parent then
 		-- Update parent
 		parent:ChildAdded(self, index)
+		parent:__ConnectObject(self)
 		-- Set parent
 		self.Parent = parent
 		-- Set player
@@ -362,7 +384,7 @@ function Base:Deserialize(serial)
 				-- Non-object values are fine
 				object[i] = v
 			else
-				-- Create object
+				-- Get class
 				local class = Knit.GetService(v.__ClassName)
 
 				-- Deserialize object

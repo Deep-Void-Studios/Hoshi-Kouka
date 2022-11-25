@@ -50,14 +50,23 @@ function Item:AddAmount(n)
 	end
 end
 
--- Drop an amount of items.
-function Item:Drop(n, cframe)
+-- Split a stack of items.
+function Item:Split(n)
 	n = self:NumClamp(n)
 
-	self:AddAmount(-n)
+	local new = self:Clone()
+	new.Amount = n
 
-	local item = self:Clone()
-	item.Amount = n
+	if n == self.Amount then
+		self:Destroy()
+	end
+
+	return new
+end
+
+-- Drop an amount of items.
+function Item:Drop(n, cframe)
+	local item = self:Split(n)
 
 	ItemService:Spawn(item, cframe)
 end
@@ -86,12 +95,22 @@ end
 --
 
 -- Drop function received from client.
-function Item:__ClientDrop(n)
+function Item:__ClientDrop(player, n)
 	-- Check if item has been destroyed (usually when amount <= 0)
 	if not self.Name then
 		return false
 	end
-	self:Drop(n)
+
+	local char = player.Character
+
+	if not char then
+		return
+	end
+
+	local primary = char.PrimaryPart
+	local cframe = primary.CFrame + (primary.CFrame.LookVector * 5)
+
+	self:Drop(n, cframe)
 end
 
 -- Weapon

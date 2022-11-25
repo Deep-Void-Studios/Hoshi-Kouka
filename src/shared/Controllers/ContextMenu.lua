@@ -94,10 +94,14 @@ function ContextMenu:Open(actions, set, sub: number, info)
 	menu.Position = UDim2.new(0, mouse.X, 0, mouse.Y)
 	menu.Visible = true
 
+	if not actions then
+		actions = {}
+	end
+
 	-- Loop through all actions
 	for i, action in pairs(set) do
-		if not actions then
-			actions = {}
+		if i == "KnitStart" or i == "Name" then
+			continue
 		end
 
 		if action.AlwaysOn or actions[i] then

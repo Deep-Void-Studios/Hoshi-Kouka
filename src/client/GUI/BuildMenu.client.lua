@@ -1,16 +1,21 @@
 local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
+local ClientComm = require(Knit.Util.Comm).ClientComm.new(game:GetService("ReplicatedStorage").Comm, false, "ClassComm")
 
 Knit.OnStart():await()
 
 local DataManager = Knit.GetService("DataManager")
-local _, data = DataManager:Get(game:GetService("Players").LocalPlayer):await()
-local inventory = data.Inventory
+local _, dataId = DataManager:Get(game:GetService("Players").LocalPlayer):await()
+local data = ClientComm:GetProperty(dataId)
+data:OnReady():await()
+local inventory = ClientComm:GetProperty(data:Get().Inventory)
+inventory:OnReady():await()
 
 local RS = game:GetService("ReplicatedStorage")
 local BuildMode = require(RS.Libraries.BuildMode)
-local gui = script.Parent
-local container = gui.Container
-local template = script.Template
+local player = game:GetService("Players").LocalPlayer
+local gui = player:WaitForChild("PlayerGui"):WaitForChild("BuildMode"):WaitForChild("Materials")
+local container = gui:WaitForChild("Container")
+local template = RS:WaitForChild("ClientAssets"):WaitForChild("GUI"):WaitForChild("MaterialButton")
 
 local activeButton
 
@@ -51,5 +56,7 @@ local function update()
 		end
 	end
 end
+
+inventory.Changed:Connect(update)
 
 update()

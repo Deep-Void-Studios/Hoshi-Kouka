@@ -9,9 +9,6 @@ local toggleEvent = events.Toggle
 for _, gui in pairs(playerGui:GetChildren()) do
 	-- Check if it's a GUI
 	if gui:IsA("ScreenGui") then
-		-- Set up GUI for toggle animation
-		animLib.setup(gui)
-
 		-- Get keybind
 		local keybind = gui:GetAttribute("keybind")
 
@@ -35,9 +32,10 @@ for _, gui in pairs(playerGui:GetChildren()) do
 		end)
 
 		-- Enable if it should be enabled by default, else: disable
-		if gui:GetAttribute("defaultToggle") then
+		if gui:GetAttribute("defaultToggle") == true then
 			animLib.makeOpaque(gui)
-		else
+		elseif gui:GetAttribute("defaultToggle") == false then
+			print(gui)
 			animLib.makeTransparent(gui)
 		end
 	end

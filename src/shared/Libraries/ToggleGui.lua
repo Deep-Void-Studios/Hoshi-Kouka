@@ -5,7 +5,6 @@ local TS = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
 local tweenTime = 0.2
 local animating = {}
-local guiOpacities = {}
 
 local baseInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
 
@@ -46,37 +45,15 @@ local function hasText(frame)
 	end
 end
 
-module.setup = function(gui)
-	guiOpacities[gui.Name] = {}
-	local defaultTransparency = guiOpacities[gui.Name]
-	for i, v in pairs(gui:GetDescendants()) do
-		if isGui(v) then
-			v:SetAttribute("id", i)
-
-			defaultTransparency[i] = v.BackgroundTransparency
-
-			if hasImage(v) then
-				v:SetAttribute("xid", -i)
-
-				defaultTransparency[-i] = v.ImageTransparency
-			elseif hasText(v) then
-				v:SetAttribute("xid", -i)
-
-				defaultTransparency[-i] = v.TextTransparency
-			end
-		end
-	end
-end
-
-function getEnd(name, id, value)
-	local transparency = guiOpacities[name][id]
+function getEnd(gui, ty)
+	local transparency = gui:GetAttribute(ty)
 
 	local endInfo = {}
 
-	endInfo[value] = transparency
+	endInfo[ty] = transparency
 
-	if value == "TextTransparency" then
-		endInfo["TextStrokeTransparency"] = transparency
+	if ty == "TextTransparency" then
+		endInfo.TextStrokeTransparency = transparency
 	end
 
 	return endInfo
@@ -86,20 +63,17 @@ module.makeOpaque = function(gui)
 	gui.Enabled = true
 
 	for _, v in pairs(gui:GetDescendants()) do
-		if isGui(v) then
-			local id = v:GetAttribute("id")
-			local endInfo = getEnd(gui.Name, id, "BackgroundTransparency")
+		if isGui(v) and v:GetAttribute("BackgroundTransparency") then
+			local endInfo = getEnd(v, "BackgroundTransparency")
 
 			TS:Create(v, baseInfo, endInfo):Play()
 
 			if hasImage(v) then
-				local xid = v:GetAttribute("xid")
-				local eInfo = getEnd(gui.Name, xid, "ImageTransparency")
+				local eInfo = getEnd(v, "ImageTransparency")
 
 				TS:Create(v, baseInfo, eInfo):Play()
 			elseif hasText(v) then
-				local xid = v:GetAttribute("xid")
-				local eInfo = getEnd(gui.Name, xid, "TextTransparency")
+				local eInfo = getEnd(v, "TextTransparency")
 
 				TS:Create(v, baseInfo, eInfo):Play()
 			end
@@ -110,11 +84,26 @@ end
 module.makeTransparent = function(gui)
 	for _, v in pairs(gui:GetDescendants()) do
 		if isGui(v) then
+			local init = false
+
+			if not v:GetAttribute("BackgroundTransparency") then
+				init = true
+				v:SetAttribute("BackgroundTransparency", v.BackgroundTransparency)
+			end
+
 			TS:Create(v, baseInfo, fadeOut):Play()
 			if hasImage(v) then
+				if init then
+					v:SetAttribute("ImageTransparency", v.ImageTransparency)
+				end
+
 				-- Fade image transparency
 				TS:Create(v, baseInfo, imageOut):Play()
 			elseif hasText(v) then
+				if init then
+					v:SetAttribute("TextTransparency", v.TextTransparency)
+				end
+
 				-- Fade text transparency
 				TS:Create(v, baseInfo, textOut):Play()
 			end

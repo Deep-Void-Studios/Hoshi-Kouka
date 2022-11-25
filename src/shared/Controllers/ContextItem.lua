@@ -11,7 +11,7 @@ function ContextItem:KnitStart()
 end
 
 local function equip(SUBJECT, slot)
-	local signal = ClientComm:GetSignal(SUBJECT)
+	local signal = ClientComm:GetSignal(SUBJECT.Id)
 
 	signal:Fire("Equip", slot)
 end
@@ -24,14 +24,14 @@ local function unequip(slot)
 end
 
 local function drop(SUBJECT)
-	local signal = ClientComm:GetSignal(SUBJECT)
+	local signal = ClientComm:GetSignal(SUBJECT.Id)
 
 	signal:Fire("Drop", 1)
 end
 
 local function dropAll(SUBJECT)
-	local signal = ClientComm:GetSignal(SUBJECT)
-	local item = ClientComm:GetProperty(SUBJECT):Get()
+	local signal = ClientComm:GetSignal(SUBJECT.Id)
+	local item = ClientComm:GetProperty(SUBJECT.Id):Get()
 
 	signal:Fire("Drop", item.Amount)
 end
