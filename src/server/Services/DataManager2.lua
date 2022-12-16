@@ -13,6 +13,7 @@ local ProfileService = require(script.Parent.Parent.ProfileService)
 
 -- Variables
 local profiles = {}
+local rawProfiles = {}
 local ProfileStore
 
 DataManager.ProfileLoaded = Signal.new()
@@ -73,19 +74,9 @@ end
 
 function DataManager:Reset(player)
 	local id = "Player_" .. player.UserId
-	local profile = profiles[id]
+	local profile = rawProfiles[id]
 
-	if profile then
-		profile.Character:Destroy()
-
-		profile.Profile.Data = Character:New().__Serial
-	else
-		profile = ProfileStore:LoadProfileAsync("Player_" .. player.UserId, "ForceLoad")
-
-		profile.Data = Character:New().__Serial
-
-		profile:Release()
-	end
+	profile.Profile.Data = Character:New().__Serial
 
 	player:Kick("Resetting data... Please rejoin.")
 end
@@ -98,6 +89,8 @@ local function SetupProfile(player)
 	-- Load profile
 	-- "ForceLoad" = Kick any other server accessing this data.
 	local profile = ProfileStore:LoadProfileAsync("Player_" .. player.UserId, "ForceLoad")
+
+	rawProfiles["Player_" .. player.UserId] = profile
 
 	local char = Character:Deserialize(profile.Data)
 
@@ -169,9 +162,9 @@ players.PlayerRemoving:Connect(function(player)
 	local id = player.UserId
 	local profile = profiles["Player_" .. id]
 
-	print(profile.Character)
-
 	if profile then
+		print(profile.Character)
+
 		profile.Profile:Release()
 	end
 end)
