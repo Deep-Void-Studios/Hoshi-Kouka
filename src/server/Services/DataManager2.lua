@@ -76,7 +76,7 @@ function DataManager:Reset(player)
 	local id = "Player_" .. player.UserId
 	local profile = rawProfiles[id]
 
-	profile.Profile.Data = Character:New().__Serial
+	profile.Data = Character:New().__Serial
 
 	player:Kick("Resetting data... Please rejoin.")
 end
