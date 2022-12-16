@@ -7,7 +7,7 @@ local config = {
 	-- Terrain config
 	DecorationFrequency = 16,
 	PlanetScale = 15750,
-	Seed = 64,
+	Seed = 128,
 	Stretch = 2048,
 	Yield = 16,
 }

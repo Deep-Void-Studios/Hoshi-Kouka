@@ -28,8 +28,6 @@ function ItemService:GetItem(name)
 end
 
 function ItemService:Spawn(item, cframe: CFrame, persist: boolean?)
-	-- Copy to avoid breaking things
-	item = item:Clone()
 	-- Get item's model
 	local model = self:GetModel(item)
 	model:PivotTo(cframe)
@@ -42,15 +40,11 @@ function ItemService:Spawn(item, cframe: CFrame, persist: boolean?)
 
 	-- Set item's data
 	local data = script.BaseModule:Clone()
-	data.Name = "ItemData"
+	data.Name = "ObjectInfo"
 	data.Parent = model
 	local module = require(data)
 
-	for i, v in pairs(item) do
-		module[i] = v
-	end
-
-	setmetatable(module, getmetatable(item))
+	module.Item = item
 
 	return model
 end

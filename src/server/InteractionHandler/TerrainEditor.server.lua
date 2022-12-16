@@ -3,18 +3,18 @@ local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
 Knit.OnStart():await()
 
 local DataManager = Knit.GetService("DataManager")
+local ItemService = Knit.GetService("ItemService")
+local Notify = Knit.GetService("NotificationService")
 
 local RS = game:GetService("ReplicatedStorage")
-local SS = game:GetService("ServerStorage")
-local copy = require(RS.Libraries.HoshiUtils.DeepCopy)
 local terrain = workspace.Terrain
 local events = RS.Events
 local digEvent = events.Dig
---local placeEvent = events.Place
+local placeEvent = events.Place
 -- Reach distance is 12, but an extra 2 is added in case of lag
 local reachDistance = 12 + 2
 
-local materials = require(RS.TerrainMaterials)
+local materials = require(RS.Libraries.TerrainMaterials)
 
 local offset = Vector3.new(2, 2, 2)
 
@@ -46,7 +46,7 @@ end
 
 local function damageVoxel(region, damage, harvestable, player)
 	local material, occupancy = getVoxel(region)
-	local item = SS.Items:FindFirstChild(material.Name)
+	local item = ItemService:GetItem(material.Name)
 
 	if not harvestable then
 		item = nil
@@ -66,13 +66,16 @@ local function damageVoxel(region, damage, harvestable, player)
 	end
 
 	if item then
-		item = copy(require(item))
+		item = item:Clone()
 		item.Amount = removed
 
 		local inventory = DataManager:Get(player).Inventory
 
 		if not inventory:CanHold(item) then
+			item:Destroy()
 			return false
+		else
+			item:SetParent(inventory)
 		end
 	end
 
@@ -91,14 +94,13 @@ digEvent.OnServerInvoke = function(player, pos)
 			local region = getRegion(pos)
 
 			local material = getVoxel(region)
-			if material == Enum.Material.Air or material == Enum.Material.Water then
-				return false
-			end
-			material = materials:GetMaterial(material)
 
-			if material.Material == Enum.Material.Air then
+			if material == Enum.Material.Air or material == Enum.Material.Water then
+				Notify:Warn("Action Failed", "Attempted to dig air or water.", player)
 				return false
 			end
+
+			material = materials:GetMaterial(material.Name)
 
 			local damage, harvestable, delay = material:GetDamage(player)
 
@@ -109,14 +111,78 @@ digEvent.OnServerInvoke = function(player, pos)
 			if removed then
 				return true
 			else
+				Notify:Warn("Action Failed", "Inventory is full.", player)
 				return false
 			end
-		else
-			return false
 		end
-	else
-		return false
 	end
 end
 
---placeEvent.OnServerInvoke = function(player, pos, amount) end
+local function placeVoxel(region, item, amount)
+	local _, occupancy = getVoxel(region)
+
+	local mats = { { { Enum.Material[item.Name] } } }
+	local occs
+
+	local placed
+
+	if occupancy + amount < 1 then
+		occs = { { { occupancy + amount } } }
+		placed = amount
+	else
+		occs = { { { 1 } } }
+		placed = 1 - occupancy
+	end
+
+	item:AddAmount(-placed)
+
+	terrain:WriteVoxels(region, 4, mats, occs)
+end
+
+placeEvent.OnServerInvoke = function(player, pos, index, amount)
+	local character = player.Character
+
+	if character and debounce(player) then
+		local root = character.HumanoidRootPart
+
+		if (pos - root.Position).Magnitude < reachDistance then
+			local item = DataManager:Get(player).Inventory[index]
+
+			if not item then
+				Notify:Warn("Action Failed", "Item does not exist.", player)
+				return false
+			end
+
+			if not item.Type == "TerrainMaterial" then
+				Notify:Warn("Action Failed", "Attempted to place non-material.", player)
+				return false
+			end
+
+			local region = getRegion(pos)
+
+			local material, occupancy = getVoxel(region)
+
+			if occupancy >= 1 then
+				Notify:Warn("Action Failed", "Attempted to place on a full voxel.", player)
+				return false
+			elseif occupancy > 0 then
+				if material.Name ~= item.Name then
+					Notify:Warn(
+						"Action Failed",
+						"Attempted to place different material on a partially filled voxel.",
+						player
+					)
+					return false
+				end
+			end
+
+			amount = item:NumClamp(amount)
+
+			placeVoxel(region, item, amount)
+
+			db_next[player.UserId] = tick() + (amount * 2) - 0.5 -- In case of lag up to 500 ms
+
+			return true
+		end
+	end
+end

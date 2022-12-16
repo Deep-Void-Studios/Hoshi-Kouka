@@ -42,18 +42,35 @@ local function addItem(item, index)
 	button.Parent = gui
 
 	button.Activated:Connect(function()
-		menu:Open(item.Actions, itemset, 0, {
-			SUBJECT = item,
+		local id = inventory:Get()[index]
+
+		if not id then
+			warn("Item not found.")
+			return
+		end
+
+		local currentItem = ClientComm:GetProperty(id)
+
+		currentItem:OnReady():await()
+
+		currentItem = currentItem:Get()
+
+		menu:Open(currentItem.Actions, itemset, 0, {
+			SUBJECT = currentItem,
 			PLAYER = player,
 		})
 	end)
 end
 
 local function updateItem(index)
-	local button = gui:FindFirstChild(index)
 	local itemId = inventory:Get()[index]
 
 	if not itemId then
+		local button = gui:FindFirstChild(index)
+
+		if button then
+			button:Destroy()
+		end
 		return
 	end
 
@@ -64,6 +81,8 @@ local function updateItem(index)
 	end
 
 	item = item:Get()
+
+	local button = gui:FindFirstChild(index)
 
 	if button then
 		if item then
@@ -85,8 +104,19 @@ local function updateItem(index)
 	end
 end
 
+local current = 0
+
 inventory.Changed:Connect(function()
+	current += 1
+
+	local processId = current
+
 	for i = 1, #inventory:Get() + 1 do
+		if processId ~= current then
+			-- terminate process to save processing power and prevent glitches
+			break
+		end
+
 		updateItem(i)
 	end
 end)

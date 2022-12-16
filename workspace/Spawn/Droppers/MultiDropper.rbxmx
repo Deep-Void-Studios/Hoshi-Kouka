@@ -31,9 +31,9 @@
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>-3913</X>
-          <Y>1041</Y>
-          <Z>-3264</Z>
+          <X>87</X>
+          <Y>273</Y>
+          <Z>-64</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
@@ -78,9 +78,9 @@
         <BinaryString name="Tags"></BinaryString>
         <OptionalCoordinateFrame name="WorldPivotData">
           <CFrame>
-            <X>-3916</X>
-            <Y>1036</Y>
-            <Z>-3275.5</Z>
+            <X>84</X>
+            <Y>268</Y>
+            <Z>-75.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -107,9 +107,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1035.5</Y>
-            <Z>-3275.5</Z>
+            <X>84</X>
+            <Y>267.5</Y>
+            <Z>-75.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -202,9 +202,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1037.5</Y>
-            <Z>-3275.5</Z>
+            <X>84</X>
+            <Y>269.5</Y>
+            <Z>-75.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -362,9 +362,9 @@
         <BinaryString name="Tags"></BinaryString>
         <OptionalCoordinateFrame name="WorldPivotData">
           <CFrame>
-            <X>-3916</X>
-            <Y>1026.5</Y>
-            <Z>-3268.5</Z>
+            <X>84</X>
+            <Y>258.5</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -391,9 +391,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1027.5</Y>
-            <Z>-3268.5</Z>
+            <X>84</X>
+            <Y>259.5</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -532,9 +532,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1026</Y>
-            <Z>-3268.5</Z>
+            <X>84</X>
+            <Y>258</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -646,9 +646,9 @@
         <BinaryString name="Tags"></BinaryString>
         <OptionalCoordinateFrame name="WorldPivotData">
           <CFrame>
-            <X>-3916</X>
-            <Y>1036</Y>
-            <Z>-3252.5</Z>
+            <X>84</X>
+            <Y>268</Y>
+            <Z>-52.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -675,9 +675,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1035.5</Y>
-            <Z>-3252.5</Z>
+            <X>84</X>
+            <Y>267.5</Y>
+            <Z>-52.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -770,9 +770,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1037.5</Y>
-            <Z>-3252.5</Z>
+            <X>84</X>
+            <Y>269.5</Y>
+            <Z>-52.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -930,9 +930,9 @@
         <BinaryString name="Tags"></BinaryString>
         <OptionalCoordinateFrame name="WorldPivotData">
           <CFrame>
-            <X>-3916</X>
-            <Y>1026.5</Y>
-            <Z>-3259.5</Z>
+            <X>84</X>
+            <Y>258.5</Y>
+            <Z>-59.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -959,9 +959,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1027.5</Y>
-            <Z>-3259.5</Z>
+            <X>84</X>
+            <Y>259.5</Y>
+            <Z>-59.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1100,9 +1100,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1026</Y>
-            <Z>-3259.5</Z>
+            <X>84</X>
+            <Y>258</Y>
+            <Z>-59.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1214,9 +1214,9 @@
         <BinaryString name="Tags"></BinaryString>
         <OptionalCoordinateFrame name="WorldPivotData">
           <CFrame>
-            <X>-3916</X>
-            <Y>1046</Y>
-            <Z>-3259.5</Z>
+            <X>84</X>
+            <Y>278</Y>
+            <Z>-59.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1243,9 +1243,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1045.5</Y>
-            <Z>-3259.5</Z>
+            <X>84</X>
+            <Y>277.5</Y>
+            <Z>-59.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1338,9 +1338,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1047.5</Y>
-            <Z>-3259.5</Z>
+            <X>84</X>
+            <Y>279.5</Y>
+            <Z>-59.5</Z>
             <R00>-1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1498,9 +1498,9 @@
         <BinaryString name="Tags"></BinaryString>
         <OptionalCoordinateFrame name="WorldPivotData">
           <CFrame>
-            <X>-3916</X>
-            <Y>1046</Y>
-            <Z>-3268.5</Z>
+            <X>84</X>
+            <Y>278</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1527,9 +1527,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1045.5</Y>
-            <Z>-3268.5</Z>
+            <X>84</X>
+            <Y>277.5</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1622,9 +1622,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3916</X>
-            <Y>1047.5</Y>
-            <Z>-3268.5</Z>
+            <X>84</X>
+            <Y>279.5</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1782,9 +1782,9 @@
         <BinaryString name="Tags"></BinaryString>
         <OptionalCoordinateFrame name="WorldPivotData">
           <CFrame>
-            <X>-3911</X>
-            <Y>1053</Y>
-            <Z>-3259.5</Z>
+            <X>89</X>
+            <Y>285</Y>
+            <Z>-59.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1811,9 +1811,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3909</X>
-            <Y>1049</Y>
-            <Z>-3259.5</Z>
+            <X>91</X>
+            <Y>281</Y>
+            <Z>-59.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -1906,9 +1906,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3909</X>
-            <Y>1054</Y>
-            <Z>-3259.5</Z>
+            <X>91</X>
+            <Y>286</Y>
+            <Z>-59.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -2001,9 +2001,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3913.5</X>
-            <Y>1056.5</Y>
-            <Z>-3259.5</Z>
+            <X>86.5</X>
+            <Y>288.5</Y>
+            <Z>-59.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -2096,9 +2096,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3915</X>
-            <Y>1054.5</Y>
-            <Z>-3259.5</Z>
+            <X>85</X>
+            <Y>286.5</Y>
+            <Z>-59.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -2210,9 +2210,9 @@
         <BinaryString name="Tags"></BinaryString>
         <OptionalCoordinateFrame name="WorldPivotData">
           <CFrame>
-            <X>-3911</X>
-            <Y>1053</Y>
-            <Z>-3268.5</Z>
+            <X>89</X>
+            <Y>285</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -2239,9 +2239,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3909</X>
-            <Y>1049</Y>
-            <Z>-3268.5</Z>
+            <X>91</X>
+            <Y>281</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -2334,9 +2334,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3909</X>
-            <Y>1054</Y>
-            <Z>-3268.5</Z>
+            <X>91</X>
+            <Y>286</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -2429,9 +2429,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3913.5</X>
-            <Y>1056.5</Y>
-            <Z>-3268.5</Z>
+            <X>86.5</X>
+            <Y>288.5</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -2524,9 +2524,9 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-3915</X>
-            <Y>1054.5</Y>
-            <Z>-3268.5</Z>
+            <X>85</X>
+            <Y>286.5</Y>
+            <Z>-68.5</Z>
             <R00>1</R00>
             <R01>0</R01>
             <R02>0</R02>
@@ -2623,9 +2623,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3919.5</X>
-          <Y>1037.5</Y>
-          <Z>-3264</Z>
+          <X>80.5</X>
+          <Y>269.5</Y>
+          <Z>-64</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
@@ -2736,9 +2736,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3916</X>
-          <Y>1037</Y>
-          <Z>-3279.5</Z>
+          <X>84</X>
+          <Y>269</Y>
+          <Z>-79.5</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
@@ -2831,9 +2831,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3916</X>
-          <Y>1037</Y>
-          <Z>-3264</Z>
+          <X>84</X>
+          <Y>269</Y>
+          <Z>-64</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
@@ -2926,9 +2926,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3916</X>
-          <Y>1024.5</Y>
-          <Z>-3264</Z>
+          <X>84</X>
+          <Y>256.5</Y>
+          <Z>-64</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
@@ -3021,9 +3021,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3912.5</X>
-          <Y>1037</Y>
-          <Z>-3264</Z>
+          <X>87.5</X>
+          <Y>269</Y>
+          <Z>-64</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
@@ -3116,9 +3116,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3916</X>
-          <Y>1037</Y>
-          <Z>-3248.5</Z>
+          <X>84</X>
+          <Y>269</Y>
+          <Z>-48.5</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
@@ -3211,9 +3211,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3919.5</X>
-          <Y>1025.5</Y>
-          <Z>-3264</Z>
+          <X>80.5</X>
+          <Y>257.5</Y>
+          <Z>-64</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>

@@ -7,7 +7,7 @@ Humanoid:SetAttribute("Running", false)
 
 UIS.InputBegan:Connect(function(input, ignored)
 	if input.KeyCode == Enum.KeyCode.LeftShift and not ignored then
-		Humanoid.WalkSpeed = BaseSpeed * 1.5
+		Humanoid.WalkSpeed = BaseSpeed * 2
 		Humanoid:SetAttribute("Running", true)
 	end
 end)

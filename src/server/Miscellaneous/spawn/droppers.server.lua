@@ -33,7 +33,7 @@ for _, obj in pairs(droppers:GetDescendants()) do
 				checkItems()
 				if item and #items < max then
 					sound:Play()
-					local new: Model = ItemService:Spawn(item, spawner.CFrame)
+					local new: Model = ItemService:Spawn(item:Clone(), spawner.CFrame)
 					table.insert(items, new)
 				end
 			end

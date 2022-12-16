@@ -10,25 +10,23 @@ local data = {
 		Volume = 8,
 		Weight = 16,
 
-		Tool = {
-			Type = "Shovel",
-			Tier = 2,
-			Damage = 100,
-			Delay = 1
-		},
+		ToolType = "Shovel",
+		MiningTier = 2,
+		MiningDamage = 100,
+		MiningDelay = 1,
 
-		Durability = 1024
+		Durability = 1024,
 	},
 
 	Actions = {
 		Drop = true,
-		Equip = {Shovel = true},
-		DropAll = true
+		Equip = { Shovel = true },
+		DropAll = true,
 	},
 
 	Model = "Test Shovel",
 
-	Image = "rbxassetid://10798425709"
+	Image = "rbxassetid://10798425709",
 }
 
 return process(data)

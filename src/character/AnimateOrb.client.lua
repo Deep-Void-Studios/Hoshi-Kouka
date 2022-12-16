@@ -11,20 +11,27 @@ local speeds = {
 
 local enabled = false
 
-while wait(1) do
-	if player.Character.HumanoidRootPart then
-		local root = player.Character.HumanoidRootPart
+while task.wait(1) do
+	if player.Character then
+		local root = player.Character:FindFirstChild("HumanoidRootPart")
 
-		if (root.Position - orb.Position).Magnitude < 64 then
-			if not enabled then
-				enabled = true
-				RS:BindToRenderStep("CreationOrb", 500, function()
-					for i, ring: BasePart in pairs(rings) do
-						local delta = speeds[i]
+		if root then
+			if (root.Position - orb.Position).Magnitude < 64 then
+				if not enabled then
+					enabled = true
+					RS:BindToRenderStep("CreationOrb", 500, function()
+						for i, ring: BasePart in pairs(rings) do
+							local delta = speeds[i]
 
-						ring:PivotTo(ring.CFrame * CFrame.Angles(delta.X, delta.Y, delta.Z))
-					end
-				end)
+							ring:PivotTo(ring.CFrame * CFrame.Angles(delta.X, delta.Y, delta.Z))
+						end
+					end)
+				end
+			else
+				if enabled then
+					enabled = false
+					RS:UnbindFromRenderStep("CreationOrb")
+				end
 			end
 		else
 			if enabled then

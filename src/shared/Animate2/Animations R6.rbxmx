@@ -1,0 +1,109 @@
+<roblox version="4">
+  <Item class="Configuration" referent="0">
+    <Properties>
+      <string name="Name">Animations R6</string>
+      <BinaryString name="AttributesSerialize"></BinaryString>
+      <int64 name="SourceAssetId">-1</int64>
+      <BinaryString name="Tags"></BinaryString>
+    </Properties>
+    <Item class="IntValue" referent="1">
+      <Properties>
+        <string name="Name">SwimAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">180426354</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="2">
+      <Properties>
+        <string name="Name">RunAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">180426354</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="3">
+      <Properties>
+        <string name="Name">IdleAnimation2</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">180435792</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="4">
+      <Properties>
+        <string name="Name">SwimIdleAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">180435571</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="5">
+      <Properties>
+        <string name="Name">FallAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">180436148</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="6">
+      <Properties>
+        <string name="Name">ClimbAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">180436334</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="7">
+      <Properties>
+        <string name="Name">JumpAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">125750702</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="8">
+      <Properties>
+        <string name="Name">SitAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">178130996</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="9">
+      <Properties>
+        <string name="Name">ToolAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">182393478</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="10">
+      <Properties>
+        <string name="Name">IdleAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">180435571</int64>
+      </Properties>
+    </Item>
+    <Item class="IntValue" referent="11">
+      <Properties>
+        <string name="Name">WalkAnimation</string>
+        <BinaryString name="AttributesSerialize">AQAAAAUAAABTcGVlZAYAAAAAAADwPw==</BinaryString>
+        <int64 name="SourceAssetId">-1</int64>
+        <BinaryString name="Tags"></BinaryString>
+        <int64 name="Value">180426354</int64>
+      </Properties>
+    </Item>
+  </Item>
+</roblox>

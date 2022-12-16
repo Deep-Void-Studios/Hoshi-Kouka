@@ -6,12 +6,17 @@ template.DestroyJointRadiusPercent = 0
 template.ExplosionType = Enum.ExplosionType.NoCraters
 
 local sounds = {
-	9113701661,
-	9113695203,
-	9113698646,
-	9113696389,
-	9113695754,
-	9113696177,
+	9113698849,
+	9113697855,
+	9113701283,
+	9113698846,
+	9113701324,
+	9113700252,
+	9113695539,
+	9113699196,
+	9113698650,
+	9113700733,
+	9113697182,
 }
 
 while task.wait(0.1) do
@@ -25,7 +30,7 @@ while task.wait(0.1) do
 				return
 			end
 
-			local root = char.HumanoidRootPart
+			local root = char:FindFirstChild("HumanoidRootPart")
 
 			if not root then
 				return

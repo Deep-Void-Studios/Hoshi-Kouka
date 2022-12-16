@@ -31,9 +31,9 @@
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>-3948.5</X>
-          <Y>1029</Y>
-          <Z>-3280.5</Z>
+          <X>51.5</X>
+          <Y>261</Y>
+          <Z>-80.5</Z>
           <R00>0</R00>
           <R01>0</R01>
           <R02>1</R02>
@@ -60,9 +60,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3948.5</X>
-          <Y>1025</Y>
-          <Z>-3283</Z>
+          <X>51.5</X>
+          <Y>257</Y>
+          <Z>-83</Z>
           <R00>0</R00>
           <R01>0</R01>
           <R02>1</R02>
@@ -155,9 +155,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3948.5</X>
-          <Y>1030</Y>
-          <Z>-3283</Z>
+          <X>51.5</X>
+          <Y>262</Y>
+          <Z>-83</Z>
           <R00>0</R00>
           <R01>0</R01>
           <R02>1</R02>
@@ -250,9 +250,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3948.5</X>
-          <Y>1032.5</Y>
-          <Z>-3278.5</Z>
+          <X>51.5</X>
+          <Y>264.5</Y>
+          <Z>-78.5</Z>
           <R00>0</R00>
           <R01>0</R01>
           <R02>1</R02>
@@ -345,9 +345,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3948.5</X>
-          <Y>1030.5</Y>
-          <Z>-3277</Z>
+          <X>51.5</X>
+          <Y>262.5</Y>
+          <Z>-77</Z>
           <R00>0</R00>
           <R01>0</R01>
           <R02>1</R02>
@@ -440,9 +440,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3948.5</X>
-          <Y>1024.5</Y>
-          <Z>-3277</Z>
+          <X>51.5</X>
+          <Y>256.5</Y>
+          <Z>-77</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>

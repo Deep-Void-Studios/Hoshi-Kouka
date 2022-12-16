@@ -10,6 +10,8 @@ local DataManager
 Item.__Replicated = {
 	Name = true,
 	Description = true,
+	Index = true,
+	Type = true,
 	Amount = true,
 	Model = true,
 	Image = true,
@@ -47,6 +49,8 @@ function Item:AddAmount(n)
 
 	if self.Amount <= 0 then
 		self:Destroy()
+	else
+		self.Updated:Fire()
 	end
 end
 
@@ -59,6 +63,9 @@ function Item:Split(n)
 
 	if n == self.Amount then
 		self:Destroy()
+	else
+		self.Amount -= n
+		self.Updated:Fire()
 	end
 
 	return new
@@ -69,6 +76,10 @@ function Item:Drop(n, cframe)
 	local item = self:Split(n)
 
 	ItemService:Spawn(item, cframe)
+
+	if self.Updated then
+		self.Updated:Fire()
+	end
 end
 
 -- Clamp n so that it cannot be greater than the item's amount.
@@ -79,16 +90,6 @@ function Item:NumClamp(n)
 	else
 		return n
 	end
-end
-
-function Item:EquipTo(equipment, slot)
-	if self.Parent then
-		self.Parent:ChildRemoved(self.Index)
-	end
-
-	self.Parent = equipment
-	self.Index = slot
-	equipment:Equip(self, slot)
 end
 
 --[[ Client Operations ]]
@@ -130,16 +131,39 @@ end
 -- Backpack
 -- Accessory
 
-function Item:__ClientEquip(slot)
-	assert(self.Player, "Player not found.")
+local itemSlots = {
+	Item1 = true,
+	Item2 = true,
+	Item3 = true,
+	Item4 = true,
+	Item5 = true,
+}
 
-	if self.Actions.Equip[slot] then
-		local data = DataManager:Get(self.Player)
+local function equip(self, player, slot)
+	local data = DataManager:Get(player)
 
-		self:EquipTo(data.Equipment, slot)
-	else
-		warn("Attempted to equip to invalid slot.")
+	self:SetParent(data.Equipment, slot)
+end
+
+function Item:__ClientEquip(player, slot)
+	if itemSlots[slot] then
+		equip(self, player, slot)
+		return
+	elseif self.Actions.Equip then
+		if self.Actions.Equip[slot] then
+			equip(self, player, slot)
+			return
+		end
 	end
+
+	warn("Attempted to equip to invalid slot.")
+end
+
+function Item:__ClientUnequip(player)
+	local data = DataManager:Get(player)
+	local inv = data.Inventory
+
+	self:SetParent(inv)
 end
 
 return Item

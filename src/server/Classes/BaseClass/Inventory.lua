@@ -19,6 +19,18 @@ Inventory.__Defaults = {
 	MaxWeight = 100,
 }
 
+local baseNew = Inventory.New
+
+function Inventory:New(...)
+	local inv = baseNew(self, ...)
+
+	inv.Updated:Connect(function()
+		inv:__CorrectWV()
+	end)
+
+	return inv
+end
+
 local function truncate(number: number): string
 	local num = tostring(number)
 	local place = string.find(num, ".")
@@ -50,7 +62,13 @@ end
 local function deepCompare(a, b)
 	-- Loop through table A's properties
 	for i, aValue in pairs(a) do
-		if a.__DoNotCopy[i] then
+		if a.__ClassName then
+			if a.__DoNotCopy[i] then
+				continue
+			end
+		end
+
+		if i == "Amount" then
 			continue
 		end
 
@@ -92,27 +110,29 @@ local function addItem(inventory, item)
 
 	if #items > 0 then
 		for i = 1, #inventory + 1 do
-			local other = items[i]
-			if not other then
-				continue
+			if i == #inventory + 1 then
+				table.insert(inventory, item)
+				item.Index = i
+				break
 			end
-			other.Index = i
+
+			local other = items[i]
 
 			if same(item, other) then
 				other:AddAmount(item.Amount)
 				break
-			else
-				if not sort(item, other) then
-					table.insert(inventory, i, item)
-					item.Index = i
-					break
-				end
+			elseif not sort(item, other) then
+				table.insert(inventory, i, item)
+				item.Index = i
+				break
 			end
 		end
 	else
 		table.insert(inventory, 1, item)
 		item.Index = 1
 	end
+
+	inventory:CorrectIndices()
 end
 
 -- Receive child and set to proper index.
@@ -130,45 +150,50 @@ function Inventory:ChildAdded(child, customIndex)
 	else
 		-- Set item to the proper index.
 		addItem(self, child)
-
-		-- Add volume and weight.
-		self.Volume += (child.Properties.Volume * child.Amount)
-		self.Weight += (child.Properties.Weight * child.Amount)
 	end
 
 	-- Fire updated
 	self.Updated:Fire()
-
-	print(self)
 end
 
 function Inventory:ChildRemoved(index)
-	self.Volume -= self[index].Properties.Volume
-	self.Weight -= self[index].Properties.Weight
 	table.remove(self, index)
 
+	self:CorrectIndices()
+
+	self.Updated:Fire()
+end
+
+function Inventory:CorrectIndices()
 	for i, item in pairs(self:GetItems()) do
 		item.Index = i
 	end
+end
 
-	self.Updated:Fire()
-	print(self)
+function Inventory:__CorrectWV()
+	self.Volume = 0
+	self.Weight = 0
+
+	for _, item in pairs(self:GetItems()) do
+		self.Volume += item.Properties.Volume * item.Amount
+		self.Weight += item.Properties.Weight * item.Amount
+	end
 end
 
 function Inventory:CanHold(item)
 	-- *STRINGS* for display only.
-	local itemVolume = truncate(item.Properties.Volume)
+	local itemVolume = truncate(item.Properties.Volume * item.Amount)
 	local remainingVolume = truncate(self.MaxVolume - self.Volume)
 
-	if self.Volume + item.Properties.Volume > self.MaxVolume then
+	if self.Volume + (item.Properties.Volume * item.Amount) > self.MaxVolume then
 		return false, "Volume (" .. itemVolume .. ") exceeds remaining volume (" .. remainingVolume .. ")."
 	end
 
 	-- *STRINGS* for display only.
-	local itemWeight = truncate(item.Properties.Weight)
+	local itemWeight = truncate(item.Properties.Weight * item.Amount)
 	local remainingWeight = truncate(self.MaxWeight - self.Weight)
 
-	if self.Weight + item.Properties.Weight > self.MaxWeight then
+	if self.Weight + (item.Properties.Weight * item.Amount) > self.MaxWeight then
 		return false, "Weight (" .. itemWeight .. ") exceeds remaining weight (" .. remainingWeight .. ")."
 	end
 

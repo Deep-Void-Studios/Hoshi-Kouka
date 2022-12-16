@@ -179,6 +179,7 @@ function Base:__UpdateSerial()
 
 	if self.__Serial then
 		serial = self.__Serial
+		table.clear(serial)
 	else
 		serial = {}
 		self.__Serial = serial
@@ -254,7 +255,6 @@ end
 
 -- Destroy an object and trigger relevant functions.
 function Base:Destroy()
-	print("Destroying " .. self.__ClassName)
 	self.Removing:Fire()
 
 	self.Updated:Destroy()

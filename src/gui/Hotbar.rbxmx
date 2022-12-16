@@ -7,10 +7,10 @@
       <bool name="ClipToDeviceSafeArea">true</bool>
       <int name="DisplayOrder">10</int>
       <bool name="Enabled">false</bool>
-      <bool name="IgnoreGuiInset">false</bool>
       <bool name="ResetOnSpawn">true</bool>
       <Ref name="RootLocalizationTable">null</Ref>
       <token name="SafeAreaCompatibility">1</token>
+      <token name="ScreenInsets">2</token>
       <token name="SelectionBehaviorDown">0</token>
       <token name="SelectionBehaviorLeft">0</token>
       <token name="SelectionBehaviorRight">0</token>
@@ -631,7 +631,7 @@
             <bool name="ClipsDescendants">false</bool>
             <bool name="Draggable">false</bool>
             <Content name="Image">
-              <url>rbxassetid://10714137631</url>
+              <url>rbxassetid://10714140402</url>
             </Content>
             <Color3 name="ImageColor3">
               <R>1</R>

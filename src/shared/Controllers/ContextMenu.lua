@@ -3,15 +3,11 @@ local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
 
 local player = game:GetService("Players").LocalPlayer
 local mouse = player:GetMouse()
-local menus = player.PlayerGui:WaitForChild("Menu", 30)
+local menus = player:WaitForChild("PlayerGui"):WaitForChild("Menu")
 local main = menus:WaitForChild("main")
 local assets = RS.ClientAssets.GUI
 local buttonTemp = assets.ContextButton
 local subTemp = assets.ContextMenu
-
-if not menus then
-	error("Menu not found.")
-end
 --local menuEntered = false
 
 local subs = { [0] = main }

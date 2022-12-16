@@ -72,21 +72,32 @@ local function setSlot(slot)
 		return
 	end
 
-	local item = equipment[slot]
+	local item = equipment:Get()[slot]
+
 	slot = container[slot]
 
-	if item then
-		slot.icon.Image = item["Image"]
-
-		if slot:FindFirstChild("amount") then
-			slot.amount.Text = item["Amount"]
-		end
-	else
+	if not item then
 		slot.icon.Image = ""
 
 		if slot:FindFirstChild("amount") then
 			slot.amount.Text = ""
 		end
+
+		return
+	end
+
+	item = ClientComm:GetProperty(item)
+
+	if not item:IsReady() then
+		item:OnReady():await()
+	end
+
+	item = item:Get()
+
+	slot.icon.Image = item["Image"]
+
+	if slot:FindFirstChild("amount") then
+		slot.amount.Text = item["Amount"]
 	end
 end
 
@@ -108,7 +119,7 @@ local function equipSlot(slot)
 	if activeTools[slot] then
 		local tool: Tool = activeTools[slot]
 
-		assert(tool, "'Valid' Tool Not Found For Slot " .. slot)
+		assert(tool, "Valid tool not found for slot " .. slot .. ".")
 
 		humanoid:EquipTool(tool)
 	end
@@ -154,17 +165,31 @@ end)
 local function update(slot)
 	setSlot(slot)
 
-	if equipment[slot] then
+	if equipment:Get()[slot] then
 		activeTools[slot] = backpack:WaitForChild(slot, 4)
 	end
 end
 
 local slots = { "Primary", "Secondary", "Pickaxe", "Item1", "Item2", "Item3", "Item4", "Item5" }
 
-equipment.Changed:Connect(function()
+local process = 0
+
+local function updateAll()
+	process += 1
+
+	local id = process
+
 	for _, v in pairs(slots) do
+		if process ~= id then
+			break
+		end
+
 		update(v)
 	end
+end
+
+equipment.Changed:Connect(function()
+	updateAll()
 end)
 
 backpack.ChildAdded:Connect(function(tool)
@@ -189,7 +214,13 @@ for _, button in pairs(container:GetChildren()) do
 			local slot = equipment:Get()[button.Name]
 
 			if slot then
-				local comm = ClientComm:GetSignal(slot.Id)
+				local item = ClientComm:GetProperty(slot)
+
+				if not item:IsReady() then
+					item:OnReady():await()
+				end
+
+				local comm = ClientComm:GetSignal(item:Get().Id)
 
 				comm:Fire("Unequip")
 			else
@@ -198,3 +229,5 @@ for _, button in pairs(container:GetChildren()) do
 		end)
 	end
 end
+
+updateAll()

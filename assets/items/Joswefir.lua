@@ -5,25 +5,22 @@ local data = {
 	Description = "",
 	Type = "Food",
 	Amount = 1,
-	
+
 	Properties = {
 		Volume = 0,
 		Weight = 0,
-		Food = {
-			FillVolume = 100,
-			Calories = 4000,
-			Effects = {}
-		}
+		FoodVolume = 100,
+		Calories = 100,
 	},
-	
+
 	Actions = {
 		Drop = true,
-		DropAll = true
+		DropAll = true,
 	},
-	
+
 	Model = "Joswefir",
-	
-	Image = "rbxassetid://8479248871"
+
+	Image = "rbxassetid://8479248871",
 }
 
 return process(data)

@@ -144,11 +144,7 @@ end
 
 local player = game.Players.LocalPlayer
 local PlayerGui = player.PlayerGui
-local cover = PlayerGui:WaitForChild("Cover", 30)
-
-if not cover then
-	error("Missing cover GUI.")
-end
+local cover = PlayerGui:WaitForChild("Cover")
 
 local function enableCursor()
 	cover.Enabled = true

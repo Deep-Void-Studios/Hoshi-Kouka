@@ -53,9 +53,9 @@ function DataManager.Client:Get(...)
 	local data = self.Server:Get(...)
 
 	if not data then
-		for _ = 1, 5 do
-			task.wait(0.5)
+		for i = 1, 3 do
 			warn("Data not found; Retrying.")
+			task.wait(i)
 			data = self.Server:Get(...)
 
 			if data then
@@ -75,9 +75,17 @@ function DataManager:Reset(player)
 	local id = "Player_" .. player.UserId
 	local profile = profiles[id]
 
-	profile.Character:Destroy()
+	if profile then
+		profile.Character:Destroy()
 
-	profile.Profile.Data = Character:New().__Serial
+		profile.Profile.Data = Character:New().__Serial
+	else
+		profile = ProfileStore:LoadProfileAsync("Player_" .. player.UserId, "ForceLoad")
+
+		profile.Data = Character:New().__Serial
+
+		profile:Release()
+	end
 
 	player:Kick("Resetting data... Please rejoin.")
 end
@@ -92,6 +100,9 @@ local function SetupProfile(player)
 	local profile = ProfileStore:LoadProfileAsync("Player_" .. player.UserId, "ForceLoad")
 
 	local char = Character:Deserialize(profile.Data)
+
+	print(char)
+
 	profile.Data = char.__Serial
 
 	char:SetPlayer(player)
@@ -157,6 +168,8 @@ end)
 players.PlayerRemoving:Connect(function(player)
 	local id = player.UserId
 	local profile = profiles["Player_" .. id]
+
+	print(profile.Character)
 
 	if profile then
 		profile.Profile:Release()

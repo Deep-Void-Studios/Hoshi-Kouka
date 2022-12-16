@@ -31,7 +31,7 @@ end
 
 local function dropAll(SUBJECT)
 	local signal = ClientComm:GetSignal(SUBJECT.Id)
-	local item = ClientComm:GetProperty(SUBJECT.Id):Get()
+	local item = SUBJECT
 
 	signal:Fire("Drop", item.Amount)
 end

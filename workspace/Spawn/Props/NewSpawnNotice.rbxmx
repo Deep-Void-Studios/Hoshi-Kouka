@@ -31,9 +31,9 @@
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>-3980.2573</X>
-          <Y>1028.5</Y>
-          <Z>-3180.2573</Z>
+          <X>19.742676</X>
+          <Y>260.5</Y>
+          <Z>19.742676</Z>
           <R00>0.70710677</R00>
           <R01>0</R01>
           <R02>0.7071068</R02>
@@ -60,18 +60,18 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3980.2573</X>
-          <Y>1029</Y>
-          <Z>-3180.2573</Z>
-          <R00>0.70710677</R00>
+          <X>19.742676</X>
+          <Y>261</Y>
+          <Z>19.742676</Z>
+          <R00>0.7071067</R00>
           <R01>0</R01>
-          <R02>0.70710677</R02>
+          <R02>0.7071068</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>-0.70710677</R20>
+          <R20>-0.7071067</R20>
           <R21>0</R21>
-          <R22>0.70710677</R22>
+          <R22>0.7071068</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>
@@ -260,7 +260,7 @@
     <Item class="Part" referent="4">
       <Properties>
         <string name="Name">Part</string>
-        <bool name="Anchored">false</bool>
+        <bool name="Anchored">true</bool>
         <BinaryString name="AttributesSerialize"></BinaryString>
         <float name="BackParamA">-0.5</float>
         <float name="BackParamB">0.5</float>
@@ -271,18 +271,18 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3980.2573</X>
-          <Y>1025.5</Y>
-          <Z>-3180.2573</Z>
-          <R00>0.70710677</R00>
+          <X>19.742676</X>
+          <Y>257.5</Y>
+          <Z>19.742676</Z>
+          <R00>0.7071067</R00>
           <R01>0</R01>
-          <R02>0.7071068</R02>
+          <R02>0.7071069</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>-0.70710677</R20>
+          <R20>-0.7071067</R20>
           <R21>0</R21>
-          <R22>0.7071068</R22>
+          <R22>0.7071069</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>
@@ -303,7 +303,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">512</token>
         <string name="MaterialVariantSerialized"></string>
@@ -355,7 +355,7 @@
     <Item class="Part" referent="5">
       <Properties>
         <string name="Name">Part</string>
-        <bool name="Anchored">false</bool>
+        <bool name="Anchored">true</bool>
         <BinaryString name="AttributesSerialize"></BinaryString>
         <float name="BackParamA">-0.5</float>
         <float name="BackParamB">0.5</float>
@@ -366,18 +366,18 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3975.3076</X>
-          <Y>1028.5</Y>
-          <Z>-3185.207</Z>
+          <X>24.692251</X>
+          <Y>260.5</Y>
+          <Z>14.7931</Z>
           <R00>0</R00>
-          <R01>0.7071068</R01>
-          <R02>0.7071068</R02>
+          <R01>0.70710677</R01>
+          <R02>0.7071069</R02>
           <R10>-1</R10>
           <R11>0</R11>
           <R12>0</R12>
           <R20>0</R20>
-          <R21>-0.7071068</R21>
-          <R22>0.7071068</R22>
+          <R21>-0.70710677</R21>
+          <R22>0.7071069</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>
@@ -398,7 +398,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">512</token>
         <string name="MaterialVariantSerialized"></string>
@@ -450,7 +450,7 @@
     <Item class="Part" referent="6">
       <Properties>
         <string name="Name">Part</string>
-        <bool name="Anchored">false</bool>
+        <bool name="Anchored">true</bool>
         <BinaryString name="AttributesSerialize"></BinaryString>
         <float name="BackParamA">-0.5</float>
         <float name="BackParamB">0.5</float>
@@ -461,18 +461,18 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3980.2573</X>
-          <Y>1032.5</Y>
-          <Z>-3180.2573</Z>
-          <R00>0.70710677</R00>
+          <X>19.742676</X>
+          <Y>264.5</Y>
+          <Z>19.742676</Z>
+          <R00>0.7071067</R00>
           <R01>0</R01>
-          <R02>0.7071068</R02>
+          <R02>0.7071069</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>-0.70710677</R20>
+          <R20>-0.7071067</R20>
           <R21>0</R21>
-          <R22>0.7071068</R22>
+          <R22>0.7071069</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>
@@ -493,7 +493,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">512</token>
         <string name="MaterialVariantSerialized"></string>
@@ -545,7 +545,7 @@
     <Item class="Part" referent="7">
       <Properties>
         <string name="Name">Part</string>
-        <bool name="Anchored">false</bool>
+        <bool name="Anchored">true</bool>
         <BinaryString name="AttributesSerialize"></BinaryString>
         <float name="BackParamA">-0.5</float>
         <float name="BackParamB">0.5</float>
@@ -556,18 +556,18 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-3985.207</X>
-          <Y>1028.5</Y>
-          <Z>-3175.3076</Z>
+          <X>14.792929</X>
+          <Y>260.5</Y>
+          <Z>24.692423</Z>
           <R00>0</R00>
-          <R01>0.7071068</R01>
-          <R02>0.7071068</R02>
+          <R01>0.70710677</R01>
+          <R02>0.7071069</R02>
           <R10>-1</R10>
           <R11>0</R11>
           <R12>0</R12>
           <R20>0</R20>
-          <R21>-0.7071068</R21>
-          <R22>0.7071068</R22>
+          <R21>-0.70710677</R21>
+          <R22>0.7071069</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>
@@ -588,7 +588,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">512</token>
         <string name="MaterialVariantSerialized"></string>

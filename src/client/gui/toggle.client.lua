@@ -35,7 +35,6 @@ for _, gui in pairs(playerGui:GetChildren()) do
 		if gui:GetAttribute("defaultToggle") == true then
 			animLib.makeOpaque(gui)
 		elseif gui:GetAttribute("defaultToggle") == false then
-			print(gui)
 			animLib.makeTransparent(gui)
 		end
 	end

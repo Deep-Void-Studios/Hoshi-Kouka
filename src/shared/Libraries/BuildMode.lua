@@ -9,18 +9,47 @@ local digmaterial = gui.Dig.Material
 local digpercent = gui.Dig.Percent
 local digtier = gui.Dig.Tier
 local digcooldown = gui.Cooldown
+local materials = gui.Materials.Container
 local ToggleGui = require(script.Parent.ToggleGui)
 local Sound = require(script.Parent.Sounds)
 local UIS = game:GetService("UserInputService")
 local RS = game:GetService("RunService")
-local cursor = game:GetService("ReplicatedStorage").ClientAssets.Models:WaitForChild("Cursor")
+local clientAssets = game:GetService("ReplicatedStorage").ClientAssets
+local cursor = clientAssets.Models:WaitForChild("Cursor")
+local materialButton = clientAssets.GUI:WaitForChild("MaterialButton")
 local digEvent = game.ReplicatedStorage.Events.Dig
--- local placeEvent = game.ReplicatedStorage.Events.Place
-local TerrainMaterials = require(game.ReplicatedStorage.TerrainMaterials)
+local placeEvent = game.ReplicatedStorage.Events.Place
+local TerrainMaterials = require(game.ReplicatedStorage.Libraries.TerrainMaterials)
+local Knit = require(game.ReplicatedStorage.Packages.Knit)
+local ClientComm = require(Knit.Util.Comm).ClientComm.new(game:GetService("ReplicatedStorage").Comm, false, "ClassComm")
+
+Knit.OnStart():await()
+
+local DataManager = Knit.GetService("DataManager")
+local _, dataId = DataManager:Get(player):await()
+local data = ClientComm:GetProperty(dataId)
+data:OnReady():await()
+local inventory = ClientComm:GetProperty(data:Get().Inventory)
+inventory:OnReady():await()
+
+local selectedProperties = {
+	["BackgroundColor3"] = Color3.fromRGB(45, 38, 36),
+	["BorderColor3"] = Color3.fromRGB(214, 181, 96),
+	["BorderSizePixel"] = 4,
+	["ZIndex"] = 10,
+}
+
+local deselectedProperties = {
+	["BackgroundColor3"] = Color3.fromRGB(21, 18, 17),
+	["BorderColor3"] = Color3.fromRGB(42, 37, 34),
+	["BorderSizePixel"] = 3,
+	["ZIndex"] = 1,
+}
 
 local offset = Vector3.new(2, 2, 2)
 local reachDistance = 12
-BuildMode.SelectedMaterial = nil
+BuildMode.SelectedItem = nil
+BuildMode.PlacementSize = 0.25
 
 local blacklist = { "Hotbar" }
 local enabled = {}
@@ -113,7 +142,7 @@ local function UpdateVoxelGui(material, occupancy)
 		gui.Dig.Visible = true
 		digcooldown.Visible = true
 
-		material = TerrainMaterials:GetMaterial(material)
+		material = TerrainMaterials:GetMaterial(material.Name)
 
 		digbar.Size = UDim2.new(occupancy, 0, 1, 0)
 		digmaterial.Text = material.Material.Name
@@ -149,21 +178,32 @@ local function UpdateCursor()
 				local pos = Terrain:CellCenterToWorld(cell.X, cell.Y, cell.Z)
 				local material, occupancy = Terrain:ReadVoxels(Region3.new(pos - offset, pos + offset), 4)
 				occupancy = occupancy[1][1][1]
+				material = material[1][1][1]
 
-				if occupancy == 1 or material ~= BuildMode.SelectedMaterial then
+				local mat
+
+				if BuildMode.SelectedItem then
+					mat = BuildMode.SelectedItem.Name
+				end
+
+				if occupancy == 1 or (material.Name ~= mat and occupancy > 0) then
 					cell = Terrain:WorldToCellPreferEmpty(raycast.Position)
 					pos = Terrain:CellCenterToWorld(cell.X, cell.Y, cell.Z)
 					local _, occ = Terrain:ReadVoxels(Region3.new(pos - offset, pos + offset), 4)
 
+					occ = occ[1][1][1]
+
 					if occ ~= 0 then
+						if cursor.Parent == workspace then
+							cursor.Parent = script
+						end
+
+						DisableVoxelGui()
+
 						return
 					end
 				end
 			end
-
-			--if not cell then
-
-			--end
 
 			local pos = Terrain:CellCenterToWorld(cell.X, cell.Y, cell.Z)
 
@@ -178,7 +218,7 @@ local function UpdateCursor()
 				end
 			end
 
-			if cursor and pos then
+			if pos then
 				if cursor.Parent == script then
 					cursor.Parent = workspace
 				end
@@ -302,9 +342,7 @@ local function playSound(material)
 	end
 end
 
-local function findTool(path)
-	local name = path[#path]
-
+local function findTool(name)
 	if backpack:FindFirstChild(name) then
 		return backpack[name]
 	elseif player.Character:FindFirstChild(name) then
@@ -344,7 +382,7 @@ local function getVoxel()
 		return
 	end
 
-	return TerrainMaterials:GetMaterial(material[1][1][1]), occupancy[1][1][1]
+	return TerrainMaterials:GetMaterial(material[1][1][1].Name), occupancy[1][1][1]
 end
 
 local function loopDig()
@@ -376,7 +414,7 @@ local function loopDig()
 		playSound(material.Name)
 
 		-- Get TerrainMaterial object
-		material = TerrainMaterials:GetMaterial(material)
+		material = TerrainMaterials:GetMaterial(material.Name)
 
 		-- Find tool and get cooldown
 		local tool = findTool(material.Tool)
@@ -405,7 +443,7 @@ local function loopDig()
 
 		-- Animate bar and wait until the cooldown finishes
 		cooldownAnim(cooldown)
-		wait(cooldown)
+		task.wait(cooldown)
 	end
 
 	-- No longer running
@@ -424,28 +462,77 @@ local function loopPlacement()
 		if not player.Character then
 			break
 		end
-		if not BuildMode.SelectedMaterial then
+		if not BuildMode.SelectedItem then
+			Sound:Play({ "Generic", "error3" })
 			break
 		end
-		if mode ~= "Build" then
+		if mode ~= "Place" then
 			break
 		end
 		if cursor.Parent ~= workspace then
 			break
 		end
 
+		local cooldown = (BuildMode.PlacementSize * 2) + 0.5
+
+		-- Set debounce
+		db_next = tick() + cooldown
+
 		local material, occupancy = getVoxel()
 
-		if (material ~= BuildMode.SelectedMaterial and occupancy > 0) and material ~= Enum.Material.Air then
+		if material then
+			if (material.Name ~= BuildMode.SelectedItem.Name and occupancy > 0) and material ~= Enum.Material.Air then
+				break
+			end
+		end
+
+		local pos = cursor.Position
+
+		playSound(BuildMode.SelectedItem.Name)
+
+		local index = table.find(inventory:Get(), BuildMode.SelectedItem.Id)
+
+		if not index then
 			break
 		end
 
-		-- TODO
-		-- Place material
+		local success = placeEvent:InvokeServer(pos, index, BuildMode.PlacementSize)
+
+		if not success then
+			Sound:Play({ "Generic", "error3" })
+			break
+		end
+
+		-- Animate bar and wait until the cooldown finishes
+		cooldownAnim(cooldown)
+		task.wait(cooldown)
 	end
 
 	-- No longer running
 	running = false
+end
+
+local selectedButton = gui.Mode.Dig
+
+local function setMode(new)
+	if new == mode then
+		return
+	end
+
+	if selectedButton then
+		for i, v in pairs(deselectedProperties) do
+			selectedButton[i] = v
+		end
+	end
+
+	local button = gui.Mode[new]
+
+	for i, v in pairs(selectedProperties) do
+		button[i] = v
+	end
+
+	mode = new
+	selectedButton = button
 end
 
 -- Connect function on input
@@ -465,10 +552,10 @@ UIS.InputBegan:Connect(function(input, ignored)
 		end
 	elseif input.KeyCode == Enum.KeyCode.One and not ignored and BuildMode.Enabled then
 		-- Set mode to dig if pressing 1
-		mode = "Dig"
+		setMode("Dig")
 	elseif input.KeyCode == Enum.KeyCode.Two and not ignored and BuildMode.Enabled then
 		-- Set mode to build if pressing 2
-		mode = "Build"
+		setMode("Place")
 	end
 end)
 
@@ -477,5 +564,98 @@ UIS.InputEnded:Connect(function(input)
 		holding = false
 	end
 end)
+
+local selected
+
+local function setButton(item)
+	local button = materials:FindFirstChild(item.Id)
+	local isNew = false
+
+	if not button then
+		button = materialButton:Clone()
+		isNew = true
+	end
+
+	button.Name = item.Id
+	button.Image = item.Image
+	button.Amount.Text = truncate(item.Amount)
+	button.Title.Text = item.Name
+
+	if isNew then
+		button.Parent = materials
+
+		button.Activated:Connect(function()
+			if not item.Id then
+				warn("Item is deleted.")
+				return
+			end
+
+			local exists = table.find(inventory:Get(), item.Id)
+
+			if not exists then
+				warn("Item not found.")
+				return
+			end
+
+			Sound:Play({ "Generic", "click1" })
+
+			if selected then
+				if selected.Parent then
+					selected.Title.FontFace = Font.fromEnum(Enum.Font.SourceSans)
+					selected.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+				end
+			end
+
+			button.Title.FontFace = Font.fromEnum(Enum.Font.SourceSansBold)
+			button.Title.TextColor3 = Color3.fromRGB(255, 255, 0)
+
+			selected = button
+
+			BuildMode.SelectedItem = item
+		end)
+	end
+end
+
+local function updateInventory()
+	local inv = inventory:Get()
+
+	for _, button in pairs(materials:GetChildren()) do
+		if button:IsA("UIGridStyleLayout") then
+			continue
+		end
+
+		local found = false
+
+		for _, v in pairs(inv) do
+			if v == button.Name then
+				found = true
+			end
+		end
+
+		if not found then
+			button:Destroy()
+		end
+	end
+
+	for i, id in pairs(inv) do
+		if not tonumber(i) then
+			continue
+		end
+
+		local property = ClientComm:GetProperty(id)
+
+		if not property:IsReady() then
+			property:OnReady():await()
+		end
+
+		local item = property:Get()
+
+		if item.Type == "TerrainMaterial" then
+			setButton(item)
+		end
+	end
+end
+
+inventory.Changed:Connect(updateInventory)
 
 return BuildMode
