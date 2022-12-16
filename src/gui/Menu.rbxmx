@@ -7,7 +7,7 @@
       <bool name="ClipToDeviceSafeArea">true</bool>
       <int name="DisplayOrder">999</int>
       <bool name="Enabled">true</bool>
-      <bool name="ResetOnSpawn">true</bool>
+      <bool name="ResetOnSpawn">false</bool>
       <Ref name="RootLocalizationTable">null</Ref>
       <token name="SafeAreaCompatibility">1</token>
       <token name="ScreenInsets">2</token>
