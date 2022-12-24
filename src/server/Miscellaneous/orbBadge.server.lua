@@ -1,4 +1,4 @@
-local subject = workspace.Spawn["Easter Eggs"].Orb.CreationOrb
+local subject = workspace.Spawn.Other.Orb.CreationOrb
 local BadgeService = game:GetService("BadgeService")
 local badgeId = 2128058548
 

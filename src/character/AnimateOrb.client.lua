@@ -1,6 +1,6 @@
 local RS = game:GetService("RunService")
 local player = game.Players.LocalPlayer
-local orb = workspace:WaitForChild("Spawn"):WaitForChild("Easter Eggs"):WaitForChild("Orb"):WaitForChild("CreationOrb")
+local orb = workspace:WaitForChild("Spawn"):WaitForChild("Other"):WaitForChild("Orb"):WaitForChild("CreationOrb")
 
 local rings = { orb:WaitForChild("Red"), orb:WaitForChild("Green"), orb:WaitForChild("Blue") }
 local speeds = {

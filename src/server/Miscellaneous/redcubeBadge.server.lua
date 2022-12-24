@@ -1,4 +1,4 @@
-local subject = workspace.Spawn["Easter Eggs"].Redcube.Redcube
+local subject = workspace.Spawn.Other.House.Redcube
 local BadgeService = game:GetService("BadgeService")
 local badgeId = 2128058344
 

@@ -1,25 +1,16 @@
-local orb = workspace.Spawn["Easter Eggs"].Orb.CreationOrb
+local contentProvider = game:GetService("ContentProvider")
+local orb = workspace.Spawn.Other.Orb.CreationOrb
 local template = Instance.new("Explosion")
-template.BlastPressure = 50000
-template.BlastRadius = 16
+template.BlastPressure = 30000
+template.BlastRadius = 12
 template.DestroyJointRadiusPercent = 0
 template.ExplosionType = Enum.ExplosionType.NoCraters
 
-local sounds = {
-	9113698849,
-	9113697855,
-	9113701283,
-	9113698846,
-	9113701324,
-	9113700252,
-	9113695539,
-	9113699196,
-	9113698650,
-	9113700733,
-	9113697182,
-}
+local sounds = game:GetService("SoundService").SFX.Explosion:GetChildren()
 
-while task.wait(0.1) do
+contentProvider:PreloadAsync(sounds)
+
+while task.wait(0.2) do
 	local nearby = false
 
 	for _, v in pairs(game.Players:GetPlayers()) do
@@ -48,8 +39,7 @@ while task.wait(0.1) do
 
 		local pos = orb.Position + displacement
 
-		local sound: Sound = Instance.new("Sound")
-		sound.SoundId = sounds[math.random(1, 6)]
+		local sound: Sound = sounds[math.random(1, 8)]:Clone()
 		sound.Parent = orb
 
 		local distortion = Instance.new("DistortionSoundEffect")
