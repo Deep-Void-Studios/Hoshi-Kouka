@@ -1,5 +1,4 @@
 local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
-local Signal = require(Knit.Util.Signal)
 
 Knit.OnStart():await()
 
@@ -7,12 +6,12 @@ local Item = Knit.GetService("Item")
 
 local function processData(data)
 	local item = Item:New()
-	
+
 	for i, v in pairs(data) do
-		item[i]	= v
+		item[i] = v
 	end
-	
+
 	return item
 end
 
-return {Process = processData}
+return { Process = processData }
