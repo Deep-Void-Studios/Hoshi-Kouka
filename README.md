@@ -5,82 +5,15 @@ You can join the server on [Guilded](guilded.gg/hoshi-kouka) or [Discord](https:
 
 ## Table of contents
 
-- [Test](#Test)
+- [Concept](#Concept)
+- [Roadmap](#Roadmap)
+- [Contributing](#Contributing)
 
-  - [Test2](#Test2)
+## Concept
+-- todo
 
+## Roadmap
+-- todo
 
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-# Test
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-## Test2
-
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
-
-***
+## Contributing
+-- todo
