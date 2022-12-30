@@ -6,5 +6,9 @@ You can join the server on [Guilded](guilded.gg/hoshi-kouka) or [Discord](https:
 ## Table of contents
 
 [Test](#Test)
+[Test2](#Test2)
 
 # Test
+
+## Test2
+
