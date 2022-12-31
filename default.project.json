@@ -6,7 +6,18 @@
     
     "Workspace": {
       "$className": "Workspace",
-      "$path": "workspace"
+      "$path": "workspace",
+      "$properties": {
+        "Gravity": 64,
+        "StreamingMinRadius": 64,
+        "StreamingTargetRadius": 2048
+      }
+    },
+    
+    "Players": {
+      "$properties": {
+        "RespawnTime": 3
+      }
     },
 
     "ReplicatedStorage": {
@@ -36,6 +47,17 @@
 
     "StarterPlayer": {
       "$className": "StarterPlayer",
+      "$properties": {
+        "CameraMaxZoomDistance": 24,
+        "CameraMinZoomDistance": 0.5,
+        "HealthDisplayDistance": 8,
+        "NameDisplayDistance": 16,
+        "CharacterMaxSlopeAngle": 45,
+        "CharacterWalkSpeed": 8,
+        "CharacterJumpHeight": 8,
+        "CharacterUseJumpPower": false,
+        "EnableMouseLockOption": false
+      },
       
       "StarterPlayerScripts": {
         "$path": "src/client"
@@ -47,7 +69,36 @@
     },
     
     "Lighting": {
-      "$path": "src/lighting.rbxmx"
+      "$path": "src/lighting.rbxmx",
+      "$properties": {
+        "Ambient": [
+          0,
+          0,
+          0
+        ],
+        "Brightness": 2,
+        "ColorShift_Top": [
+          0,
+          0,
+          0
+        ],
+        "ColorShift_Bottom": [
+          0,
+          0,
+          0
+        ],
+        "EnvironmentDiffuseScale": 1,
+        "EnvironmentSpecularScale": 1,
+        "GlobalShadows": true,
+        "OutdoorAmbient": [
+          0.27450980392,
+          0.27450980392,
+          0.27450980392
+        ],
+        "ClockTime": 9,
+        "GeographicLatitude": 36.205,
+        "ExposureCompensation": 0
+      }
     },
     
     "MaterialService": {
@@ -55,7 +106,10 @@
     },
     
     "SoundService": {
-      "$path": "audio"
+      "$path": "audio",
+      "$properties": {
+        "AmbientReverb": "Forest"
+      }
     },
     
     "Chat": {
