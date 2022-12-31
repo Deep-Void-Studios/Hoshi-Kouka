@@ -31,9 +31,9 @@
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>29.357975</X>
-          <Y>4093.464</Y>
-          <Z>103.675095</Z>
+          <X>27.435463</X>
+          <Y>4107.4653</Y>
+          <Z>104.80194</Z>
           <R00>0.069582075</R00>
           <R01>0.00021859922</R01>
           <R02>-0.99757624</R02>
@@ -77,7 +77,7 @@
         <bool name="CanQuery">true</bool>
         <bool name="CanTouch">true</bool>
         <bool name="CastShadow">true</bool>
-        <string name="CollisionGroup">Default</string>
+        <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
         <int name="CollisionGroupId">0</int>
         <Color3uint8 name="Color3uint8">10724005</Color3uint8>
         <PhysicalProperties name="CustomPhysicalProperties">
@@ -95,7 +95,8 @@
         <bool name="Locked">false</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1312</token>
-        <string name="MaterialVariantSerialized"></string>
+        <BinaryString name="MaterialVariantSerialized">
+        </BinaryString>
         <CoordinateFrame name="PivotOffset">
           <X>0</X>
           <Y>0</Y>
@@ -204,7 +205,7 @@
         <bool name="CanQuery">true</bool>
         <bool name="CanTouch">true</bool>
         <bool name="CastShadow">true</bool>
-        <string name="CollisionGroup">Default</string>
+        <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
         <int name="CollisionGroupId">0</int>
         <Color3uint8 name="Color3uint8">10724005</Color3uint8>
         <PhysicalProperties name="CustomPhysicalProperties">
@@ -236,7 +237,8 @@
         <bool name="Locked">false</bool>
         <bool name="Massless">false</bool>
         <token name="Material">256</token>
-        <string name="MaterialVariantSerialized"></string>
+        <BinaryString name="MaterialVariantSerialized">
+        </BinaryString>
         <Content name="MeshId">
           <url>rbxassetid://743205420</url>
         </Content>

@@ -8,15 +8,15 @@
         <X>-177.4933</X>
         <Y>4100.2734</Y>
         <Z>51.21409</Z>
-        <R00>0.000000000000000000000000000000211255</R00>
-        <R01>-0.0000000000000000026427935</R01>
+        <R00>0</R00>
+        <R01>0</R01>
         <R02>-1</R02>
-        <R10>-0.00000000000015987252</R10>
+        <R10>0</R10>
         <R11>1</R11>
-        <R12>0.0000000000000000026427935</R12>
+        <R12>0</R12>
         <R20>1</R20>
-        <R21>-0.00000000000015987252</R21>
-        <R22>-0.000000000000000000000000000000211255</R22>
+        <R21>0</R21>
+        <R22>0</R22>
       </CoordinateFrame>
       <SharedString name="ModelMeshData">saK3hr6DWs3D3IUR8UPGvQ==</SharedString>
       <Vector3 name="ModelMeshSize">
@@ -32,17 +32,17 @@
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>-177.4933</X>
-          <Y>4098.275</Y>
-          <Z>51.21414</Z>
-          <R00>1</R00>
+          <Y>4100.2734</Y>
+          <Z>51.21409</Z>
+          <R00>0</R00>
           <R01>0</R01>
-          <R02>0</R02>
+          <R02>-1</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>0</R20>
+          <R20>1</R20>
           <R21>0</R21>
-          <R22>1</R22>
+          <R22>0</R22>
         </CFrame>
       </OptionalCoordinateFrame>
     </Properties>
@@ -63,21 +63,21 @@
           <X>-177.46178</X>
           <Y>4099.6284</Y>
           <Z>51.30326</Z>
-          <R00>0.00000000000000000000000000000021125418</R00>
-          <R01>-0.0000000000000000026427883</R01>
+          <R00>0</R00>
+          <R01>0</R01>
           <R02>-1</R02>
-          <R10>-0.00000000000015987222</R10>
+          <R10>0</R10>
           <R11>1</R11>
-          <R12>0.0000000000000000026427883</R12>
+          <R12>0</R12>
           <R20>1</R20>
-          <R21>-0.00000000000015987222</R21>
-          <R22>-0.00000000000000000000000000000021125418</R22>
+          <R21>0</R21>
+          <R22>0</R22>
         </CoordinateFrame>
         <bool name="CanCollide">false</bool>
         <bool name="CanQuery">true</bool>
         <bool name="CanTouch">true</bool>
         <bool name="CastShadow">true</bool>
-        <string name="CollisionGroup">Default</string>
+        <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
         <int name="CollisionGroupId">0</int>
         <Color3uint8 name="Color3uint8">10724005</Color3uint8>
         <PhysicalProperties name="CustomPhysicalProperties">
@@ -109,7 +109,8 @@
         <bool name="Locked">false</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1296</token>
-        <string name="MaterialVariantSerialized"></string>
+        <BinaryString name="MaterialVariantSerialized">
+        </BinaryString>
         <Content name="MeshId">
           <url>rbxassetid://1242075232</url>
         </Content>
@@ -209,21 +210,21 @@
           <X>-177.4933</X>
           <Y>4100.2734</Y>
           <Z>51.21409</Z>
-          <R00>0.000000000000000000000000000000211255</R00>
-          <R01>-0.0000000000000000026427935</R01>
+          <R00>0</R00>
+          <R01>0</R01>
           <R02>-1</R02>
-          <R10>-0.00000000000015987252</R10>
+          <R10>0</R10>
           <R11>1</R11>
-          <R12>0.0000000000000000026427935</R12>
+          <R12>0</R12>
           <R20>1</R20>
-          <R21>-0.00000000000015987252</R21>
-          <R22>-0.000000000000000000000000000000211255</R22>
+          <R21>0</R21>
+          <R22>0</R22>
         </CoordinateFrame>
         <bool name="CanCollide">false</bool>
         <bool name="CanQuery">true</bool>
         <bool name="CanTouch">true</bool>
         <bool name="CastShadow">true</bool>
-        <string name="CollisionGroup">Default</string>
+        <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
         <int name="CollisionGroupId">0</int>
         <Color3uint8 name="Color3uint8">10724005</Color3uint8>
         <PhysicalProperties name="CustomPhysicalProperties">
@@ -255,7 +256,8 @@
         <bool name="Locked">false</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1296</token>
-        <string name="MaterialVariantSerialized"></string>
+        <BinaryString name="MaterialVariantSerialized">
+        </BinaryString>
         <Content name="MeshId">
           <url>rbxassetid://1242072958</url>
         </Content>

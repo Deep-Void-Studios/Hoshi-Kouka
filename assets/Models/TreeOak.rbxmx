@@ -9,13 +9,13 @@
         <Y>4114.6807</Y>
         <Z>-22.233276</Z>
         <R00>-1</R00>
-        <R01>0.00000000011641532</R01>
-        <R02>0.000000000000000000007019832</R02>
-        <R10>-0.00000000011641532</R10>
+        <R01>0</R01>
+        <R02>0</R02>
+        <R10>0</R10>
         <R11>1</R11>
-        <R12>0.00000000012083581</R12>
-        <R20>0.000000000000000000007019832</R20>
-        <R21>-0.00000000012083581</R21>
+        <R12>0</R12>
+        <R20>0</R20>
+        <R21>0</R21>
         <R22>-1</R22>
       </CoordinateFrame>
       <SharedString name="ModelMeshData">UWTu29N7l7V3DmyjgqGnJw==</SharedString>
@@ -31,17 +31,17 @@
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>-23.280106</X>
-          <Y>4097.6807</Y>
-          <Z>-24.233276</Z>
+          <X>-22.280106</X>
+          <Y>4114.6807</Y>
+          <Z>-22.233276</Z>
           <R00>-1</R00>
-          <R01>0.00000000011641532</R01>
-          <R02>0.000000000000000000007019832</R02>
-          <R10>-0.00000000011641532</R10>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
           <R11>1</R11>
-          <R12>0.00000000012083581</R12>
-          <R20>0.000000000000000000007019832</R20>
-          <R21>-0.00000000012083581</R21>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
           <R22>-1</R22>
         </CFrame>
       </OptionalCoordinateFrame>
@@ -64,20 +64,20 @@
           <Y>4114.6807</Y>
           <Z>-22.233276</Z>
           <R00>-1</R00>
-          <R01>0.00000000011641532</R01>
-          <R02>0.000000000000000000007019832</R02>
-          <R10>-0.00000000011641532</R10>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
           <R11>1</R11>
-          <R12>0.00000000012083581</R12>
-          <R20>0.000000000000000000007019832</R20>
-          <R21>-0.00000000012083581</R21>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
           <R22>-1</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>
         <bool name="CanTouch">true</bool>
         <bool name="CastShadow">true</bool>
-        <string name="CollisionGroup">Default</string>
+        <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
         <int name="CollisionGroupId">0</int>
         <Color3uint8 name="Color3uint8">7101766</Color3uint8>
         <PhysicalProperties name="CustomPhysicalProperties">
@@ -109,7 +109,8 @@
         <bool name="Locked">false</bool>
         <bool name="Massless">false</bool>
         <token name="Material">800</token>
-        <string name="MaterialVariantSerialized"></string>
+        <BinaryString name="MaterialVariantSerialized">
+        </BinaryString>
         <Content name="MeshId">
           <url>rbxassetid://10276319240</url>
         </Content>
@@ -460,20 +461,20 @@
           <Y>4123.0693</Y>
           <Z>-23.523132</Z>
           <R00>-1</R00>
-          <R01>0.00000000011641532</R01>
-          <R02>0.000000000000000000007019832</R02>
-          <R10>-0.00000000011641532</R10>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
           <R11>1</R11>
-          <R12>0.00000000012083581</R12>
-          <R20>0.000000000000000000007019832</R20>
-          <R21>-0.00000000012083581</R21>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
           <R22>-1</R22>
         </CoordinateFrame>
         <bool name="CanCollide">false</bool>
         <bool name="CanQuery">true</bool>
         <bool name="CanTouch">true</bool>
         <bool name="CastShadow">true</bool>
-        <string name="CollisionGroup">Default</string>
+        <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
         <int name="CollisionGroupId">0</int>
         <Color3uint8 name="Color3uint8">10724005</Color3uint8>
         <PhysicalProperties name="CustomPhysicalProperties">
@@ -491,7 +492,8 @@
         <bool name="Locked">false</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1312</token>
-        <string name="MaterialVariantSerialized"></string>
+        <BinaryString name="MaterialVariantSerialized">
+        </BinaryString>
         <CoordinateFrame name="PivotOffset">
           <X>0</X>
           <Y>0</Y>
@@ -578,13 +580,13 @@
           <Y>8.388794</Y>
           <Z>1.289856</Z>
           <R00>1</R00>
-          <R01>-0.00000000023283064</R01>
-          <R02>-0.000000000000000000028106806</R02>
-          <R10>-0.00000000023283064</R10>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
           <R11>1</R11>
-          <R12>0.00000000024167163</R12>
-          <R20>-0.000000000000000000028106806</R20>
-          <R21>0.00000000024167163</R21>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
           <R22>1</R22>
         </CoordinateFrame>
         <Ref name="Part0Internal">1</Ref>

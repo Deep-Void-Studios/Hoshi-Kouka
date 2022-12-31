@@ -32,17 +32,17 @@
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>1.35611</X>
-          <Y>5261.4976</Y>
+          <Y>5263.4976</Y>
           <Z>-92.24482</Z>
-          <R00>0.0000002980243</R00>
-          <R01>0.00000007450592</R01>
-          <R02>1.0000036</R02>
-          <R10>-0.00000014901187</R10>
+          <R00>0.00000005960469</R00>
+          <R01>0.000000014901172</R01>
+          <R02>1.0000007</R02>
+          <R10>-0.000000029802322</R10>
           <R11>1</R11>
-          <R12>0.00000007450591</R12>
-          <R20>-1.0000036</R20>
-          <R21>0.0000001490119</R21>
-          <R22>-0.0000002980243</R22>
+          <R12>0.000000014901161</R12>
+          <R20>-1.0000007</R20>
+          <R21>0.000000029802344</R21>
+          <R22>-0.00000005960469</R22>
         </CFrame>
       </OptionalCoordinateFrame>
     </Properties>
@@ -77,7 +77,7 @@
         <bool name="CanQuery">true</bool>
         <bool name="CanTouch">true</bool>
         <bool name="CastShadow">true</bool>
-        <string name="CollisionGroup">Default</string>
+        <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
         <int name="CollisionGroupId">0</int>
         <Color3uint8 name="Color3uint8">10724005</Color3uint8>
         <PhysicalProperties name="CustomPhysicalProperties">
@@ -109,7 +109,8 @@
         <bool name="Locked">false</bool>
         <bool name="Massless">false</bool>
         <token name="Material">800</token>
-        <string name="MaterialVariantSerialized"></string>
+        <BinaryString name="MaterialVariantSerialized">
+        </BinaryString>
         <Content name="MeshId">
           <url>rbxassetid://10276319232</url>
         </Content>
