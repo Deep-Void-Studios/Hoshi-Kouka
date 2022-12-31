@@ -155,18 +155,18 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>-0.0000038146973</X>
-            <Y>233.99948</Y>
-            <Z>0.00001335144</Z>
-            <R00>0.9028105</R00>
-            <R01>0.38759157</R01>
-            <R02>0.18629567</R02>
-            <R10>-0.13473292</R10>
-            <R11>0.66633105</R11>
-            <R12>-0.7333826</R12>
-            <R20>-0.4083875</R20>
-            <R21>0.6370053</R21>
-            <R22>0.6537919</R22>
+            <X>-0.000015258789</X>
+            <Y>233.9995</Y>
+            <Z>0.000016212463</Z>
+            <R00>0.85079765</R00>
+            <R01>0.18896273</R01>
+            <R02>-0.49034423</R02>
+            <R10>0.32863787</R10>
+            <R11>0.5367893</R11>
+            <R12>0.7770812</R12>
+            <R20>0.4100508</R20>
+            <R21>-0.8222839</R21>
+            <R22>0.39459908</R22>
           </CoordinateFrame>
           <bool name="CanCollide">false</bool>
           <bool name="CanQuery">false</bool>
@@ -174,7 +174,7 @@
           <bool name="CastShadow">true</bool>
           <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
           <int name="CollisionGroupId">0</int>
-          <Color3uint8 name="Color3uint8">10482665</Color3uint8>
+          <Color3uint8 name="Color3uint8">8103091</Color3uint8>
           <PhysicalProperties name="CustomPhysicalProperties">
             <CustomPhysics>false</CustomPhysics>
           </PhysicalProperties>
@@ -276,18 +276,18 @@
           <token name="BottomSurface">0</token>
           <token name="BottomSurfaceInput">0</token>
           <CoordinateFrame name="CFrame">
-            <X>0</X>
+            <X>0.0000038146973</X>
             <Y>234</Y>
-            <Z>0</Z>
-            <R00>0</R00>
-            <R01>-0.9999999</R01>
-            <R02>0</R02>
-            <R10>-0.70710677</R10>
-            <R11>0</R11>
-            <R12>-0.70710677</R12>
-            <R20>0.70710665</R20>
-            <R21>0</R21>
-            <R22>-0.70710665</R22>
+            <Z>-0.000015258789</Z>
+            <R00>0.86237216</R00>
+            <R01>-0.3535533</R01>
+            <R02>0.36237228</R02>
+            <R10>0.07945931</R10>
+            <R11>-0.6123722</R11>
+            <R12>-0.7865659</R12>
+            <R20>0.49999994</R20>
+            <R21>0.7071066</R21>
+            <R22>-0.49999988</R22>
           </CoordinateFrame>
           <bool name="CanCollide">false</bool>
           <bool name="CanQuery">false</bool>
@@ -295,7 +295,7 @@
           <bool name="CastShadow">true</bool>
           <BinaryString name="CollisionGroup"><![CDATA[RGVmYXVsdA==]]></BinaryString>
           <int name="CollisionGroupId">0</int>
-          <Color3uint8 name="Color3uint8">1780277</Color3uint8>
+          <Color3uint8 name="Color3uint8">4331842</Color3uint8>
           <PhysicalProperties name="CustomPhysicalProperties">
             <CustomPhysics>false</CustomPhysics>
           </PhysicalProperties>
@@ -962,7 +962,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">816</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1058,7 +1058,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">816</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1154,7 +1154,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">816</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1250,7 +1250,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">816</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1346,7 +1346,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">816</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1455,7 +1455,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1559,7 +1559,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1072</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1655,7 +1655,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1751,7 +1751,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1847,7 +1847,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -1943,7 +1943,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2039,7 +2039,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2135,7 +2135,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2231,7 +2231,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2327,7 +2327,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2423,7 +2423,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2519,7 +2519,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2615,7 +2615,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2711,7 +2711,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2807,7 +2807,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2903,7 +2903,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -2999,7 +2999,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3095,7 +3095,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3191,7 +3191,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">816</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3287,7 +3287,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3400,7 +3400,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3513,7 +3513,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3626,7 +3626,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3739,7 +3739,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3852,7 +3852,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -3965,7 +3965,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4078,7 +4078,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4191,7 +4191,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4304,7 +4304,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4417,7 +4417,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4530,7 +4530,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4643,7 +4643,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4739,7 +4739,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4835,7 +4835,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -4931,7 +4931,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5027,7 +5027,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5123,7 +5123,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5219,7 +5219,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5315,7 +5315,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5411,7 +5411,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5507,7 +5507,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5603,7 +5603,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5699,7 +5699,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">1056</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5809,7 +5809,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -5930,7 +5930,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -6051,7 +6051,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -6172,7 +6172,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -6293,7 +6293,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -6414,7 +6414,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -6535,7 +6535,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -6656,7 +6656,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -6777,7 +6777,7 @@
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">
@@ -7083,7 +7083,7 @@ end)
         <float name="LeftParamB">0.5</float>
         <token name="LeftSurface">0</token>
         <token name="LeftSurfaceInput">0</token>
-        <bool name="Locked">false</bool>
+        <bool name="Locked">true</bool>
         <bool name="Massless">false</bool>
         <token name="Material">288</token>
         <BinaryString name="MaterialVariantSerialized">

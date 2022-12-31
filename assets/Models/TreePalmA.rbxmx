@@ -32,17 +32,17 @@
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>-167.08485</X>
-          <Y>4099.857</Y>
+          <Y>4100.857</Y>
           <Z>-30.815933</Z>
-          <R00>1</R00>
+          <R00>0</R00>
           <R01>0</R01>
-          <R02>0</R02>
+          <R02>-1</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>0</R20>
+          <R20>1</R20>
           <R21>0</R21>
-          <R22>1</R22>
+          <R22>0</R22>
         </CFrame>
       </OptionalCoordinateFrame>
     </Properties>
@@ -852,7 +852,7 @@
         </BinaryString>
         <CoordinateFrame name="PivotOffset">
           <X>-0.0000038146973</X>
-          <Y>-2</Y>
+          <Y>-1</Y>
           <Z>0</Z>
           <R00>1</R00>
           <R01>0</R01>
