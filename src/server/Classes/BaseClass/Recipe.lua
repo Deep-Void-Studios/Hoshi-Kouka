@@ -1,15 +1,39 @@
---local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
+-- Get Knit Framework
+local Knit = require(game:GetService("ReplicatedStorage").Packages.Knit)
 --local Signal = require(Knit.Util.Signal)
 
+-- Get BaseClass
 local BaseClass = require(script.Parent)
 
+-- Make class
 local Recipe = BaseClass:__MakeClass("Recipe")
 
+-- Which values will be sent to the client?
+-- Note: Objects are always replicated.
 Recipe.__Replicated = {
-	Ingredients = true,
-	Results = true,
+	Delay = true,
+	Background = true,
 }
 
-Recipe.__Defaults = {}
+-- Run on Knit Start
+function Recipe:KnitStart()
+	-- Get ItemGroup class
+	local ItemGroup = Knit.GetService("ItemGroup")
+
+	-- Define Recipe defaults
+	Recipe.__Defaults = {
+		Ingredients = ItemGroup:New(), -- The ingredients required to craft an item.
+		Results = ItemGroup:New(), -- The results of crafting this recipe.
+		Delay = 0.5, -- How long does the player have to wait?
+		Background = false, -- Can the player leave the workstation while it's crafting? (ex: furnace smelting iron)
+	}
+end
+
+-- Craft the recipe with the input inventory and sent to the output inventory (or item group)
+-- input - Which inventory will the input items be taken from?
+-- output - Which inventory or item group will the output items be sent to?
+function Recipe:Craft(input, output)
+	-- todo
+end
 
 return Recipe
