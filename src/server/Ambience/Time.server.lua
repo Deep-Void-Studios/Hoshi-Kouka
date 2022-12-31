@@ -6,11 +6,12 @@ local nightLighting = require(presets.night).graphics
 local daySound = require(presets.day).sound
 local nightSound = require(presets.night).sound
 
-local mins = script:GetAttribute("minutesPerDay")
-local dayStart = script:GetAttribute("dayStart")
-local dayEnd = script:GetAttribute("dayEnd")
-local nightStart = script:GetAttribute("nightStart")
-local nightEnd = script:GetAttribute("nightEnd")
+-- Config
+local mins = 40
+local dayStart = 8
+local dayEnd = 16
+local nightStart = 20
+local nightEnd = 4
 
 -- Gets a number between 2 numbers using a fraction.
 local function between(A, B, fraction)
