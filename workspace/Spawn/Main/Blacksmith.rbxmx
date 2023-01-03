@@ -8100,47 +8100,8 @@
             <BinaryString name="Tags"></BinaryString>
           </Properties>
         </Item>
-        <Item class="Weld" referent="187">
-          <Properties>
-            <string name="Name">HeadWeld</string>
-            <BinaryString name="AttributesSerialize"></BinaryString>
-            <CoordinateFrame name="C0">
-              <X>0</X>
-              <Y>0.5</Y>
-              <Z>0</Z>
-              <R00>1</R00>
-              <R01>0</R01>
-              <R02>0</R02>
-              <R10>0</R10>
-              <R11>1</R11>
-              <R12>0</R12>
-              <R20>0</R20>
-              <R21>0</R21>
-              <R22>1</R22>
-            </CoordinateFrame>
-            <CoordinateFrame name="C1">
-              <X>0</X>
-              <Y>0.7</Y>
-              <Z>0.3</Z>
-              <R00>1</R00>
-              <R01>0</R01>
-              <R02>0</R02>
-              <R10>0</R10>
-              <R11>1</R11>
-              <R12>0</R12>
-              <R20>0</R20>
-              <R21>0</R21>
-              <R22>1</R22>
-            </CoordinateFrame>
-            <bool name="Enabled">true</bool>
-            <Ref name="Part0">170</Ref>
-            <Ref name="Part1">188</Ref>
-            <int64 name="SourceAssetId">-1</int64>
-            <BinaryString name="Tags"></BinaryString>
-          </Properties>
-        </Item>
       </Item>
-      <Item class="Accessory" referent="189">
+      <Item class="Accessory" referent="187">
         <Properties>
           <string name="Name">Beard</string>
           <token name="AccessoryType">0</token>
@@ -8257,7 +8218,7 @@
               <Z>0</Z>
             </Vector3>
           </Properties>
-          <Item class="SpecialMesh" referent="190">
+          <Item class="SpecialMesh" referent="189">
             <Properties>
               <string name="Name">Mesh</string>
               <BinaryString name="AttributesSerialize"></BinaryString>
@@ -8290,7 +8251,7 @@
               </Vector3>
             </Properties>
           </Item>
-          <Item class="Attachment" referent="191">
+          <Item class="Attachment" referent="190">
             <Properties>
               <string name="Name">FaceFrontAttachment</string>
               <BinaryString name="AttributesSerialize"></BinaryString>
@@ -8313,7 +8274,7 @@
               <bool name="Visible">false</bool>
             </Properties>
           </Item>
-          <Item class="Vector3Value" referent="192">
+          <Item class="Vector3Value" referent="191">
             <Properties>
               <string name="Name">OriginalSize</string>
               <BinaryString name="AttributesSerialize"></BinaryString>
@@ -8326,7 +8287,7 @@
               </Vector3>
             </Properties>
           </Item>
-          <Item class="Weld" referent="193">
+          <Item class="Weld" referent="192">
             <Properties>
               <string name="Name">AccessoryWeld</string>
               <BinaryString name="AttributesSerialize"></BinaryString>
@@ -8366,7 +8327,7 @@
             </Properties>
           </Item>
         </Item>
-        <Item class="Camera" referent="194">
+        <Item class="Camera" referent="193">
           <Properties>
             <string name="Name">ThumbnailCamera</string>
             <BinaryString name="AttributesSerialize"></BinaryString>
@@ -8409,7 +8370,7 @@
           </Properties>
         </Item>
       </Item>
-      <Item class="Hat" referent="195">
+      <Item class="Hat" referent="194">
         <Properties>
           <string name="Name">Hat1</string>
           <CoordinateFrame name="AttachmentPoint">
@@ -8525,7 +8486,7 @@
               <Z>0</Z>
             </Vector3>
           </Properties>
-          <Item class="SpecialMesh" referent="196">
+          <Item class="SpecialMesh" referent="195">
             <Properties>
               <string name="Name">Mesh</string>
               <BinaryString name="AttributesSerialize"></BinaryString>
@@ -8560,7 +8521,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Script" referent="197">
+      <Item class="Script" referent="196">
         <Properties>
           <string name="Name">Spin</string>
           <BinaryString name="AttributesSerialize"></BinaryString>
@@ -8592,7 +8553,7 @@ end
         </Properties>
       </Item>
     </Item>
-    <Item class="WedgePart" referent="198">
+    <Item class="WedgePart" referent="197">
       <Properties>
         <string name="Name">Wedge</string>
         <bool name="Anchored">true</bool>
@@ -8687,7 +8648,7 @@ end
         </Vector3>
       </Properties>
     </Item>
-    <Item class="WedgePart" referent="199">
+    <Item class="WedgePart" referent="198">
       <Properties>
         <string name="Name">Wedge</string>
         <bool name="Anchored">true</bool>
