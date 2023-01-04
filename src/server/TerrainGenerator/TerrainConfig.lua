@@ -9,7 +9,7 @@ local config = {
 	PlanetScale = 15750,
 	Seed = 128,
 	Stretch = 2048,
-	Yield = 16,
+	Yield = 4,
 }
 
 return config
