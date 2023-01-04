@@ -33,7 +33,29 @@ end
 -- input - Which inventory will the input items be taken from?
 -- output - Which inventory or item group will the output items be sent to?
 function Recipe:Craft(input, output)
-	-- todo
+	local Ingredients = self.Ingredients -- Get the item's ingredients
+
+	for _, ingredient in pairs(Ingredients:GetItems()) do -- Loop through ingredients
+		local checkIngredient = false
+		for _, item in pairs(input:GetItems()) do -- Loop through player inventory
+			if item.Name == ingredient.Name then -- Check if the item's name in inventory is the same as ingredient's name
+				checkIngredient = true
+				if item.Amount == ingredient.Amount then -- Check if item's amount is enough to craft
+					self:Clone():Transfer(output)
+					item:AddAmount(-ingredient.Amount)
+				else
+					warn('Not enough ingredients!')
+					return false 
+				end
+			end
+		end
+		if not checkIngredient then
+			warn('Player does not have this ingredient!')
+			return false
+		end
+	end
+
+	return true
 end
 
 return Recipe
