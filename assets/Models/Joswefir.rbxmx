@@ -426,8 +426,8 @@
           <string name="Name">snickle-base</string>
           <BinaryString name="AttributesSerialize"></BinaryString>
           <CoordinateFrame name="CFrame0">
-            <X>0.064331055</X>
-            <Y>-0.011657715</Y>
+            <X>0.064086914</X>
+            <Y>-0.01171875</Y>
             <Z>-0.07070923</Z>
             <R00>0.9238795</R00>
             <R01>-0.27059805</R01>
@@ -477,8 +477,8 @@
           <BinaryString name="AttributesSerialize"></BinaryString>
           <CoordinateFrame name="CFrame0">
             <X>0.0052719116</X>
-            <Y>-0.11425781</Y>
-            <Z>0.03173828</Z>
+            <Y>-0.11419678</Y>
+            <Z>0.031982422</Z>
             <R00>0</R00>
             <R01>0.70710677</R01>
             <R02>-0.70710677</R02>
@@ -584,9 +584,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>69.58696</X>
-          <Y>2047.9856</Y>
-          <Z>-57.579502</Z>
+          <X>69.58698</X>
+          <Y>2047.9858</Y>
+          <Z>-57.57953</Z>
           <R00>-0.70710677</R00>
           <R01>0.6532814</R01>
           <R02>-0.270598</R02>
@@ -754,9 +754,9 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>69.42498</X>
-          <Y>2047.9451</Y>
-          <Z>-57.475025</Z>
+          <X>69.425</X>
+          <Y>2047.9453</Y>
+          <Z>-57.475</Z>
           <R00>0.27059802</R00>
           <R01>-0.65328145</R01>
           <R02>-0.70710677</R02>

@@ -5,24 +5,24 @@
       <BinaryString name="AttributesSerialize">AQAAAAQAAABUeXBlAgQAAABSb2Nr</BinaryString>
       <token name="LevelOfDetail">1</token>
       <CoordinateFrame name="ModelMeshCFrame">
-        <X>1.1138009</X>
+        <X>1.1137997</X>
         <Y>2052</Y>
-        <Z>-58.55981</Z>
-        <R00>-1.0000038</R00>
-        <R01>0.00000008349209</R01>
-        <R02>-0.0000008662548</R02>
-        <R10>0.00000021707953</R10>
-        <R11>0.9999995</R11>
-        <R12>-0.00000014925978</R12>
-        <R20>0.00000038941587</R20>
-        <R21>-0.000000057407604</R21>
-        <R22>-1.0000038</R22>
+        <Z>-58.559814</Z>
+        <R00>-1</R00>
+        <R01>0.0000006178387</R01>
+        <R02>-0.000000031786538</R02>
+        <R10>0.0000006178387</R10>
+        <R11>1</R11>
+        <R12>0.000000034444156</R12>
+        <R20>0.000000031786538</R20>
+        <R21>0.000000034444138</R21>
+        <R22>-1</R22>
       </CoordinateFrame>
       <SharedString name="ModelMeshData">rphPsCc1KVvYwg4OPFBxDA==</SharedString>
       <Vector3 name="ModelMeshSize">
-        <X>25.85416</X>
-        <Y>20.728004</Y>
-        <Z>24.938435</Z>
+        <X>25.853962</X>
+        <Y>20.728024</Y>
+        <Z>24.938242</Z>
       </Vector3>
       <token name="ModelStreamingMode">0</token>
       <bool name="NeedsPivotMigration">false</bool>
@@ -31,17 +31,17 @@
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>1.1138004</X>
+          <X>1.1137989</X>
           <Y>2048</Y>
           <Z>-58.559814</Z>
           <R00>-1</R00>
-          <R01>0.00000015028553</R01>
+          <R01>0.00000045085645</R01>
           <R02>-0.00000062783295</R02>
-          <R10>0.0000001502856</R10>
+          <R10>0.0000004508565</R10>
           <R11>1</R11>
-          <R12>-0.00000010333351</R12>
-          <R20>0.00000062783295</R20>
-          <R21>-0.000000103333605</R21>
+          <R12>-0.000000080370846</R12>
+          <R20>0.0000006278329</R20>
+          <R21>-0.00000008037113</R21>
           <R22>-1</R22>
         </CFrame>
       </OptionalCoordinateFrame>
@@ -60,18 +60,18 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>1.1138004</X>
+          <X>1.1137997</X>
           <Y>2052</Y>
           <Z>-58.559814</Z>
-          <R00>-1.0000038</R00>
-          <R01>0.00000008349209</R01>
-          <R02>-0.0000008662548</R02>
-          <R10>0.00000021707953</R10>
-          <R11>0.9999995</R11>
-          <R12>-0.00000014925978</R12>
-          <R20>0.00000038941587</R20>
-          <R21>-0.000000057407604</R21>
-          <R22>-1.0000038</R22>
+          <R00>-1</R00>
+          <R01>0.0000006178387</R01>
+          <R02>-0.000000031786538</R02>
+          <R10>0.0000006178387</R10>
+          <R11>1</R11>
+          <R12>0.000000034444156</R12>
+          <R20>0.000000031786538</R20>
+          <R21>0.000000034444138</R21>
+          <R22>-1</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>

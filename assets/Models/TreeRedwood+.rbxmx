@@ -6,7 +6,7 @@
       <token name="LevelOfDetail">1</token>
       <CoordinateFrame name="ModelMeshCFrame">
         <X>67.575714</X>
-        <Y>2161</Y>
+        <Y>2157.212</Y>
         <Z>212.92691</Z>
         <R00>1</R00>
         <R01>0</R01>
@@ -21,19 +21,19 @@
       <SharedString name="ModelMeshData">3cr21lcsGLsJORZCqM2B7A==</SharedString>
       <Vector3 name="ModelMeshSize">
         <X>108.81075</X>
-        <Y>241.88585</Y>
+        <Y>241.88586</Y>
         <Z>105.94624</Z>
       </Vector3>
       <token name="ModelStreamingMode">0</token>
       <bool name="NeedsPivotMigration">false</bool>
-      <Ref name="PrimaryPart">null</Ref>
+      <Ref name="PrimaryPart">1</Ref>
       <int64 name="SourceAssetId">7628474559</int64>
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>67.575714</X>
-          <Y>2052</Y>
-          <Z>212.92691</Z>
+          <X>69.49533</X>
+          <Y>2048</Y>
+          <Z>211.19963</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
@@ -46,7 +46,7 @@
         </CFrame>
       </OptionalCoordinateFrame>
     </Properties>
-    <Item class="MeshPart" referent="1">
+    <Item class="MeshPart" referent="2">
       <Properties>
         <string name="Name">OuterLeaves</string>
         <bool name="Anchored">true</bool>
@@ -61,7 +61,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>67.575714</X>
-          <Y>2165.0332</Y>
+          <Y>2161.245</Y>
           <Z>212.92691</Z>
           <R00>1</R00>
           <R01>0</R01>
@@ -166,7 +166,7 @@
         </Vector3>
         <int name="VertexCount">0</int>
       </Properties>
-      <Item class="SurfaceAppearance" referent="2">
+      <Item class="SurfaceAppearance" referent="3">
         <Properties>
           <string name="Name">SurfaceAppearance</string>
           <token name="AlphaMode">1</token>
@@ -191,7 +191,7 @@
         </Properties>
       </Item>
     </Item>
-    <Item class="MeshPart" referent="3">
+    <Item class="MeshPart" referent="1">
       <Properties>
         <string name="Name">Trunk</string>
         <bool name="Anchored">true</bool>
@@ -206,7 +206,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>67.49533</X>
-          <Y>2151.788</Y>
+          <Y>2148</Y>
           <Z>213.19963</Z>
           <R00>1</R00>
           <R01>0</R01>
@@ -263,9 +263,9 @@
         <BinaryString name="PhysicsData">
         </BinaryString>
         <CoordinateFrame name="PivotOffset">
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
+          <X>2</X>
+          <Y>-100</Y>
+          <Z>-2</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>

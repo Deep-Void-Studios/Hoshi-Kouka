@@ -6,7 +6,7 @@
       <token name="LevelOfDetail">1</token>
       <CoordinateFrame name="ModelMeshCFrame">
         <X>200</X>
-        <Y>2048</Y>
+        <Y>2050</Y>
         <Z>100</Z>
         <R00>1</R00>
         <R01>0</R01>
@@ -26,7 +26,7 @@
       </Vector3>
       <token name="ModelStreamingMode">0</token>
       <bool name="NeedsPivotMigration">false</bool>
-      <Ref name="PrimaryPart">null</Ref>
+      <Ref name="PrimaryPart">1</Ref>
       <int64 name="SourceAssetId">-1</int64>
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
@@ -61,7 +61,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>200</X>
-          <Y>2048</Y>
+          <Y>2050</Y>
           <Z>100</Z>
           <R00>1</R00>
           <R01>0</R01>

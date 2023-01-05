@@ -5,24 +5,24 @@
       <BinaryString name="AttributesSerialize">AQAAAAQAAABUeXBlAgcAAABCaWdUcmVl</BinaryString>
       <token name="LevelOfDetail">1</token>
       <CoordinateFrame name="ModelMeshCFrame">
-        <X>-11.225327</X>
+        <X>-11.225332</X>
         <Y>2135.0708</Y>
-        <Z>126.937325</Z>
-        <R00>0.674704</R00>
+        <Z>126.93733</Z>
+        <R00>0.6747039</R00>
         <R01>0</R01>
-        <R02>0.73808837</R02>
+        <R02>0.73808825</R02>
         <R10>0</R10>
         <R11>1</R11>
         <R12>0</R12>
-        <R20>-0.73808837</R20>
+        <R20>-0.73808825</R20>
         <R21>0</R21>
-        <R22>0.674704</R22>
+        <R22>0.6747039</R22>
       </CoordinateFrame>
       <SharedString name="ModelMeshData">BShy99IyzmUXSBuFj+1LGg==</SharedString>
       <Vector3 name="ModelMeshSize">
-        <X>81.59717</X>
+        <X>81.59715</X>
         <Y>193.86401</Y>
-        <Z>79.44972</Z>
+        <Z>79.44971</Z>
       </Vector3>
       <token name="ModelStreamingMode">0</token>
       <bool name="NeedsPivotMigration">false</bool>
@@ -34,15 +34,15 @@
           <X>-9.206338</X>
           <Y>2048</Y>
           <Z>126.168816</Z>
-          <R00>0.67470396</R00>
+          <R00>0.674704</R00>
           <R01>0</R01>
-          <R02>0.7380883</R02>
+          <R02>0.73808837</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>-0.7380883</R20>
+          <R20>-0.73808837</R20>
           <R21>0</R21>
-          <R22>0.67470396</R22>
+          <R22>0.674704</R22>
         </CFrame>
       </OptionalCoordinateFrame>
     </Properties>
@@ -60,18 +60,18 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>-11.225589</X>
+          <X>-11.2255945</X>
           <Y>2155.129</Y>
           <Z>126.936165</Z>
-          <R00>0.674704</R00>
+          <R00>0.67470396</R00>
           <R01>0</R01>
-          <R02>0.73808837</R02>
+          <R02>0.7380883</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>-0.73808837</R20>
+          <R20>-0.7380883</R20>
           <R21>0</R21>
-          <R22>0.674704</R22>
+          <R22>0.67470396</R22>
         </CoordinateFrame>
         <bool name="CanCollide">false</bool>
         <bool name="CanQuery">true</bool>
@@ -209,15 +209,15 @@
           <X>-9.079599</X>
           <Y>2128</Y>
           <Z>128.99445</Z>
-          <R00>0.674704</R00>
+          <R00>0.67470396</R00>
           <R01>0</R01>
-          <R02>0.73808837</R02>
+          <R02>0.7380883</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>-0.73808837</R20>
+          <R20>-0.7380883</R20>
           <R21>0</R21>
-          <R22>0.674704</R22>
+          <R22>0.67470396</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>
@@ -267,7 +267,7 @@
           <X>2.0000534</X>
           <Y>-80</Y>
           <Z>-2.0000076</Z>
-          <R00>0.9999999</R00>
+          <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>
           <R10>0</R10>
@@ -275,7 +275,7 @@
           <R12>0</R12>
           <R20>0</R20>
           <R21>0</R21>
-          <R22>0.9999999</R22>
+          <R22>1</R22>
         </CoordinateFrame>
         <float name="Reflectance">0</float>
         <token name="RenderFidelity">2</token>
@@ -343,10 +343,10 @@
         <string name="Name">WeldConstraint</string>
         <BinaryString name="AttributesSerialize"></BinaryString>
         <CoordinateFrame name="CFrame0">
-          <X>-0.07128143</X>
+          <X>-0.0712738</X>
           <Y>-27.128906</Y>
           <Z>2.9726639</Z>
-          <R00>0.9999999</R00>
+          <R00>0.99999976</R00>
           <R01>0</R01>
           <R02>0</R02>
           <R10>0</R10>
@@ -354,7 +354,7 @@
           <R12>0</R12>
           <R20>0</R20>
           <R21>0</R21>
-          <R22>0.9999999</R22>
+          <R22>0.99999976</R22>
         </CoordinateFrame>
         <Ref name="Part0Internal">2</Ref>
         <Ref name="Part1Internal">1</Ref>

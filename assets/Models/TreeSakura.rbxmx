@@ -26,12 +26,12 @@
       </Vector3>
       <token name="ModelStreamingMode">0</token>
       <bool name="NeedsPivotMigration">false</bool>
-      <Ref name="PrimaryPart">null</Ref>
+      <Ref name="PrimaryPart">1</Ref>
       <int64 name="SourceAssetId">3725991689</int64>
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
-          <X>-0.000000059604645</X>
+          <X>0.00000023841858</X>
           <Y>2048</Y>
           <Z>64</Z>
           <R00>-0.00000004371139</R00>
@@ -118,9 +118,9 @@
         <BinaryString name="PhysicsData">
         </BinaryString>
         <CoordinateFrame name="PivotOffset">
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
+          <X>1</X>
+          <Y>-16</Y>
+          <Z>2</Z>
           <R00>1</R00>
           <R01>0</R01>
           <R02>0</R02>

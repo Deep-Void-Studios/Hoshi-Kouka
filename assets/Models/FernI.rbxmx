@@ -6,7 +6,7 @@
       <token name="LevelOfDetail">1</token>
       <CoordinateFrame name="ModelMeshCFrame">
         <X>-177.4933</X>
-        <Y>2050</Y>
+        <Y>2051</Y>
         <Z>51.21409</Z>
         <R00>-0.00000004371139</R00>
         <R01>0</R01>
@@ -26,7 +26,7 @@
       </Vector3>
       <token name="ModelStreamingMode">0</token>
       <bool name="NeedsPivotMigration">false</bool>
-      <Ref name="PrimaryPart">null</Ref>
+      <Ref name="PrimaryPart">1</Ref>
       <int64 name="SourceAssetId">7990107300</int64>
       <BinaryString name="Tags"></BinaryString>
       <OptionalCoordinateFrame name="WorldPivotData">
@@ -46,7 +46,7 @@
         </CFrame>
       </OptionalCoordinateFrame>
     </Properties>
-    <Item class="MeshPart" referent="1">
+    <Item class="MeshPart" referent="2">
       <Properties>
         <string name="Name">meshblock</string>
         <bool name="Anchored">true</bool>
@@ -61,7 +61,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>-177.46178</X>
-          <Y>2049.355</Y>
+          <Y>2050.355</Y>
           <Z>51.30326</Z>
           <R00>-0.00000004371139</R00>
           <R01>0</R01>
@@ -166,7 +166,7 @@
         </Vector3>
         <int name="VertexCount">0</int>
       </Properties>
-      <Item class="SurfaceAppearance" referent="2">
+      <Item class="SurfaceAppearance" referent="3">
         <Properties>
           <string name="Name">SurfaceAppearance</string>
           <token name="AlphaMode">1</token>
@@ -193,7 +193,7 @@
         </Properties>
       </Item>
     </Item>
-    <Item class="MeshPart" referent="3">
+    <Item class="MeshPart" referent="1">
       <Properties>
         <string name="Name">meshblock</string>
         <bool name="Anchored">true</bool>
@@ -208,7 +208,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>-177.4933</X>
-          <Y>2050</Y>
+          <Y>2051</Y>
           <Z>51.21409</Z>
           <R00>-0.00000004371139</R00>
           <R01>0</R01>
@@ -266,7 +266,7 @@
         </BinaryString>
         <CoordinateFrame name="PivotOffset">
           <X>0</X>
-          <Y>0</Y>
+          <Y>-3</Y>
           <Z>0</Z>
           <R00>1</R00>
           <R01>0</R01>
