@@ -152,6 +152,8 @@ local function getDecor(height, x, z, cx, cy, cz)
 			{ "BigPlant", 5 },
 			{ "Tree", 60 },
 			{ "BigTree", 10 },
+			{ "SmallTree", 20 },
+			{ "WeepingTree", 20 },
 			{ "Rock", 30 },
 		})
 	elseif biome == "Field" then
@@ -161,6 +163,7 @@ local function getDecor(height, x, z, cx, cy, cz)
 			{ "BigPlant", 10 },
 			{ "Rock", 10 },
 			{ "Tree", 5 },
+			{ "WeepingTree", 2 },
 		})
 	elseif biome == "Beach" then
 		decor = decorChance(960, {
