@@ -2,8 +2,6 @@ local BaseClass = require(script.Parent)
 
 local ItemGroup = BaseClass:__MakeClass("ItemGroup")
 
-local Inventory = BaseClass:__MakeClass("Inventory")
-
 function ItemGroup:ChildAdded(object, index)
 	index = index or #self + 1
 
@@ -13,13 +11,13 @@ function ItemGroup:ChildAdded(object, index)
 end
 
 function ItemGroup:GetItems()
-    local items = {}
+	local items = {}
 
-    for _, item in ipairs(self) do
-        table.insert(items, item)
-    end
+	for _, item in ipairs(self) do
+		table.insert(items, item)
+	end
 
-    return items
+	return items
 end
 
 function ItemGroup:Transfer(inventory)

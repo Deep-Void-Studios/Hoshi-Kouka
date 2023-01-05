@@ -29,6 +29,19 @@ function Recipe:KnitStart()
 	}
 end
 
+-- Allow ItemGroups to be added.
+function Recipe:ChildAdded(object, index)
+	assert(index, "Index not specified.")
+	assert(
+		object.__ClassName == "ItemGroup" or object.__ClassName == "Folder",
+		"Recipe class only takes ItemGroups and Folders."
+	)
+
+	table.insert(self, index, object)
+
+	object.Index = index
+end
+
 -- Craft the recipe with the input inventory and sent to the output inventory (or item group)
 -- input - Which inventory will the input items be taken from?
 -- output - Which inventory or item group will the output items be sent to?
