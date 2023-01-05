@@ -1,13 +1,18 @@
 local process = require(script.Parent.Parent:WaitForChild("__DataProcessor"))
 
 local ingredients = {
-  {"name", 1}
-  {"otherName", 3}
+	{ "Ore", 1 },
+	{ "Coal", 3 },
 }
 
-local results = {
-  {"resultName", 4}
-  {"you probably won't need multiple results but just in case", 1}
-}
+local function results(usedIngredients, ItemService)
+	local material = usedIngredients[1].Tags.Material
+
+	local result = ItemService:GetItem("Ingot")
+
+	result.Tags.Material = material
+
+	return result
+end
 
 return process(ingredients, results)

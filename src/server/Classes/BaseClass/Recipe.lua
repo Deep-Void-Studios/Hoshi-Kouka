@@ -44,13 +44,13 @@ function Recipe:Craft(input, output)
 					self:Clone():Transfer(output)
 					item:AddAmount(-ingredient.Amount)
 				else
-					warn('Not enough ingredients!')
-					return false 
+					warn("Not enough ingredients!")
+					return false
 				end
 			end
 		end
 		if not checkIngredient then
-			warn('Player does not have this ingredient!')
+			warn("Player does not have this ingredient!")
 			return false
 		end
 	end

@@ -6,25 +6,31 @@ local Recipe = Knit.GetService("Recipe")
 local ItemService = Knit.GetService("ItemService")
 
 local function process(ingredients, results)
-  local recipe = Recipe:New()
+	local recipe = Recipe:New()
 
-  for i, v in pairs(ingredients) do
-    local name = v[1]
-    local amount = v[2]
+	for _, v in pairs(ingredients) do
+		local name = v[1]
+		local amount = v[2]
 
-    local item = ItemService:GetItem(name):Clone()
+		local item = ItemService:GetItem(name):Clone()
 
-    item:SetParent(recipe.Ingredients)
-  end
+		item.Amount = amount
+		item.Updated:Fire()
 
-  for i, v in pairs(results) do
-    local name = v[1]
-    local amount = v[2]
+		item:SetParent(recipe.Ingredients)
+	end
 
-    local item = ItemService:GetItem(name):Clone()
+	for _, v in pairs(results) do
+		local name = v[1]
+		local amount = v[2]
 
-    item:SetParent(recipe.Results)
-  end
+		local item = ItemService:GetItem(name):Clone()
+
+		item.Amount = amount
+		item.Updated:Fire()
+
+		item:SetParent(recipe.Results)
+	end
 end
 
 return process
