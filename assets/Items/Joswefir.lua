@@ -9,8 +9,8 @@ local data = {
 	Properties = {
 		Volume = 0,
 		Weight = 0,
-		FoodVolume = 100,
-		Calories = 100,
+		FoodVolume = 10,
+		Calories = 1000,
 	},
 
 	Actions = {
