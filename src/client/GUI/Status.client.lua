@@ -10,7 +10,6 @@ data = ClientComm:GetProperty(data)
 data:OnReady():await()
 
 local status = ClientComm:GetProperty(data:Get().Status)
-local vitals = status:Get().Vitals
 
 local player = game:GetService("Players").LocalPlayer
 local gui = player.PlayerGui:WaitForChild("Status"):WaitForChild("base")
@@ -35,8 +34,16 @@ local function setBar(bar, value, max)
 	overfill.Size = sizeOverfill
 end
 
-for _, bar in pairs(bars) do
-	local name = bar.Name
+local function updateStatus()
+	local vitals = status:Get().Vitals
 
-	setBar(bar, vitals[name], vitals["Max" .. name])
+	for _, bar in pairs(bars) do
+		local name = bar.Name
+
+		setBar(bar, vitals[name], vitals["Max" .. name])
+	end
 end
+
+status.Changed:Connect(updateStatus)
+
+updateStatus()
