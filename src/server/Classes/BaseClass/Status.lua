@@ -34,6 +34,11 @@ Status.__Defaults = {
 	Effects = {},
 }
 
+function Status:RestoreVital(name, n)
+	self.Vitals[name] += math.clamp(n, 0, self.Vitals["Max" .. name] * 2)
+	self.Updated:Fire()
+end
+
 function Status:DrainVital(name, n)
 	self.Vitals[name] -= math.clamp(n, 0, self.Vitals["Max" .. name] * 2)
 	self.Updated:Fire()
