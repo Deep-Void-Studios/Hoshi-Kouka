@@ -32,7 +32,7 @@
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>67.4</X>
-          <Y>2051</Y>
+          <Y>2048</Y>
           <Z>-63.6</Z>
           <R00>1</R00>
           <R01>0</R01>
@@ -61,7 +61,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>67.4</X>
-          <Y>2051.1</Y>
+          <Y>2048.1</Y>
           <Z>-63.599995</Z>
           <R00>0.99999857</R00>
           <R01>-0.000000004838696</R01>
@@ -213,7 +213,7 @@
           <BinaryString name="AttributesSerialize"></BinaryString>
           <CoordinateFrame name="CFrame0">
             <X>0</X>
-            <Y>-0.099975586</Y>
+            <Y>-0.100097656</Y>
             <Z>-0.0000038146973</Z>
             <R00>0.99999857</R00>
             <R01>0.000000014533954</R01>
@@ -248,7 +248,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>67.4</X>
-          <Y>2051</Y>
+          <Y>2048</Y>
           <Z>-63.6</Z>
           <R00>1</R00>
           <R01>0</R01>

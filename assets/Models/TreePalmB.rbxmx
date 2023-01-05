@@ -6,7 +6,7 @@
       <token name="LevelOfDetail">1</token>
       <CoordinateFrame name="ModelMeshCFrame">
         <X>-166.89595</X>
-        <Y>4117.7705</Y>
+        <Y>2071.1907</Y>
         <Z>12.199219</Z>
         <R00>0</R00>
         <R01>1</R01>
@@ -32,7 +32,7 @@
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>-167.2876</X>
-          <Y>4094.5796</Y>
+          <Y>2048</Y>
           <Z>8.786133</Z>
           <R00>1</R00>
           <R01>0</R01>
@@ -61,7 +61,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>-167.28755</X>
-          <Y>4117.5796</Y>
+          <Y>2071</Y>
           <Z>11.785927</Z>
           <R00>0</R00>
           <R01>1</R01>
@@ -208,7 +208,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>-166.89595</X>
-          <Y>4132.1846</Y>
+          <Y>2085.605</Y>
           <Z>12.199219</Z>
           <R00>0</R00>
           <R01>1</R01>
@@ -355,7 +355,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>-167.30724</X>
-          <Y>4126.921</Y>
+          <Y>2080.3413</Y>
           <Z>10.229492</Z>
           <R00>0.00000071525494</R00>
           <R01>0.000000024512861</R01>
@@ -502,7 +502,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>-167.79248</X>
-          <Y>4126.0176</Y>
+          <Y>2079.438</Y>
           <Z>10.123611</Z>
           <R00>-0.00000068577606</R00>
           <R01>-0.000000008360459</R01>

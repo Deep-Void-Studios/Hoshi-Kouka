@@ -32,13 +32,13 @@
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>69.5</X>
-          <Y>4096.075</Y>
+          <Y>2048</Y>
           <Z>-57.5</Z>
-          <R00>0</R00>
+          <R00>-0.00000004371139</R00>
           <R01>-1</R01>
           <R02>0</R02>
           <R10>1</R10>
-          <R11>0</R11>
+          <R11>-0.00000004371139</R11>
           <R12>0</R12>
           <R20>0</R20>
           <R21>0</R21>
@@ -64,13 +64,13 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>69.5</X>
-          <Y>4096.4053</Y>
+          <Y>2048.4053</Y>
           <Z>-57.500004</Z>
-          <R00>0</R00>
+          <R00>-0.00000004371139</R00>
           <R01>-1</R01>
           <R02>0</R02>
           <R10>1</R10>
-          <R11>0</R11>
+          <R11>-0.00000004371139</R11>
           <R12>0</R12>
           <R20>0</R20>
           <R21>0</R21>
@@ -181,13 +181,13 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>69.49999</X>
-          <Y>4095.8027</Y>
+          <Y>2047.8027</Y>
           <Z>-57.5</Z>
-          <R00>0</R00>
+          <R00>-0.00000004371139</R00>
           <R01>-1</R01>
           <R02>0</R02>
           <R10>1</R10>
-          <R11>0</R11>
+          <R11>-0.00000004371139</R11>
           <R12>0</R12>
           <R20>0</R20>
           <R21>0</R21>
@@ -298,13 +298,13 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>69.5</X>
-          <Y>4096</Y>
+          <Y>2048</Y>
           <Z>-57.5</Z>
-          <R00>0</R00>
+          <R00>-0.00000004371139</R00>
           <R01>-1</R01>
           <R02>0</R02>
           <R10>1</R10>
-          <R11>0</R11>
+          <R11>-0.00000004371139</R11>
           <R12>0</R12>
           <R20>0</R20>
           <R21>0</R21>
@@ -426,9 +426,9 @@
           <string name="Name">snickle-base</string>
           <BinaryString name="AttributesSerialize"></BinaryString>
           <CoordinateFrame name="CFrame0">
-            <X>0.06439209</X>
-            <Y>-0.011566162</Y>
-            <Z>-0.0707016</Z>
+            <X>0.064331055</X>
+            <Y>-0.011657715</Y>
+            <Z>-0.07070923</Z>
             <R00>0.9238795</R00>
             <R01>-0.27059805</R01>
             <R02>0.27059805</R02>
@@ -451,7 +451,7 @@
           <string name="Name">top-base</string>
           <BinaryString name="AttributesSerialize"></BinaryString>
           <CoordinateFrame name="CFrame0">
-            <X>-0.4050293</X>
+            <X>-0.40527344</X>
             <Y>0</Y>
             <Z>0.0000038146973</Z>
             <R00>1</R00>
@@ -477,8 +477,8 @@
           <BinaryString name="AttributesSerialize"></BinaryString>
           <CoordinateFrame name="CFrame0">
             <X>0.0052719116</X>
-            <Y>-0.11428833</Y>
-            <Z>0.03137207</Z>
+            <Y>-0.11425781</Y>
+            <Z>0.03173828</Z>
             <R00>0</R00>
             <R01>0.70710677</R01>
             <R02>-0.70710677</R02>
@@ -584,14 +584,14 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>69.586876</X>
-          <Y>4095.9854</Y>
-          <Z>-57.579422</Z>
+          <X>69.58696</X>
+          <Y>2047.9856</Y>
+          <Z>-57.579502</Z>
           <R00>-0.70710677</R00>
           <R01>0.6532814</R01>
-          <R02>-0.27059802</R02>
-          <R10>0</R10>
-          <R11>-0.3826834</R11>
+          <R02>-0.270598</R02>
+          <R10>-0.00000003090862</R10>
+          <R11>-0.38268337</R11>
           <R12>-0.92387944</R12>
           <R20>-0.70710677</R20>
           <R21>-0.6532814</R21>
@@ -754,15 +754,15 @@
         <token name="BottomSurface">0</token>
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
-          <X>69.425026</X>
-          <Y>4095.9448</Y>
-          <Z>-57.474987</Z>
-          <R00>0.27059805</R00>
+          <X>69.42498</X>
+          <Y>2047.9451</Y>
+          <Z>-57.475025</Z>
+          <R00>0.27059802</R00>
           <R01>-0.65328145</R01>
           <R02>-0.70710677</R02>
           <R10>0.9238795</R10>
-          <R11>0.38268346</R11>
-          <R12>0</R12>
+          <R11>0.38268343</R11>
+          <R12>-0.00000003090862</R12>
           <R20>0.27059805</R20>
           <R21>-0.65328145</R21>
           <R22>0.70710677</R22>
