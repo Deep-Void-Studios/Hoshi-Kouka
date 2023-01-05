@@ -30,7 +30,7 @@ local Datamodel = remodel.readPlaceFile("Hoshi Kouka.rbxl")
 
 local toSave = {
 	{ Datamodel.ServerStorage.Models, "./assets/models" },
-	{ Datamodel.Workspace, "./workspace" },
+	-- { Datamodel.Workspace, "./workspace" },
 	-- { Datamodel.StarterGui, "./src/gui" },
 	-- { Datamodel.SoundService, "./audio" },
 	-- { Datamodel.Chat, "./src/chat" },
