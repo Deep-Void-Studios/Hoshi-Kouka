@@ -14,6 +14,7 @@ local data = {
 	},
 
 	Actions = {
+		Eat = true,
 		Drop = true,
 		DropAll = true,
 	},
