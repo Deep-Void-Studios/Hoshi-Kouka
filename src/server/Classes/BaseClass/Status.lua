@@ -14,20 +14,20 @@ Status.__Replicated = {
 
 Status.__Defaults = {
 	Vitals = {
-		Health = 100,
-		MaxHealth = 100,
+		Health = 20,
+		MaxHealth = 20,
 
-		Hunger = 100,
-		MaxHunger = 100,
+		Hunger = 20,
+		MaxHunger = 20,
 
-		Thirst = 100,
-		MaxThirst = 100,
+		Thirst = 20,
+		MaxThirst = 20,
 
-		Stamina = 100,
-		MaxStamina = 100,
+		Stamina = 20,
+		MaxStamina = 20,
 
-		Mana = 100,
-		MaxMana = 100,
+		Mana = 20,
+		MaxMana = 20,
 	},
 
 	Traits = {},
