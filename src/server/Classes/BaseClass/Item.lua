@@ -166,4 +166,13 @@ function Item:__ClientUnequip(player)
 	self:SetParent(inv)
 end
 
+function Item:__ClientEat(player)
+	local data = DataManager:Get(player)
+	local Status = data.Status
+
+	Status:RestoreVital("Hunger", 1)
+	
+	self:AddAmount(-1)
+end
+
 return Item
