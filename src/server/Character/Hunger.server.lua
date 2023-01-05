@@ -11,7 +11,7 @@ Players.PlayerAdded:Connect(function(player)
 			local data = DataManager:Get(player)
 			local status = data.Status
 
-			status:DrainVital("Hunger", 1)
+			status:DrainVital("Hunger", 0.03)
 		end
 	end
 end)
