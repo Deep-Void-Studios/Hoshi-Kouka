@@ -32,7 +32,7 @@
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>0</X>
-          <Y>2048</Y>
+          <Y>4096</Y>
           <Z>0</Z>
           <R00>1</R00>
           <R01>0</R01>
@@ -61,7 +61,7 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>0</X>
-          <Y>2048</Y>
+          <Y>4096</Y>
           <Z>0</Z>
           <R00>1</R00>
           <R01>0</R01>

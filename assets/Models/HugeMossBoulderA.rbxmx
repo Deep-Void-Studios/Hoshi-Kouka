@@ -6,23 +6,23 @@
       <token name="LevelOfDetail">1</token>
       <CoordinateFrame name="ModelMeshCFrame">
         <X>1.544891</X>
-        <Y>2057</Y>
-        <Z>0</Z>
-        <R00>-0.00000004371139</R00>
+        <Y>5282.0635</Y>
+        <Z>-140.3003</Z>
+        <R00>0</R00>
         <R01>0</R01>
-        <R02>1</R02>
+        <R02>1.000001</R02>
         <R10>0</R10>
         <R11>1</R11>
         <R12>0</R12>
-        <R20>-1</R20>
+        <R20>-1.000001</R20>
         <R21>0</R21>
-        <R22>-0.00000004371139</R22>
+        <R22>0</R22>
       </CoordinateFrame>
       <SharedString name="ModelMeshData">hW8GWAYVVdEwfO4Af5QipQ==</SharedString>
       <Vector3 name="ModelMeshSize">
-        <X>65.019005</X>
+        <X>65.01913</X>
         <Y>52.128025</Y>
-        <Z>62.71609</Z>
+        <Z>62.71621</Z>
       </Vector3>
       <token name="ModelStreamingMode">0</token>
       <bool name="NeedsPivotMigration">false</bool>
@@ -32,9 +32,9 @@
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>1.544891</X>
-          <Y>2048</Y>
-          <Z>0</Z>
-          <R00>-0.00000004371139</R00>
+          <Y>5273.0635</Y>
+          <Z>-140.3003</Z>
+          <R00>0</R00>
           <R01>0</R01>
           <R02>1</R02>
           <R10>0</R10>
@@ -42,7 +42,7 @@
           <R12>0</R12>
           <R20>-1</R20>
           <R21>0</R21>
-          <R22>-0.00000004371139</R22>
+          <R22>0</R22>
         </CFrame>
       </OptionalCoordinateFrame>
     </Properties>
@@ -61,17 +61,17 @@
         <token name="BottomSurfaceInput">0</token>
         <CoordinateFrame name="CFrame">
           <X>1.544891</X>
-          <Y>2057</Y>
-          <Z>0</Z>
-          <R00>-0.00000004371139</R00>
+          <Y>5282.0635</Y>
+          <Z>-140.3003</Z>
+          <R00>0</R00>
           <R01>0</R01>
-          <R02>1</R02>
+          <R02>1.000001</R02>
           <R10>0</R10>
           <R11>1</R11>
           <R12>0</R12>
-          <R20>-1</R20>
+          <R20>-1.000001</R20>
           <R21>0</R21>
-          <R22>-0.00000004371139</R22>
+          <R22>0</R22>
         </CoordinateFrame>
         <bool name="CanCollide">true</bool>
         <bool name="CanQuery">true</bool>
