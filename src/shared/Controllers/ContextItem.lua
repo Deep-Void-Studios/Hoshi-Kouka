@@ -36,6 +36,13 @@ local function dropAll(SUBJECT)
 	signal:Fire("Drop", item.Amount)
 end
 
+local function eat(SUBJECT)
+	local signal = ClientComm:GetSignal(SUBJECT.Id)
+	local item = SUBJECT
+
+	signal:Fire('Eat', 1)
+end
+
 ContextItem.Equip = {
 	Name = "Equip",
 	Place = 101,
@@ -124,6 +131,12 @@ ContextItem.DropAll = {
 	Name = "Drop All",
 	Place = 1000,
 	Action = { dropAll, { "SUBJECT" } },
+}
+
+ContextItem.Eat = {
+	Name = 'Eat',
+	Place = 201,
+	Action = { eat, { "SUBJECT" } },
 }
 
 return ContextItem

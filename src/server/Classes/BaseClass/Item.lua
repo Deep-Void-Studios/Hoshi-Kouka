@@ -170,7 +170,7 @@ function Item:__ClientEat(player)
 	local data = DataManager:Get(player)
 	local Status = data.Status
 
-	Status:RestoreVital("Hunger", 1)
+	Status:RestoreVital("Hunger", item.Properties.FoodVolume)
 	
 	self:AddAmount(-1)
 end
